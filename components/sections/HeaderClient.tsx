@@ -76,14 +76,32 @@ export function HeaderClient({ links, appUrl, labels, logo, logoDark }: Props) {
   }, [menu]);
 
   const dark = overDark && !menu;
+
+  // Browser chrome (Safari's toolbar/tab bar, mobile status bar) follows the header's surface.
+  useEffect(() => {
+    const color = dark ? "#0B0B0C" : "#F5F3EE";
+    let metas = Array.from(document.querySelectorAll<HTMLMetaElement>('meta[name="theme-color"]'));
+    if (metas.length === 0) {
+      const m = document.createElement("meta");
+      m.name = "theme-color";
+      document.head.appendChild(m);
+      metas = [m];
+    }
+    metas.forEach((m) => m.setAttribute("content", color));
+  }, [dark]);
+
   return (
     <header
+      // No backdrop-filter while the menu is open: it would make the header the containing block
+      // of the fixed mobile menu, which then collapses to the header's height and lets the page show through.
       className={`fixed inset-x-0 top-0 z-50 h-[72px] border-b transition-[border-color,background-color,color] duration-300 ${
-        dark
-          ? "on-dark border-paper/10 bg-ink/90 text-paper backdrop-blur-md"
-          : scrolled || menu
-            ? "border-sand bg-paper/90 text-ink backdrop-blur-md"
-            : "border-transparent bg-paper/0 text-ink"
+        menu
+          ? "border-sand bg-paper text-ink"
+          : dark
+            ? "on-dark border-paper/10 bg-ink/90 text-paper backdrop-blur-md"
+            : scrolled
+              ? "border-sand bg-paper/90 text-ink backdrop-blur-md"
+              : "border-transparent bg-paper/0 text-ink"
       }`}
     >
       <div className="container-wide grid h-full grid-cols-[1fr_auto] items-center gap-6 lg:grid-cols-[1fr_auto_1fr]">
