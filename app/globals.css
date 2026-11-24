@@ -314,23 +314,14 @@ html.lenis body {
   animation: anafor-lift 600ms var(--ease-anafor) both;
 }
 
-/* Header intro: the quarter arrives along the diagonal and connects to the symbol. */
-@keyframes logo-connect {
-  0% {
-    transform: translate(40px, -40px);
-    opacity: 0;
-  }
-  45% {
-    opacity: 1;
-  }
-  100% {
-    transform: translate(0, 0);
-    opacity: 1;
-  }
+/* Header logo: the quarter starts detached along the diagonal and fits into place as the page
+   scrolls (--fit goes 0 to 1, set by HeaderClient). The resting state is the official logo. */
+.logo-fit svg {
+  overflow: visible;
 }
-.logo-connect svg > g > path:nth-child(2) {
+.logo-fit svg > g > path:nth-child(2) {
   transform-box: view-box;
-  animation: logo-connect 1200ms var(--ease-anafor) 400ms both;
+  transform: translate(calc((1 - var(--fit, 1)) * 52px), calc((1 - var(--fit, 1)) * -52px));
 }
 
 /* Hero headline: CSS-only word reveal, so the LCP element never waits for JS. */
@@ -386,9 +377,11 @@ html.lenis body {
     animation-delay: 0ms;
   }
   .logo-lift:hover svg > g > path:nth-child(2),
-  .logo-lift:focus-visible svg > g > path:nth-child(2),
-  .logo-connect svg > g > path:nth-child(2) {
+  .logo-lift:focus-visible svg > g > path:nth-child(2) {
     animation: none;
+  }
+  .logo-fit svg > g > path:nth-child(2) {
+    transform: none;
   }
   .card-lift:hover {
     transform: none;

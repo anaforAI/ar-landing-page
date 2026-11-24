@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { RequestAccessButton } from "@/components/ui/RequestAccess";
 import { CloseIcon, MenuIcon } from "@/components/ui/icons";
@@ -29,8 +29,8 @@ export function HeaderClient({ links, appUrl, labels, logo, logoDark }: Props) {
   const [menu, setMenu] = useState(false);
   const [active, setActive] = useState<string | null>(null);
   const [progress, setProgress] = useState(0);
-  // The quarter connects to the symbol once, on load; afterwards hover keeps the lift.
-  const [intro, setIntro] = useState(true);
+  // The logo's quarter fits into place as the visitor scrolls through the hero.
+  const logoRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
     const darks = Array.from(
@@ -39,8 +39,12 @@ export function HeaderClient({ links, appUrl, labels, logo, logoDark }: Props) {
     const targets = links
       .map((l) => document.getElementById(l.href.slice(1)))
       .filter((el): el is HTMLElement => !!el);
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const onScroll = () => {
       setScrolled(window.scrollY > 8);
+      const raw = reduce ? 1 : Math.min(1, window.scrollY / (window.innerHeight * 0.8));
+      const eased = 1 - Math.pow(1 - raw, 3);
+      logoRef.current?.style.setProperty("--fit", eased.toFixed(4));
       const max = document.documentElement.scrollHeight - window.innerHeight;
       setProgress(max > 0 ? Math.min(1, window.scrollY / max) : 0);
       // Scrollspy: the section crossing a line just under the header, if it is in the menu.
@@ -90,12 +94,11 @@ export function HeaderClient({ links, appUrl, labels, logo, logoDark }: Props) {
         <a
           href="#top"
           aria-label={labels.home}
-          onAnimationEnd={(e) => {
-            if (e.animationName === "logo-connect") setIntro(false);
-          }}
-          className={`-m-2 grid justify-self-start rounded-[4px] p-2 ${intro ? "logo-connect" : "logo-lift"}`}
+          ref={logoRef}
+          style={{ "--fit": 0 } as CSSProperties}
+          className="logo-fit logo-lift -m-2 grid justify-self-start rounded-[4px] p-2"
         >
-          {/* Both lockups stay mounted and crossfade, so the intro never replays on theme change. */}
+          {/* Both lockups stay mounted and crossfade, so the quarter keeps its position on theme change. */}
           <span className={`[grid-area:1/1] transition-opacity duration-300 ${dark ? "opacity-0" : "opacity-100"}`}>
             {logo}
           </span>
