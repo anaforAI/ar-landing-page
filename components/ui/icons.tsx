@@ -1,5 +1,5 @@
 import type { SVGProps } from "react";
-import { siGithub, siJira, siGooglemeet } from "simple-icons";
+import { siGithub, siJira, siGooglemeet, siMiro } from "simple-icons";
 
 /** Geometric stroke icons, 1.5px, 24 grid. */
 function Base(props: SVGProps<SVGSVGElement>) {
@@ -82,3 +82,4 @@ function Brand({ path, title, ...p }: SVGProps<SVGSVGElement> & { path: string; 
 export const GithubMark = (p: SVGProps<SVGSVGElement>) => <Brand path={siGithub.path} title="GitHub" {...p} />;
 export const JiraMark = (p: SVGProps<SVGSVGElement>) => <Brand path={siJira.path} title="Jira" {...p} />;
 export const MeetMark = (p: SVGProps<SVGSVGElement>) => <Brand path={siGooglemeet.path} title="Google Meet" {...p} />;
+export const MiroMark = (p: SVGProps<SVGSVGElement>) => <Brand path={siMiro.path} title="Miro" {...p} />;
