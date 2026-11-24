@@ -44,6 +44,16 @@ export async function Footer() {
               file="anafor-lockup-institutional-white.svg"
               className="block w-[240px] md:w-[280px] [&>svg]:h-auto [&>svg]:w-full"
             />
+            <p className="mt-6 text-[14px] text-paper/55">
+              by{" "}
+              {site.builtBy.url ? (
+                <a href={site.builtBy.url} className="link-underline text-paper/80 hover:text-paper" rel="noopener">
+                  {site.builtBy.name}
+                </a>
+              ) : (
+                <span className="text-paper/80">{site.builtBy.name}</span>
+              )}
+            </p>
           </div>
           <nav aria-label="Footer" className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:col-span-6 lg:col-start-7">
             {cols.map((c) => (

@@ -108,6 +108,7 @@ No mobile simulado, a performance ficou abaixo da meta de 95 e o LCP acima de 2,
 | `[PRICE]` | `messages/*.json` → `pricing.price` | Preço da assinatura base e do consumo de IA |
 | `[METRIC]` | `components/sections/Results.tsx` (comentado) | Métrica real por resultado, com fonte |
 | `[CUSTOMER QUOTE]` | `components/sections/Results.tsx` (comentado) | Depoimento real e aprovado: `[NAME]`, `[ROLE]`, `[COMPANY]` |
+| `[FAPP_URL]` | `lib/site.ts` → `builtBy.url` | Link da assinatura "by FAPP Engineering" no rodapé (hoje só texto) |
 | `[ABOUT_URL]` · `[PRIVACY_URL]` · `[TERMS_URL]` | `lib/site.ts` | Links do rodapé (hoje `#`) |
 
 Os dados dos mocks (exemplo do Kafka, assistente, abas For leaders, How it works, card do hero) são ilustrativos e estão marcados como **Sample data** na interface. Não há números de resultado, depoimentos nem logos de clientes.

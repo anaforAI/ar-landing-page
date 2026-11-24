@@ -11,4 +11,6 @@ export const site = {
     privacy: "#", // [PRIVACY_URL]
     terms: "#", // [TERMS_URL]
   },
+  /** Signature under the footer lockup. Set url to turn it into a link. */
+  builtBy: { name: "FAPP Engineering", url: "" }, // [FAPP_URL]
 };
