@@ -1,0 +1,441 @@
+@import "tailwindcss";
+@import "../styles/anafor-tokens.css";
+
+/* Brand tokens mapped into the Tailwind theme. Only colors from anafor-tokens.css. */
+@theme {
+  --color-*: initial;
+  --color-ink: var(--anafor-ink);
+  --color-graphite: var(--anafor-graphite);
+  --color-stone: var(--anafor-stone);
+  --color-sand: var(--anafor-sand);
+  --color-paper: var(--anafor-paper);
+  --color-white: var(--anafor-white);
+  --color-teal: var(--anafor-teal);
+  --color-teal-light: var(--anafor-teal-light);
+  --color-ember: var(--anafor-ember);
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --font-sans: var(--font-hanken), var(--anafor-font-sans);
+  --font-serif: var(--font-newsreader), var(--anafor-font-serif);
+  --font-mono: var(--font-geist-mono), var(--anafor-font-mono);
+
+  --radius-sm: var(--anafor-radius-sm);
+  --radius-md: var(--anafor-radius-md);
+  --radius-lg: var(--anafor-radius-lg);
+  --radius-pill: var(--anafor-radius-pill);
+
+  --shadow-card: 0 1px 2px rgb(11 11 12 / 0.06), 0 12px 32px rgb(11 11 12 / 0.06);
+  --shadow-card-hover: 0 1px 2px rgb(11 11 12 / 0.07), 0 16px 40px rgb(11 11 12 / 0.09);
+
+  --ease-anafor: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  --breakpoint-xs: 30rem;
+}
+
+:root {
+  --header-h: 72px;
+  color-scheme: light;
+}
+
+html {
+  background: var(--anafor-paper);
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: var(--header-h);
+}
+
+body {
+  background: var(--anafor-paper);
+  color: var(--anafor-ink);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+::selection {
+  background: var(--anafor-teal);
+  color: var(--anafor-paper);
+}
+
+/* Visible focus: 2px teal ring (teal-light on dark surfaces). */
+:focus-visible {
+  outline: 2px solid var(--anafor-teal);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.on-dark :focus-visible,
+.on-dark:focus-visible {
+  outline-color: var(--anafor-teal-light);
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+@layer components {
+  .container-text {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 20px;
+  }
+  .container-wide {
+    width: 100%;
+    max-width: 1440px;
+    margin-inline: auto;
+    padding-inline: 20px;
+  }
+  @media (min-width: 768px) {
+    .container-text,
+    .container-wide {
+      padding-inline: 40px;
+    }
+  }
+
+  .section-y {
+    padding-block: 80px;
+  }
+  @media (min-width: 1024px) {
+    .section-y {
+      padding-block: 144px;
+    }
+  }
+
+  /* Labels follow the brand "label" token: Hanken Grotesk 13/600, 0.01em, sentence case.
+     Geist Mono is kept only for real code (issue keys like COM-103). */
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0.01em;
+    color: var(--anafor-stone);
+  }
+  .on-dark .eyebrow {
+    color: var(--anafor-teal-light);
+  }
+
+  .ui-label {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0.01em;
+  }
+
+  .display {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.02;
+    text-wrap: balance;
+  }
+  .display em {
+    font-style: italic;
+    color: var(--anafor-teal);
+  }
+  .on-dark .display em {
+    color: var(--anafor-teal-light);
+  }
+  .on-teal .display em {
+    color: var(--anafor-paper);
+  }
+
+  .h-section {
+    font-size: clamp(2.5rem, 1.6rem + 3.6vw, 4.5rem);
+    line-height: 1.04;
+  }
+  .h-hero {
+    font-size: clamp(3rem, 1.6rem + 6.4vw, 6.5rem);
+    line-height: 1;
+  }
+
+  .lead {
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--anafor-stone);
+    text-wrap: pretty;
+  }
+  @media (min-width: 768px) {
+    .lead {
+      font-size: 20px;
+    }
+  }
+  .on-dark .lead {
+    color: rgb(245 243 238 / 0.72);
+  }
+
+  .card {
+    background: var(--anafor-white);
+    border-radius: var(--anafor-radius-lg);
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-lift {
+    transition:
+      transform 300ms var(--ease-anafor),
+      box-shadow 300ms var(--ease-anafor);
+  }
+  .card-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  /* Underline that grows from the left. */
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 300ms var(--ease-anafor);
+    padding-bottom: 2px;
+  }
+  .link-underline:hover,
+  .link-underline:focus-visible {
+    background-size: 100% 1px;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 0 24px;
+    border-radius: var(--anafor-radius-pill);
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+      background-color 200ms var(--ease-anafor),
+      color 200ms var(--ease-anafor),
+      border-color 200ms var(--ease-anafor),
+      filter 200ms var(--ease-anafor);
+  }
+  .btn-sm {
+    min-height: 44px;
+    padding: 0 18px;
+    font-size: 15px;
+  }
+  .btn .btn-arrow {
+    transition: transform 200ms var(--ease-anafor);
+  }
+  .btn:hover .btn-arrow {
+    transform: translateX(2px);
+  }
+  .btn-primary {
+    background: var(--anafor-ink);
+    color: var(--anafor-paper);
+  }
+  .btn-primary:hover {
+    /* ink lightened 4% toward graphite: keeps the palette */
+    background: color-mix(in srgb, var(--anafor-ink) 96%, var(--anafor-white));
+  }
+  .btn-outline {
+    border: 1px solid var(--anafor-ink);
+    color: var(--anafor-ink);
+  }
+  .btn-outline:hover {
+    background: color-mix(in srgb, var(--anafor-paper) 96%, var(--anafor-ink));
+  }
+  .btn-cream {
+    background: var(--anafor-paper);
+    color: var(--anafor-teal);
+  }
+  .btn-cream:hover {
+    background: color-mix(in srgb, var(--anafor-paper) 96%, var(--anafor-ink));
+  }
+  .btn-light {
+    background: var(--anafor-paper);
+    color: var(--anafor-ink);
+  }
+  .btn-light:hover {
+    background: color-mix(in srgb, var(--anafor-paper) 96%, var(--anafor-ink));
+  }
+
+  /* Evidence markers */
+  .marker {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border: 1.5px solid currentColor;
+    border-radius: 1px;
+    flex: none;
+  }
+  .marker-verified {
+    background: currentColor;
+  }
+  .marker-inferred {
+    background: linear-gradient(90deg, currentColor 50%, transparent 50%);
+  }
+  .marker-hypothesis {
+    background: transparent;
+  }
+}
+
+/* ---------- Motion signature: the lifted quarter ---------- */
+/* The quarter starts seated in its notch (−16, +16 on the 104 grid) and lifts to its place. */
+@keyframes anafor-lift {
+  from {
+    transform: translate(-16px, 16px);
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+.logo-lift svg > g > path:nth-child(2) {
+  transform-box: view-box;
+}
+.logo-lift:hover svg > g > path:nth-child(2),
+.logo-lift:focus-visible svg > g > path:nth-child(2) {
+  animation: anafor-lift 600ms var(--ease-anafor) both;
+}
+
+/* Hero headline: CSS-only word reveal, so the LCP element never waits for JS. */
+/* Starts at a low, non-zero opacity so the LCP is recorded on first paint, not after the reveal. */
+@keyframes word-up {
+  from {
+    opacity: 0.08;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.hero-word {
+  display: inline-block;
+  animation: word-up 700ms var(--ease-anafor) both;
+  animation-delay: calc(var(--i) * 40ms + 80ms);
+}
+.hero-fade {
+  animation: fade-up 700ms var(--ease-anafor) both;
+  animation-delay: var(--d, 300ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+  .hero-word,
+  .hero-fade {
+    animation-name: fade-in;
+    animation-duration: 300ms;
+    animation-delay: 0ms;
+  }
+  .logo-lift:hover svg > g > path:nth-child(2),
+  .logo-lift:focus-visible svg > g > path:nth-child(2) {
+    animation: none;
+  }
+  .card-lift:hover {
+    transform: none;
+  }
+  .btn:hover .btn-arrow {
+    transform: none;
+  }
+}
+
+/* ---------- Hero: one block opens into the symbol ---------- */
+.hero-tile-sand {
+  animation: tile-open 500ms var(--ease-anafor) 700ms both;
+}
+@keyframes tile-open {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+}
+.hero-symbol {
+  animation: fade-in 400ms var(--ease-anafor) 850ms both;
+}
+.hero-symbol svg > g > path:nth-child(2) {
+  animation: anafor-lift 600ms var(--ease-anafor) 1000ms both;
+}
+.hero-connector {
+  transform-origin: left center;
+  animation: line-grow 500ms var(--ease-anafor) 1450ms both;
+}
+@keyframes line-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+.hero-insight {
+  animation: fade-up 600ms var(--ease-anafor) 1600ms both;
+}
+.hero-tile {
+  box-shadow: 0 0 0 1px var(--anafor-sand);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-tile-sand {
+    animation: none;
+    opacity: 0;
+  }
+  .hero-symbol svg > g > path:nth-child(2),
+  .hero-connector {
+    animation: none;
+  }
+  .hero-symbol,
+  .hero-insight {
+    animation: fade-in 300ms linear both;
+  }
+}
+
+.lift-in svg > g > path:nth-child(2) {
+  animation: anafor-lift 600ms var(--ease-anafor) 1100ms both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .lift-in svg > g > path:nth-child(2) {
+    animation: none;
+  }
+}

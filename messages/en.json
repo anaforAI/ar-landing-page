@@ -1,0 +1,404 @@
+{
+  "meta": {
+    "title": "Anafor | Making engineering impact visible",
+    "description": "Anafor is an engineering intelligence platform. It connects GitHub, Jira and Google Meet to your company's context and shows, with evidence, how engineering work moves your product and your business.",
+    "ogAlt": "Anafor. Intelligence through information."
+  },
+  "common": {
+    "requestAccess": "Request access",
+    "signIn": "Sign in",
+    "sampleData": "Sample data",
+    "skipToContent": "Skip to content"
+  },
+  "nav": {
+    "label": "Main",
+    "problem": "Problem",
+    "how": "How it works",
+    "evidence": "Evidence",
+    "leaders": "For leaders",
+    "pricing": "Pricing",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "home": "Anafor home"
+  },
+  "hero": {
+    "eyebrow": "Engineering intelligence",
+    "title": "Making engineering impact <em>visible.</em>",
+    "subtitle": "Anafor interprets the work behind every repository, review and decision. Then it shows, with evidence, how that work moves your product and your business.",
+    "primary": "Request access",
+    "secondary": "See how it works",
+    "insightLabel": "Insight · Verified",
+    "insightText": "Checkout reliability work reduced payment incidents across two quarters.",
+    "insightEvidenceLabel": "Evidence",
+    "insightEvidence": "incident reviews · linked PRs",
+    "integrationsLabel": "Connects to",
+    "visualAlt": "A grid of blocks where one opens into the Anafor symbol and reveals a verified insight."
+  },
+  "problem": {
+    "eyebrow": "The problem",
+    "title": "You can see the activity. Not the <em>impact</em>.",
+    "body": "Dashboards count pull requests, deployments and tickets closed. They rarely explain why the work was done, what it changed for the product, or which business objective it served.",
+    "voices": [
+      {
+        "role": "Engineering",
+        "quote": "Our work is invisible outside the team."
+      },
+      {
+        "role": "Product",
+        "quote": "Which technical work moved the roadmap?"
+      },
+      {
+        "role": "Leadership",
+        "quote": "What are we getting from our engineering investment?"
+      }
+    ],
+    "fragments": {
+      "label": "Fragments of engineering work spread across tools",
+      "prTag": "Pull request",
+      "prTitle": "Retry failed payment webhooks",
+      "prMeta": "merged · 14 files",
+      "ticketTag": "Jira",
+      "ticketTitle": "COM-103 · Payment retries",
+      "ticketMeta": "In progress",
+      "noteTag": "Meeting note",
+      "noteTitle": "Decided to prioritise checkout reliability",
+      "noteMeta": "Google Meet · Tue"
+    }
+  },
+  "how": {
+    "eyebrow": "How Anafor works",
+    "title": "From fragmented signals to <em>shared understanding</em>.",
+    "progressLabel": "Step progress",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Connect",
+        "body": "GitHub, Jira and Google Meet, plus a knowledge base with your company's and products' goals, KPIs, domains and glossary."
+      },
+      {
+        "number": "02",
+        "title": "Correlate",
+        "body": "Pull requests are linked to tasks, epics and decisions. When there's no explicit key, AI suggests the link and a person confirms it."
+      },
+      {
+        "number": "03",
+        "title": "Interpret",
+        "body": "Agents read the signals in context and write the narrative. An evidence validator checks traceability, consistency and uncertainty before anything is published."
+      },
+      {
+        "number": "04",
+        "title": "Deliver",
+        "body": "Daily, weekly and monthly reports, shaped for each audience and permission. Plus an assistant that answers with sources."
+      }
+    ],
+    "footer": "Agents interpret. A deterministic service publishes.",
+    "visuals": {
+      "knowledge": "Knowledge base",
+      "knowledgeItems": "Goals · KPIs · Domains · Glossary",
+      "objective": "Objective",
+      "objectiveTitle": "Reliable checkout",
+      "epic": "Epic",
+      "epicTitle": "COM-100 · Payment resilience",
+      "subtask": "Subtask",
+      "subtaskTitle": "COM-103 · Payment retries",
+      "pr": "Pull request",
+      "prTitle": "COM-103 Retry failed webhooks",
+      "linked": "Linked by key",
+      "analyze": "Analyze",
+      "validate": "Validate",
+      "publish": "Publish",
+      "checks": [
+        "Traceability",
+        "Consistency",
+        "Uncertainty"
+      ],
+      "narrative": "Narrative",
+      "narrativeText": "Payment retries now recover failed webhooks automatically.",
+      "daily": "Daily",
+      "dailyText": "Blockers & changes",
+      "weekly": "Weekly",
+      "weeklyText": "Progress & trends",
+      "monthly": "Monthly",
+      "monthlyText": "Validated outcomes",
+      "assistantQ": "What changed in checkout this month?",
+      "assistantA": "Payment retries shipped behind a flag; rollout is pending.",
+      "assistantSources": "COM-103 · 4 PRs · release note"
+    }
+  },
+  "evidence": {
+    "eyebrow": "Evidence, not guesswork",
+    "title": "Every conclusion shows <em>how sure</em> we are.",
+    "states": [
+      {
+        "key": "verified",
+        "label": "Verified",
+        "body": "Confirmed by explicit sources.",
+        "example": "PR #482 references COM-103 in its title."
+      },
+      {
+        "key": "inferred",
+        "label": "Inferred",
+        "body": "A likely relationship, waiting for confirmation.",
+        "example": "AI suggests PR #497 belongs to COM-103. The reviewer hasn't confirmed yet."
+      },
+      {
+        "key": "hypothesis",
+        "label": "Hypothesis",
+        "body": "A possibility still to be validated.",
+        "example": "The retry work may explain fewer support tickets. Not enough evidence yet."
+      }
+    ],
+    "principlesLabel": "Principles",
+    "principles": [
+      "An inferred link stays a suggestion until someone confirms it.",
+      "A merged PR doesn't mean a shipped feature.",
+      "Missing confirmation is never a negative conclusion."
+    ],
+    "demo": {
+      "label": "Assistant demo",
+      "title": "Anafor assistant",
+      "questionLabel": "Question",
+      "question": "Why did the mobile team spend most of Q3 on infrastructure?",
+      "ask": "Ask",
+      "again": "Ask again",
+      "thinking": "Reading sources…",
+      "answerLabel": "Answer",
+      "answer": [
+        {
+          "state": "verified",
+          "text": "Most Q3 pull requests from the mobile team are linked to roadmap item MOB-12, the offline sync foundation."
+        },
+        {
+          "state": "inferred",
+          "text": "Design reviews connect MOB-12 to the decision to replace the legacy sync layer before new features. Two of these links are still awaiting confirmation."
+        },
+        {
+          "state": "hypothesis",
+          "text": "This may explain the slower feature cadence in Q3. The evidence doesn't confirm it yet, so a product lead should validate it."
+        }
+      ],
+      "sourcesLabel": "Sources",
+      "sources": "3 design reviews · 61 pull requests · roadmap item MOB-12",
+      "permissionsNote": "Answer limited to sources you're allowed to see."
+    }
+  },
+  "leaders": {
+    "eyebrow": "One source, every perspective",
+    "title": "The same truth, in each leader's <em>language</em>.",
+    "tabsLabel": "Audiences",
+    "tabs": [
+      {
+        "key": "em",
+        "label": "Engineering managers",
+        "body": "Initiatives, complexity, risks, dependencies and contribution. Always by initiative, never by person.",
+        "mockTitle": "Initiatives this week",
+        "rows": [
+          {
+            "name": "Payment resilience",
+            "meta": "2 dependencies",
+            "status": "On track",
+            "tone": "ok"
+          },
+          {
+            "name": "Offline sync",
+            "meta": "High complexity",
+            "status": "At risk",
+            "tone": "alert"
+          },
+          {
+            "name": "Search reindex",
+            "meta": "Waiting on review",
+            "status": "Blocked",
+            "tone": "alert"
+          }
+        ]
+      },
+      {
+        "key": "vp",
+        "label": "Directors & VPs",
+        "body": "Organizational visibility, capacity and alignment across teams.",
+        "mockTitle": "Capacity by objective",
+        "rows": [
+          {
+            "name": "Reliability",
+            "meta": "3 teams",
+            "status": "Aligned",
+            "tone": "ok"
+          },
+          {
+            "name": "New markets",
+            "meta": "2 teams",
+            "status": "Aligned",
+            "tone": "ok"
+          },
+          {
+            "name": "Platform debt",
+            "meta": "1 team",
+            "status": "Under-served",
+            "tone": "alert"
+          }
+        ]
+      },
+      {
+        "key": "cto",
+        "label": "CTOs",
+        "body": "Technology investment, systemic risk and strategy.",
+        "mockTitle": "Investment mix",
+        "rows": [
+          {
+            "name": "Features",
+            "meta": "Roadmap",
+            "status": "",
+            "tone": ""
+          },
+          {
+            "name": "Architecture",
+            "meta": "Strategy",
+            "status": "",
+            "tone": ""
+          },
+          {
+            "name": "Reliability & debt",
+            "meta": "Systemic risk",
+            "status": "",
+            "tone": ""
+          }
+        ]
+      },
+      {
+        "key": "product",
+        "label": "Product leaders",
+        "body": "How engineering moves features, quality and roadmap.",
+        "mockTitle": "Roadmap movement",
+        "rows": [
+          {
+            "name": "Checkout v2",
+            "meta": "Unblocked by COM-100",
+            "status": "Moving",
+            "tone": "ok"
+          },
+          {
+            "name": "Offline mode",
+            "meta": "Depends on MOB-12",
+            "status": "Waiting",
+            "tone": ""
+          },
+          {
+            "name": "Smart search",
+            "meta": "Quality work in review",
+            "status": "Moving",
+            "tone": "ok"
+          }
+        ]
+      },
+      {
+        "key": "exec",
+        "label": "Executives",
+        "body": "Plain-language impact on strategic goals.",
+        "mockTitle": "This month, in plain language",
+        "rows": [
+          {
+            "name": "Checkout is more reliable",
+            "meta": "Verified",
+            "status": "",
+            "tone": "verified"
+          },
+          {
+            "name": "Mobile groundwork is laid for offline mode",
+            "meta": "Verified",
+            "status": "",
+            "tone": "verified"
+          },
+          {
+            "name": "Support load may drop",
+            "meta": "Hypothesis",
+            "status": "",
+            "tone": "hypothesis"
+          }
+        ]
+      }
+    ]
+  },
+  "results": {
+    "eyebrow": "What changes",
+    "title": "When engineering is visible, the <em>whole company</em> decides better.",
+    "items": [
+      {
+        "lead": "Engineering gets credit for the work that matters:",
+        "rest": "architecture, reliability and technical debt, not just features."
+      },
+      {
+        "lead": "Product sees which technical work moved the roadmap,",
+        "rest": "and what's blocking it."
+      },
+      {
+        "lead": "Leadership invests with evidence:",
+        "rest": "capacity, risk and alignment in one place, every month."
+      },
+      {
+        "lead": "Hours of status reporting become automatic,",
+        "rest": "with reports that write themselves and cite their sources."
+      }
+    ]
+  },
+  "trust": {
+    "eyebrow": "Trust",
+    "title": "Built for understanding, <em>never</em> surveillance.",
+    "items": [
+      "No individual performance scoring.",
+      "Permissions are applied before AI sees anything.",
+      "Restricted information is excluded without revealing it exists.",
+      "Roles: Manager, Contributor, Viewer."
+    ]
+  },
+  "pricing": {
+    "eyebrow": "Pricing",
+    "title": "Start with a trial. Scale with <em>usage</em>.",
+    "body": "A base subscription per organization, plus AI consumption that is metered and transparent. Every plan starts with a trial.",
+    "trial": "Trial",
+    "trialText": "Connect your sources and see your first reports.",
+    "base": "Base subscription",
+    "baseText": "Per organization. Workspaces, products, projects and roles included.",
+    "usage": "AI usage",
+    "usageText": "Metered and visible, so you always know what you're paying for.",
+    "price": "[PRICE]",
+    "cta": "Talk to us"
+  },
+  "cta": {
+    "title": "See what your engineering <em>makes possible</em>.",
+    "button": "Request access"
+  },
+  "footer": {
+    "slogan": "Intelligence through information.",
+    "product": "Product",
+    "company": "Company",
+    "legal": "Legal",
+    "about": "About",
+    "contact": "Contact",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "copyright": "© {year} Anafor. All rights reserved."
+  },
+  "form": {
+    "title": "Request access",
+    "intro": "Tell us a little about you. We'll reply from a real person, not a sequence.",
+    "name": "Full name",
+    "email": "Work email",
+    "company": "Company",
+    "role": "Role",
+    "rolePlaceholder": "e.g. VP of Engineering",
+    "submit": "Request access",
+    "submitting": "Sending…",
+    "close": "Close",
+    "successTitle": "Thank you.",
+    "successBody": "Your request is in. We'll be in touch at the email you provided.",
+    "errors": {
+      "name": "Please enter your name.",
+      "email": "Please enter a valid email address.",
+      "emailWork": "Please use your work email.",
+      "company": "Please enter your company.",
+      "role": "Please enter your role.",
+      "generic": "Something went wrong. Please try again in a moment."
+    }
+  }
+}

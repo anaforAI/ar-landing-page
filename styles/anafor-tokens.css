@@ -1,0 +1,18 @@
+:root {
+  --anafor-ink: #0B0B0C;
+  --anafor-graphite: #1C1C1E;
+  --anafor-stone: #67645E;
+  --anafor-sand: #DDD9D0;
+  --anafor-paper: #F5F3EE;
+  --anafor-white: #FFFFFF;
+  --anafor-teal: #0E4A43;
+  --anafor-teal-light: #6FB8A6;
+  --anafor-ember: #E5502A;
+  --anafor-font-sans: 'Hanken Grotesk', system-ui, sans-serif;
+  --anafor-font-serif: Newsreader, Georgia, serif;
+  --anafor-font-mono: 'Geist Mono', ui-monospace, monospace;
+  --anafor-radius-sm: 4px;
+  --anafor-radius-md: 8px;
+  --anafor-radius-lg: 12px;
+  --anafor-radius-pill: 999px;
+}

@@ -1,0 +1,404 @@
+{
+  "meta": {
+    "title": "Anafor | Tornando o impacto da engenharia visível",
+    "description": "A Anafor é uma plataforma de inteligência de engenharia. Ela conecta GitHub, Jira e Google Meet ao contexto da sua empresa e mostra, com evidências, como o trabalho de engenharia move o seu produto e o seu negócio.",
+    "ogAlt": "Anafor. Intelligence through information."
+  },
+  "common": {
+    "requestAccess": "Solicitar acesso",
+    "signIn": "Entrar",
+    "sampleData": "Dados de exemplo",
+    "skipToContent": "Pular para o conteúdo"
+  },
+  "nav": {
+    "label": "Principal",
+    "problem": "Problema",
+    "how": "Como funciona",
+    "evidence": "Evidências",
+    "leaders": "Para líderes",
+    "pricing": "Preços",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu",
+    "home": "Página inicial da Anafor"
+  },
+  "hero": {
+    "eyebrow": "Inteligência de engenharia",
+    "title": "Tornando o impacto da engenharia <em>visível.</em>",
+    "subtitle": "A Anafor interpreta o trabalho por trás de cada repositório, revisão e decisão. Depois mostra, com evidências, como esse trabalho move o seu produto e o seu negócio.",
+    "primary": "Solicitar acesso",
+    "secondary": "Veja como funciona",
+    "insightLabel": "Insight · Verificado",
+    "insightText": "O trabalho de confiabilidade do checkout reduziu os incidentes de pagamento ao longo de dois trimestres.",
+    "insightEvidenceLabel": "Evidências",
+    "insightEvidence": "revisões de incidentes · PRs vinculadas",
+    "integrationsLabel": "Conecta-se a",
+    "visualAlt": "Uma grade de blocos em que um deles se abre no símbolo da Anafor e revela um insight verificado."
+  },
+  "problem": {
+    "eyebrow": "O problema",
+    "title": "Você vê a atividade. Não o <em>impacto</em>.",
+    "body": "Dashboards contam pull requests, deploys e tickets fechados. Raramente explicam por que o trabalho foi feito, o que ele mudou no produto ou a qual objetivo de negócio serviu.",
+    "voices": [
+      {
+        "role": "Engenharia",
+        "quote": "Nosso trabalho é invisível fora do time."
+      },
+      {
+        "role": "Produto",
+        "quote": "Qual trabalho técnico moveu o roadmap?"
+      },
+      {
+        "role": "Liderança",
+        "quote": "O que estamos obtendo do nosso investimento em engenharia?"
+      }
+    ],
+    "fragments": {
+      "label": "Fragmentos do trabalho de engenharia espalhados por várias ferramentas",
+      "prTag": "Pull request",
+      "prTitle": "Reprocessar webhooks de pagamento com falha",
+      "prMeta": "incorporada · 14 arquivos",
+      "ticketTag": "Jira",
+      "ticketTitle": "COM-103 · Retentativas de pagamento",
+      "ticketMeta": "Em andamento",
+      "noteTag": "Nota de reunião",
+      "noteTitle": "Decidimos priorizar a confiabilidade do checkout",
+      "noteMeta": "Google Meet · ter"
+    }
+  },
+  "how": {
+    "eyebrow": "Como a Anafor funciona",
+    "title": "De sinais fragmentados a <em>entendimento compartilhado</em>.",
+    "progressLabel": "Progresso dos passos",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Conectar",
+        "body": "GitHub, Jira e Google Meet, mais uma base de conhecimento com objetivos, KPIs, domínios e glossário da empresa e dos produtos."
+      },
+      {
+        "number": "02",
+        "title": "Relacionar",
+        "body": "Pull requests são vinculadas a tarefas, epics e decisões. Sem chave explícita, a IA sugere o vínculo e uma pessoa confirma."
+      },
+      {
+        "number": "03",
+        "title": "Interpretar",
+        "body": "Agentes leem os sinais no contexto e escrevem a narrativa. Um validador de evidências confere rastreabilidade, consistência e incerteza antes de qualquer publicação."
+      },
+      {
+        "number": "04",
+        "title": "Entregar",
+        "body": "Relatórios diários, semanais e mensais, moldados para cada público e permissão. E um assistente que responde citando as fontes."
+      }
+    ],
+    "footer": "O agente interpreta. Um serviço determinístico publica.",
+    "visuals": {
+      "knowledge": "Base de conhecimento",
+      "knowledgeItems": "Objetivos · KPIs · Domínios · Glossário",
+      "objective": "Objetivo",
+      "objectiveTitle": "Checkout confiável",
+      "epic": "Epic",
+      "epicTitle": "COM-100 · Resiliência de pagamentos",
+      "subtask": "Subtask",
+      "subtaskTitle": "COM-103 · Retentativas de pagamento",
+      "pr": "Pull request",
+      "prTitle": "COM-103 Reprocessar webhooks com falha",
+      "linked": "Vinculada pela chave",
+      "analyze": "Analisar",
+      "validate": "Validar",
+      "publish": "Publicar",
+      "checks": [
+        "Rastreabilidade",
+        "Consistência",
+        "Incerteza"
+      ],
+      "narrative": "Narrativa",
+      "narrativeText": "As retentativas de pagamento agora recuperam webhooks com falha automaticamente.",
+      "daily": "Diário",
+      "dailyText": "Bloqueios e mudanças",
+      "weekly": "Semanal",
+      "weeklyText": "Evolução e tendências",
+      "monthly": "Mensal",
+      "monthlyText": "Resultados validados",
+      "assistantQ": "O que mudou no checkout este mês?",
+      "assistantA": "As retentativas de pagamento foram entregues atrás de uma flag; o rollout está pendente.",
+      "assistantSources": "COM-103 · 4 PRs · nota de release"
+    }
+  },
+  "evidence": {
+    "eyebrow": "Evidências, não suposições",
+    "title": "Cada conclusão mostra o <em>quanto</em> temos certeza.",
+    "states": [
+      {
+        "key": "verified",
+        "label": "Verificado",
+        "body": "Confirmado por fontes explícitas.",
+        "example": "A PR #482 cita COM-103 no título."
+      },
+      {
+        "key": "inferred",
+        "label": "Inferido",
+        "body": "Relação provável, aguardando confirmação.",
+        "example": "A IA sugere que a PR #497 pertence a COM-103. O revisor ainda não confirmou."
+      },
+      {
+        "key": "hypothesis",
+        "label": "Hipótese",
+        "body": "Uma possibilidade ainda a validar.",
+        "example": "As retentativas podem explicar menos tickets de suporte. Ainda não há evidência suficiente."
+      }
+    ],
+    "principlesLabel": "Princípios",
+    "principles": [
+      "Uma relação inferida continua sendo sugestão até alguém confirmar.",
+      "PR incorporada não significa funcionalidade disponibilizada.",
+      "Falta de confirmação nunca vira conclusão negativa."
+    ],
+    "demo": {
+      "label": "Demonstração do assistente",
+      "title": "Assistente Anafor",
+      "questionLabel": "Pergunta",
+      "question": "Por que o time mobile passou a maior parte do T3 em infraestrutura?",
+      "ask": "Perguntar",
+      "again": "Perguntar de novo",
+      "thinking": "Lendo as fontes…",
+      "answerLabel": "Resposta",
+      "answer": [
+        {
+          "state": "verified",
+          "text": "A maioria das pull requests do time mobile no T3 está vinculada ao item de roadmap MOB-12, a base de sincronização offline."
+        },
+        {
+          "state": "inferred",
+          "text": "Revisões de design ligam o MOB-12 à decisão de substituir a camada de sincronização legada antes de novas funcionalidades. Dois desses vínculos ainda aguardam confirmação."
+        },
+        {
+          "state": "hypothesis",
+          "text": "Isso pode explicar o ritmo mais lento de funcionalidades no T3. As evidências ainda não confirmam, então uma liderança de produto deve validar."
+        }
+      ],
+      "sourcesLabel": "Fontes",
+      "sources": "3 revisões de design · 61 pull requests · item de roadmap MOB-12",
+      "permissionsNote": "Resposta limitada às fontes que você tem permissão para ver."
+    }
+  },
+  "leaders": {
+    "eyebrow": "Uma fonte, todas as perspectivas",
+    "title": "A mesma verdade, na <em>língua</em> de cada líder.",
+    "tabsLabel": "Públicos",
+    "tabs": [
+      {
+        "key": "em",
+        "label": "Gestores de engenharia",
+        "body": "Iniciativas, complexidade, riscos, dependências e contribuição. Sempre por iniciativa, nunca por pessoa.",
+        "mockTitle": "Iniciativas da semana",
+        "rows": [
+          {
+            "name": "Resiliência de pagamentos",
+            "meta": "2 dependências",
+            "status": "No prazo",
+            "tone": "ok"
+          },
+          {
+            "name": "Sincronização offline",
+            "meta": "Alta complexidade",
+            "status": "Em risco",
+            "tone": "alert"
+          },
+          {
+            "name": "Reindexação da busca",
+            "meta": "Aguardando revisão",
+            "status": "Bloqueado",
+            "tone": "alert"
+          }
+        ]
+      },
+      {
+        "key": "vp",
+        "label": "Diretores e VPs",
+        "body": "Visibilidade organizacional, capacidade e alinhamento entre times.",
+        "mockTitle": "Capacidade por objetivo",
+        "rows": [
+          {
+            "name": "Confiabilidade",
+            "meta": "3 times",
+            "status": "Alinhado",
+            "tone": "ok"
+          },
+          {
+            "name": "Novos mercados",
+            "meta": "2 times",
+            "status": "Alinhado",
+            "tone": "ok"
+          },
+          {
+            "name": "Dívida de plataforma",
+            "meta": "1 time",
+            "status": "Subatendido",
+            "tone": "alert"
+          }
+        ]
+      },
+      {
+        "key": "cto",
+        "label": "CTOs",
+        "body": "Investimento em tecnologia, risco sistêmico e estratégia.",
+        "mockTitle": "Composição do investimento",
+        "rows": [
+          {
+            "name": "Funcionalidades",
+            "meta": "Roadmap",
+            "status": "",
+            "tone": ""
+          },
+          {
+            "name": "Arquitetura",
+            "meta": "Estratégia",
+            "status": "",
+            "tone": ""
+          },
+          {
+            "name": "Confiabilidade e dívida",
+            "meta": "Risco sistêmico",
+            "status": "",
+            "tone": ""
+          }
+        ]
+      },
+      {
+        "key": "product",
+        "label": "Lideranças de produto",
+        "body": "Como a engenharia move funcionalidades, qualidade e roadmap.",
+        "mockTitle": "Movimento do roadmap",
+        "rows": [
+          {
+            "name": "Checkout v2",
+            "meta": "Desbloqueado por COM-100",
+            "status": "Avançando",
+            "tone": "ok"
+          },
+          {
+            "name": "Modo offline",
+            "meta": "Depende de MOB-12",
+            "status": "Aguardando",
+            "tone": ""
+          },
+          {
+            "name": "Busca inteligente",
+            "meta": "Trabalho de qualidade em revisão",
+            "status": "Avançando",
+            "tone": "ok"
+          }
+        ]
+      },
+      {
+        "key": "exec",
+        "label": "Executivos",
+        "body": "Impacto em linguagem simples sobre os objetivos estratégicos.",
+        "mockTitle": "Este mês, em linguagem simples",
+        "rows": [
+          {
+            "name": "O checkout está mais confiável",
+            "meta": "Verificado",
+            "status": "",
+            "tone": "verified"
+          },
+          {
+            "name": "A base mobile para o modo offline está pronta",
+            "meta": "Verificado",
+            "status": "",
+            "tone": "verified"
+          },
+          {
+            "name": "A carga de suporte pode cair",
+            "meta": "Hipótese",
+            "status": "",
+            "tone": "hypothesis"
+          }
+        ]
+      }
+    ]
+  },
+  "results": {
+    "eyebrow": "O que muda",
+    "title": "Quando a engenharia fica visível, a <em>empresa inteira</em> decide melhor.",
+    "items": [
+      {
+        "lead": "A engenharia recebe crédito pelo trabalho que importa:",
+        "rest": "arquitetura, confiabilidade e dívida técnica, não só funcionalidades."
+      },
+      {
+        "lead": "O produto vê qual trabalho técnico moveu o roadmap,",
+        "rest": "e o que está bloqueando."
+      },
+      {
+        "lead": "A liderança investe com evidências:",
+        "rest": "capacidade, risco e alinhamento num só lugar, todo mês."
+      },
+      {
+        "lead": "Horas de status report viram automáticas,",
+        "rest": "com relatórios que se escrevem sozinhos e citam suas fontes."
+      }
+    ]
+  },
+  "trust": {
+    "eyebrow": "Confiança",
+    "title": "Feita para entender, <em>nunca</em> para vigiar.",
+    "items": [
+      "Nenhuma pontuação de desempenho individual.",
+      "As permissões são aplicadas antes de a IA ver qualquer coisa.",
+      "Informação restrita é excluída sem revelar que existe.",
+      "Papéis: Manager, Contributor, Viewer."
+    ]
+  },
+  "pricing": {
+    "eyebrow": "Preços",
+    "title": "Comece com um teste. Cresça com o <em>uso</em>.",
+    "body": "Uma assinatura base por organização, mais consumo de IA medido e transparente. Todo plano começa com um período de teste.",
+    "trial": "Teste",
+    "trialText": "Conecte suas fontes e veja seus primeiros relatórios.",
+    "base": "Assinatura base",
+    "baseText": "Por organização. Workspaces, produtos, projetos e papéis incluídos.",
+    "usage": "Uso de IA",
+    "usageText": "Medido e visível, para você sempre saber pelo que está pagando.",
+    "price": "[PRICE]",
+    "cta": "Fale com a gente"
+  },
+  "cta": {
+    "title": "Veja o que a sua engenharia <em>torna possível</em>.",
+    "button": "Solicitar acesso"
+  },
+  "footer": {
+    "slogan": "Intelligence through information.",
+    "product": "Produto",
+    "company": "Empresa",
+    "legal": "Legal",
+    "about": "Sobre",
+    "contact": "Contato",
+    "privacy": "Privacidade",
+    "terms": "Termos",
+    "copyright": "© {year} Anafor. Todos os direitos reservados."
+  },
+  "form": {
+    "title": "Solicitar acesso",
+    "intro": "Conte um pouco sobre você. Quem responde é uma pessoa, não uma sequência automática.",
+    "name": "Nome completo",
+    "email": "E-mail corporativo",
+    "company": "Empresa",
+    "role": "Cargo",
+    "rolePlaceholder": "ex.: VP de Engenharia",
+    "submit": "Solicitar acesso",
+    "submitting": "Enviando…",
+    "close": "Fechar",
+    "successTitle": "Obrigado.",
+    "successBody": "Recebemos sua solicitação. Vamos entrar em contato pelo e-mail informado.",
+    "errors": {
+      "name": "Informe seu nome.",
+      "email": "Informe um e-mail válido.",
+      "emailWork": "Use seu e-mail corporativo.",
+      "company": "Informe sua empresa.",
+      "role": "Informe seu cargo.",
+      "generic": "Algo deu errado. Tente novamente em instantes."
+    }
+  }
+}

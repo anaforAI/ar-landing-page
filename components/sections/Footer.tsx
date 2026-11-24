@@ -1,0 +1,70 @@
+import { getTranslations } from "next-intl/server";
+import { BrandSvg } from "@/components/brand/BrandSvg";
+import { site } from "@/lib/site";
+
+export async function Footer() {
+  const t = await getTranslations("footer");
+  const tn = await getTranslations("nav");
+  const cols = [
+    {
+      title: t("product"),
+      links: [
+        { href: "#how", label: tn("how") },
+        { href: "#evidence", label: tn("evidence") },
+        { href: "#leaders", label: tn("leaders") },
+        { href: "#pricing", label: tn("pricing") },
+      ],
+    },
+    {
+      title: t("company"),
+      links: [
+        { href: site.links.about, label: t("about") },
+        { href: `mailto:${site.contactEmail}`, label: t("contact") },
+      ],
+    },
+    {
+      title: t("legal"),
+      links: [
+        { href: site.links.privacy, label: t("privacy") },
+        { href: site.links.terms, label: t("terms") },
+      ],
+    },
+  ];
+  return (
+    <footer className="on-dark bg-ink text-paper">
+      <div className="container-text py-20 md:py-28">
+        <div className="grid gap-14 lg:grid-cols-12 lg:gap-6">
+          <div className="lg:col-span-5">
+            {/* Institutional signature with the slogan, from the official file. */}
+            <BrandSvg
+              file="anafor-lockup-institutional-white.svg"
+              className="block w-[240px] md:w-[280px] [&>svg]:h-auto [&>svg]:w-full"
+            />
+          </div>
+          <nav aria-label="Footer" className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:col-span-6 lg:col-start-7">
+            {cols.map((c) => (
+              <div key={c.title}>
+                <h2 className="ui-label text-paper/50">{c.title}</h2>
+                <ul className="mt-5 space-y-1">
+                  {c.links.map((l) => (
+                    <li key={l.label}>
+                      <a
+                        href={l.href}
+                        className="link-underline inline-flex min-h-[44px] items-center text-[15px] text-paper/80 hover:text-paper"
+                      >
+                        {l.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </nav>
+        </div>
+        <p className="ui-label mt-20 border-t border-paper/12 pt-8 text-paper/50">
+          {t("copyright", { year: new Date().getFullYear() })}
+        </p>
+      </div>
+    </footer>
+  );
+}
