@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Anafor | Making engineering impact visible",
-    "description": "Anafor is an engineering intelligence platform. It connects GitHub, Jira and Google Meet to your company's context and shows, with evidence, how engineering work moves your product and your business.",
+    "description": "Anafor is an engineering intelligence platform. It connects GitHub, Jira, Google Meet and Miro to your company's context and shows, with evidence, how engineering work moves your product and your business.",
     "ogAlt": "Anafor. Intelligence through information."
   },
   "common": {
@@ -57,16 +57,88 @@
       }
     ],
     "fragments": {
-      "label": "Fragments of engineering work spread across tools",
-      "prTag": "Pull request",
-      "prTitle": "Retry failed payment webhooks",
-      "prMeta": "merged · 14 files",
-      "ticketTag": "Jira",
-      "ticketTitle": "COM-103 · Payment retries",
-      "ticketMeta": "In progress",
-      "noteTag": "Meeting note",
-      "noteTitle": "Decided to prioritise checkout reliability",
-      "noteMeta": "Google Meet · Tue"
+      "label": "How Anafor turns fragments from four tools into one understanding",
+      "phases": [
+        "Fragments",
+        "Context",
+        "Intelligence",
+        "Understanding"
+      ],
+      "captions": [
+        "Four tools. Four perspectives on the same initiative, with no visible relationship.",
+        "The same concepts show up in different places. Relationships start to emerge.",
+        "The Anafor Intelligence Engine interprets those relationships and connects them to your company's context.",
+        "One understanding, keeping what was observed apart from what is still inferred."
+      ],
+      "cards": [
+        {
+          "key": "meet",
+          "source": "Google Meet",
+          "tag": "Meeting note",
+          "title": "Decided to prioritise [checkout] [reliability]",
+          "meta": "Google Meet · Tue"
+        },
+        {
+          "key": "miro",
+          "source": "Miro",
+          "tag": "Miro",
+          "title": "[Checkout] journey map",
+          "meta": "Board · [payment] step with 3 comments"
+        },
+        {
+          "key": "jira",
+          "source": "Jira",
+          "tag": "Jira",
+          "title": "[COM-103] · [Payment] retries",
+          "meta": "In progress"
+        },
+        {
+          "key": "github",
+          "source": "GitHub",
+          "tag": "Pull request",
+          "title": "Retry failed [payment] webhooks",
+          "meta": "merged · refs [COM-103]"
+        }
+      ],
+      "relations": {
+        "top": "decision ↔ execution",
+        "left": "checkout",
+        "right": "COM-103",
+        "bottom": "payment"
+      },
+      "engine": "Anafor Intelligence Engine",
+      "nodes": [
+        "Decision",
+        "Journey",
+        "Work",
+        "Code"
+      ],
+      "insight": {
+        "label": "Insight",
+        "initiative": "Initiative: checkout reliability",
+        "statement": "The payment retries merged this week deliver on the decision to prioritise checkout reliability.",
+        "rows": [
+          {
+            "state": "verified",
+            "label": "Observed",
+            "text": "PR merged, linked to COM-103 and to the decision recorded in Tuesday's meeting.",
+            "source": "Google Meet · Jira · GitHub"
+          },
+          {
+            "state": "inferred",
+            "label": "Inferred",
+            "text": "Fewer failures at the payment step of the checkout journey.",
+            "source": "Relationship between the Miro map and the retries"
+          },
+          {
+            "state": "hypothesis",
+            "label": "Hypothesis",
+            "text": "Potential reduction in checkout abandonment.",
+            "source": "To validate with conversion data over the coming weeks"
+          }
+        ],
+        "note": "What is observed comes from the sources. Inferences and hypotheses stay flagged until data confirms them."
+      }
     },
     "bridge": "Each of these fragments means something for the business.",
     "bridgeLink": "See how Anafor finds out"
@@ -79,7 +151,7 @@
       {
         "number": "01",
         "title": "Connect",
-        "body": "GitHub, Jira and Google Meet, plus a knowledge base with your company's and products' goals, KPIs, domains and glossary."
+        "body": "GitHub, Jira, Google Meet and Miro, plus a knowledge base with your company's and products' goals, KPIs, domains and glossary."
       },
       {
         "number": "02",
