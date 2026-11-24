@@ -25,8 +25,8 @@ export async function Header() {
         request: t("common.requestAccess"),
         language: t("nav.language"),
       }}
-      logo={<BrandSvg file="anafor-lockup-horizontal-ink.svg" decorative className="logo-seam-ink block h-[26px] w-auto [&>svg]:h-full [&>svg]:w-auto" />}
-      logoDark={<BrandSvg file="anafor-lockup-horizontal-white.svg" decorative className="logo-seam-white block h-[26px] w-auto [&>svg]:h-full [&>svg]:w-auto" />}
+      logo={<BrandSvg file="anafor-lockup-horizontal-ink.svg" decorative className="block h-[26px] w-auto [&>svg]:h-full [&>svg]:w-auto" />}
+      logoDark={<BrandSvg file="anafor-lockup-horizontal-white.svg" decorative className="block h-[26px] w-auto [&>svg]:h-full [&>svg]:w-auto" />}
     />
   );
 }
