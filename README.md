@@ -31,10 +31,11 @@ node scripts/screenshots.mjs
 
 ```
 app/
-  layout.tsx              fontes locais, metadata, JSON-LD Organization, providers
-  page.tsx                ordem das seções
+  [locale]/layout.tsx     fontes locais, metadata por idioma, JSON-LD Organization, providers
+  [locale]/page.tsx       ordem das seções
   actions/request-access.ts  server action do formulário (envia para FORM_ENDPOINT)
-  sitemap.ts · robots.ts · opengraph-image.png · twitter-image.png
+  sitemap.ts · robots.ts  (imagem de Open Graph em public/og.png)
+i18n/routing.ts           idiomas e rotas · middleware.ts aplica o roteamento
   fonts/                  Newsreader, Hanken Grotesk e Geist Mono em woff2, subset latin
 components/
   sections/               uma seção por arquivo (Header, Hero, Problem, HowItWorks, Evidence,
@@ -43,7 +44,7 @@ components/
   motion/                 Reveal, RevealHeading, Lenis, MotionConfig
   brand/BrandSvg.tsx      insere os SVGs oficiais de /public/brand sem recriá-los
   ui/                     ícones, chip de evidência, diálogo de Request access
-messages/en.json          todos os textos (pt-BR.json já traduzido; revise antes de publicar)
+messages/                 en.json e pt-BR.json (revise a tradução antes de publicar)
 styles/anafor-tokens.css  cópia literal de anafor-branding/04-cores-e-tokens
 public/brand/             logos copiados de anafor-branding/01-logo
 ```
@@ -65,9 +66,12 @@ public/brand/             logos copiados de anafor-branding/01-logo
 - Hero: o canvas de quadrados só carrega quando o navegador fica ocioso, apenas em dispositivos com mouse. Pausa fora da tela e quando está parado. O fallback é um padrão estático.
 - `prefers-reduced-motion`: sem Lenis, sem canvas, sem transforms. Fica só fade ou o estado final.
 
-## i18n
+## Idiomas
 
-O site é gerado estaticamente num idioma por build: `NEXT_PUBLIC_LOCALE=pt-BR npm run build`. Para servir os dois idiomas no mesmo deploy, mova `app/` para `app/[locale]/` e adicione o roteamento do next-intl (`defineRouting` + middleware). As mensagens já estão prontas para isso.
+- Inglês em `/` e português em `/pt-BR`, as duas páginas geradas estaticamente (`app/[locale]/`, next-intl com `localePrefix: "as-needed"`).
+- O seletor **EN | PT** fica no header (desktop e mobile) e no rodapé. Não há detecção automática pelo navegador: quem escolhe é o visitante. `/en` redireciona para `/`.
+- Metadata com `hreflang` (`en`, `pt-BR`, `x-default`), e o sitemap lista as duas URLs.
+- Textos em `messages/en.json` e `messages/pt-BR.json` (mesmas chaves). Para adicionar um idioma, inclua-o em `i18n/routing.ts` e crie o arquivo de mensagens.
 
 ## Qualidade (Lighthouse 12, build de produção local)
 

@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { BrandSvg } from "@/components/brand/BrandSvg";
 import { site } from "@/lib/site";
+import { LanguageSwitch } from "@/components/ui/LanguageSwitch";
 
 export async function Footer() {
   const t = await getTranslations("footer");
@@ -61,9 +62,10 @@ export async function Footer() {
             ))}
           </nav>
         </div>
-        <p className="ui-label mt-20 border-t border-paper/12 pt-8 text-paper/50">
-          {t("copyright", { year: new Date().getFullYear() })}
-        </p>
+        <div className="mt-20 flex flex-wrap items-center justify-between gap-4 border-t border-paper/12 pt-6">
+          <p className="ui-label text-paper/50">{t("copyright", { year: new Date().getFullYear() })}</p>
+          <LanguageSwitch label={tn("language")} dark />
+        </div>
       </div>
     </footer>
   );

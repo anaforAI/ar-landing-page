@@ -4,12 +4,21 @@ import { useEffect, useState, type ReactNode } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { RequestAccessButton } from "@/components/ui/RequestAccess";
 import { CloseIcon, MenuIcon } from "@/components/ui/icons";
+import { LanguageSwitch } from "@/components/ui/LanguageSwitch";
 import { EASE } from "@/components/motion/MotionProvider";
 
 type Props = {
   links: { href: string; label: string }[];
   appUrl: string;
-  labels: { nav: string; home: string; open: string; close: string; signIn: string; request: string };
+  labels: {
+    nav: string;
+    home: string;
+    open: string;
+    close: string;
+    signIn: string;
+    request: string;
+    language: string;
+  };
   logo: ReactNode;
   logoDark: ReactNode;
 };
@@ -20,14 +29,18 @@ export function HeaderClient({ links, appUrl, labels, logo, logoDark }: Props) {
   const [menu, setMenu] = useState(false);
 
   useEffect(() => {
-    const darks = Array.from(document.querySelectorAll<HTMLElement>("main .on-dark, footer.on-dark"));
+    const darks = Array.from(
+      document.querySelectorAll<HTMLElement>("main .on-dark, footer.on-dark"),
+    );
     const onScroll = () => {
       setScrolled(window.scrollY > 8);
       // The header switches to ink when it sits over a dark section.
-      setOverDark(darks.some((el) => {
-        const r = el.getBoundingClientRect();
-        return r.top <= 36 && r.bottom >= 36;
-      }));
+      setOverDark(
+        darks.some((el) => {
+          const r = el.getBoundingClientRect();
+          return r.top <= 36 && r.bottom >= 36;
+        }),
+      );
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -35,7 +48,9 @@ export function HeaderClient({ links, appUrl, labels, logo, logoDark }: Props) {
   }, []);
 
   useEffect(() => {
-    const lenis = (window as unknown as { __lenis?: { stop: () => void; start: () => void } }).__lenis;
+    const lenis = (
+      window as unknown as { __lenis?: { stop: () => void; start: () => void } }
+    ).__lenis;
     document.documentElement.style.overflow = menu ? "hidden" : "";
     if (menu) lenis?.stop();
     else lenis?.start();
@@ -56,15 +71,24 @@ export function HeaderClient({ links, appUrl, labels, logo, logoDark }: Props) {
       }`}
     >
       <div className="container-wide flex h-full items-center justify-between gap-6">
-        <a href="#top" aria-label={labels.home} className="logo-lift -m-2 rounded-[4px] p-2">
+        <a
+          href="#top"
+          aria-label={labels.home}
+          className="logo-lift -m-2 rounded-[4px] p-2"
+        >
           {dark ? logoDark : logo}
         </a>
 
         <nav aria-label={labels.nav} className="hidden lg:block">
-          <ul className={`flex items-center gap-8 text-[15px] ${dark ? "text-paper/80" : "text-ink/80"}`}>
+          <ul
+            className={`flex items-center gap-8 text-[15px] ${dark ? "text-paper/80" : "text-ink/80"}`}
+          >
             {links.map((l) => (
               <li key={l.href}>
-                <a href={l.href} className={`link-underline transition-colors ${dark ? "hover:text-paper" : "hover:text-ink"}`}>
+                <a
+                  href={l.href}
+                  className={`link-underline transition-colors ${dark ? "hover:text-paper" : "hover:text-ink"}`}
+                >
                   {l.label}
                 </a>
               </li>
@@ -72,25 +96,35 @@ export function HeaderClient({ links, appUrl, labels, logo, logoDark }: Props) {
           </ul>
         </nav>
 
-        <div className="hidden items-center gap-6 lg:flex">
-          <a href={appUrl} className={`link-underline text-[15px] ${dark ? "text-paper/80 hover:text-paper" : "text-ink/80 hover:text-ink"}`}>
+        <div className="hidden items-center gap-5 lg:flex">
+          <LanguageSwitch label={labels.language} dark={dark} />
+          <a
+            href={appUrl}
+            className={`link-underline text-[15px] ${dark ? "text-paper/80 hover:text-paper" : "text-ink/80 hover:text-ink"}`}
+          >
             {labels.signIn}
           </a>
-          <RequestAccessButton className={`btn btn-sm ${dark ? "btn-light" : "btn-primary"}`} arrow={false}>
+          <RequestAccessButton
+            className={`btn btn-sm ${dark ? "btn-light" : "btn-primary"}`}
+            arrow={false}
+          >
             {labels.request}
           </RequestAccessButton>
         </div>
 
-        <button
-          type="button"
-          className="-mr-2 grid h-11 w-11 place-items-center rounded-full lg:hidden"
-          aria-expanded={menu}
-          aria-controls="mobile-menu"
-          aria-label={menu ? labels.close : labels.open}
-          onClick={() => setMenu((m) => !m)}
-        >
-          {menu ? <CloseIcon /> : <MenuIcon />}
-        </button>
+        <div className="flex items-center gap-1 lg:hidden">
+          <LanguageSwitch label={labels.language} dark={dark} />
+          <button
+            type="button"
+            className="-mr-2 grid h-11 w-11 place-items-center rounded-full"
+            aria-expanded={menu}
+            aria-controls="mobile-menu"
+            aria-label={menu ? labels.close : labels.open}
+            onClick={() => setMenu((m) => !m)}
+          >
+            {menu ? <CloseIcon /> : <MenuIcon />}
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -110,7 +144,11 @@ export function HeaderClient({ links, appUrl, labels, logo, logoDark }: Props) {
                     key={l.href}
                     initial={{ opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.04 * i + 0.05, duration: 0.5, ease: EASE }}
+                    transition={{
+                      delay: 0.04 * i + 0.05,
+                      duration: 0.5,
+                      ease: EASE,
+                    }}
                     className="border-b border-sand"
                   >
                     <a
@@ -125,7 +163,12 @@ export function HeaderClient({ links, appUrl, labels, logo, logoDark }: Props) {
               </ul>
             </nav>
             <div className="container-wide flex flex-col gap-3 pb-10">
-              <RequestAccessButton className="btn btn-primary w-full" onClick={() => setMenu(false)}>{labels.request}</RequestAccessButton>
+              <RequestAccessButton
+                className="btn btn-primary w-full"
+                onClick={() => setMenu(false)}
+              >
+                {labels.request}
+              </RequestAccessButton>
               <a href={appUrl} className="btn btn-outline w-full">
                 {labels.signIn}
               </a>
