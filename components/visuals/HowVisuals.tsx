@@ -3,7 +3,7 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { motion } from "motion/react";
 import { EASE } from "@/components/motion/MotionProvider";
-import { CheckIcon, DocIcon, GithubMark, JiraMark, MeetMark } from "@/components/ui/icons";
+import { CheckIcon, DocIcon, GithubMark, JiraMark, MeetMark, MiroMark } from "@/components/ui/icons";
 
 type V = Record<string, string | string[]>;
 const s = (v: V, k: string) => v[k] as string;
@@ -35,15 +35,16 @@ function usePhases(count: number, step = 550, start = 250) {
 const tile =
   "rounded-[8px] border border-paper/10 bg-ink px-4 py-3 text-[14px] text-paper shadow-[0_1px_2px_rgb(0_0_0/0.3)]";
 
-/* 01 — Connect: three sources and the knowledge base flow into Anafor. */
+/* 01 — Connect: four sources and the knowledge base flow into Anafor. */
 function Connect({ v, symbol }: { v: V; symbol?: ReactNode }) {
   const sources = [
     { icon: <GithubMark aria-hidden="true" width={16} height={16} />, label: "GitHub" },
     { icon: <JiraMark aria-hidden="true" width={16} height={16} />, label: "Jira" },
     { icon: <MeetMark aria-hidden="true" width={16} height={16} />, label: "Google Meet" },
+    { icon: <MiroMark aria-hidden="true" width={16} height={16} />, label: "Miro" },
     { icon: <DocIcon width={16} height={16} />, label: s(v, "knowledge"), sub: s(v, "knowledgeItems") },
   ];
-  const ys = [17, 38, 59, 82];
+  const ys = [12, 29, 46, 63, 83];
   return (
     <div className="absolute inset-0" aria-hidden="true">
       <svg className="absolute inset-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
