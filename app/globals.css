@@ -314,14 +314,21 @@ html.lenis body {
   animation: anafor-lift 600ms var(--ease-anafor) both;
 }
 
-/* Header logo: the quarter starts detached along the diagonal and fits into place as the page
-   scrolls (--fit goes 0 to 1, set by HeaderClient). The resting state is the official logo. */
-.logo-fit svg {
-  overflow: visible;
-}
+/* Header logo: at the top of the page it is the official logo; as the page scrolls the quarter
+   descends along the diagonal and seats fully into its notch (--fit 0 to 1, set by HeaderClient).
+   (-16, +16) on the 104 grid makes its arc meet the notch exactly, closing the square. */
 .logo-fit svg > g > path:nth-child(2) {
   transform-box: view-box;
-  transform: translate(calc((1 - var(--fit, 1)) * 52px), calc((1 - var(--fit, 1)) * -52px));
+  transform: translate(calc(var(--fit, 0) * -16px), calc(var(--fit, 0) * 16px));
+}
+/* Closes the antialiasing seam where the arcs meet, only as the quarter seats (same color as the file). */
+.logo-fit .logo-seam-ink svg > g > path:nth-child(2) {
+  stroke: #0b0b0c;
+  stroke-width: calc(var(--fit, 0) * 3px);
+}
+.logo-fit .logo-seam-white svg > g > path:nth-child(2) {
+  stroke: #ffffff;
+  stroke-width: calc(var(--fit, 0) * 3px);
 }
 
 /* Hero headline: CSS-only word reveal, so the LCP element never waits for JS. */

@@ -42,8 +42,11 @@ export function HeaderClient({ links, appUrl, labels, logo, logoDark }: Props) {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const onScroll = () => {
       setScrolled(window.scrollY > 8);
-      const raw = reduce ? 1 : Math.min(1, window.scrollY / (window.innerHeight * 0.8));
-      const eased = 1 - Math.pow(1 - raw, 3);
+      // Seats gradually across Hero and Problem, completing as How it works reaches the header.
+      const how = document.getElementById("how");
+      const span = how ? Math.max(1, how.offsetTop - 72) : window.innerHeight * 2.5;
+      const raw = reduce ? 1 : Math.min(1, Math.max(0, window.scrollY / span));
+      const eased = raw * raw * (3 - 2 * raw);
       logoRef.current?.style.setProperty("--fit", eased.toFixed(4));
       const max = document.documentElement.scrollHeight - window.innerHeight;
       setProgress(max > 0 ? Math.min(1, window.scrollY / max) : 0);
