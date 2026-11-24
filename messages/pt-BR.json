@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Anafor | Tornando o impacto da engenharia visível",
-    "description": "A Anafor é uma plataforma de inteligência de engenharia. Ela conecta GitHub, Jira e Google Meet ao contexto da sua empresa e mostra, com evidências, como o trabalho de engenharia move o seu produto e o seu negócio.",
+    "description": "A Anafor é uma plataforma de inteligência de engenharia. Ela conecta GitHub, Jira, Google Meet e Miro ao contexto da sua empresa e mostra, com evidências, como o trabalho de engenharia move o seu produto e o seu negócio.",
     "ogAlt": "Anafor. Intelligence through information."
   },
   "common": {
@@ -57,16 +57,88 @@
       }
     ],
     "fragments": {
-      "label": "Fragmentos do trabalho de engenharia espalhados por várias ferramentas",
-      "prTag": "Pull request",
-      "prTitle": "Reprocessar webhooks de pagamento com falha",
-      "prMeta": "incorporada · 14 arquivos",
-      "ticketTag": "Jira",
-      "ticketTitle": "COM-103 · Retentativas de pagamento",
-      "ticketMeta": "Em andamento",
-      "noteTag": "Nota de reunião",
-      "noteTitle": "Decidimos priorizar a confiabilidade do checkout",
-      "noteMeta": "Google Meet · ter"
+      "label": "Como a Anafor transforma fragmentos de quatro ferramentas em um entendimento único",
+      "phases": [
+        "Fragmentos",
+        "Contexto",
+        "Inteligência",
+        "Entendimento"
+      ],
+      "captions": [
+        "Quatro ferramentas. Quatro perspectivas da mesma iniciativa, sem nenhuma relação aparente.",
+        "Os mesmos conceitos aparecem em lugares diferentes. As relações começam a surgir.",
+        "O motor de inteligência da Anafor interpreta essas relações e as conecta ao contexto da empresa.",
+        "Um entendimento único, separando o que foi observado do que ainda é inferência."
+      ],
+      "cards": [
+        {
+          "key": "meet",
+          "source": "Google Meet",
+          "tag": "Nota de reunião",
+          "title": "Decidimos priorizar a [confiabilidade] do [checkout]",
+          "meta": "Google Meet · ter"
+        },
+        {
+          "key": "miro",
+          "source": "Miro",
+          "tag": "Miro",
+          "title": "Mapa da jornada de [checkout]",
+          "meta": "Quadro · etapa de [pagamento] com 3 comentários"
+        },
+        {
+          "key": "jira",
+          "source": "Jira",
+          "tag": "Jira",
+          "title": "[COM-103] · Retentativas de [pagamento]",
+          "meta": "Em andamento"
+        },
+        {
+          "key": "github",
+          "source": "GitHub",
+          "tag": "Pull request",
+          "title": "Reprocessar webhooks de [pagamento] com falha",
+          "meta": "incorporada · refs [COM-103]"
+        }
+      ],
+      "relations": {
+        "top": "decisão ↔ execução",
+        "left": "checkout",
+        "right": "COM-103",
+        "bottom": "pagamento"
+      },
+      "engine": "Motor de Inteligência Anafor",
+      "nodes": [
+        "Decisão",
+        "Jornada",
+        "Trabalho",
+        "Código"
+      ],
+      "insight": {
+        "label": "Insight",
+        "initiative": "Iniciativa: confiabilidade do checkout",
+        "statement": "As retentativas de pagamento incorporadas esta semana executam a decisão de priorizar a confiabilidade do checkout.",
+        "rows": [
+          {
+            "state": "verified",
+            "label": "Observado",
+            "text": "PR incorporada, vinculada ao COM-103 e à decisão registrada na reunião de terça.",
+            "source": "Google Meet · Jira · GitHub"
+          },
+          {
+            "state": "inferred",
+            "label": "Inferido",
+            "text": "Menos falhas na etapa de pagamento da jornada de checkout.",
+            "source": "Relação entre o mapa do Miro e as retentativas"
+          },
+          {
+            "state": "hypothesis",
+            "label": "Hipótese",
+            "text": "Potencial redução do abandono no checkout.",
+            "source": "A validar com dados de conversão das próximas semanas"
+          }
+        ],
+        "note": "O que é observado vem das fontes. Inferências e hipóteses ficam marcadas até que os dados as confirmem."
+      }
     },
     "bridge": "Cada um desses fragmentos significa algo para o negócio.",
     "bridgeLink": "Veja como a Anafor descobre o quê"
@@ -79,7 +151,7 @@
       {
         "number": "01",
         "title": "Conectar",
-        "body": "GitHub, Jira e Google Meet, mais uma base de conhecimento com objetivos, KPIs, domínios e glossário da empresa e dos produtos."
+        "body": "GitHub, Jira, Google Meet e Miro, mais uma base de conhecimento com objetivos, KPIs, domínios e glossário da empresa e dos produtos."
       },
       {
         "number": "02",
