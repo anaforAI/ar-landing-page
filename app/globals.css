@@ -452,3 +452,126 @@ html.lenis body {
     animation: none;
   }
 }
+
+/* ---------- Knowledge convergence (Problem section) ---------- */
+/* One progress variable (--p, 0..1) on .cv; each step reads its own window: --a start, --w width.
+   --p defaults to 1, so without JS or with reduced motion the final state is what renders. */
+.cv {
+  --p: 1;
+}
+.cv-s {
+  --a: 0;
+  --w: 1;
+  --t: clamp(0, calc((var(--p) - var(--a)) / var(--w)), 1);
+}
+.cv-fade {
+  opacity: var(--t);
+}
+.cv-rise {
+  opacity: var(--t);
+  transform: translateY(calc((1 - var(--t)) * 12px));
+}
+
+/* Phase 1: fragments start apart, slightly askew, then settle. */
+.cv-frag {
+  opacity: calc(0.4 + 0.6 * var(--t));
+  transform: translate(calc((1 - var(--t)) * var(--dx, 0px)), calc((1 - var(--t)) * var(--dy, 0px)))
+    rotate(calc((1 - var(--t)) * var(--rot, 0deg)));
+}
+
+/* Phase 2: shared concepts light up (similarity), relationships are drawn (connectedness). */
+.cv-term {
+  --a: 0.18;
+  --w: 0.12;
+  --t: clamp(0, calc((var(--p) - var(--a)) / var(--w)), 1);
+  color: color-mix(in srgb, var(--anafor-teal) calc(var(--t) * 100%), currentColor);
+  background: linear-gradient(var(--anafor-teal-light), var(--anafor-teal-light)) left bottom / calc(var(--t) * 100%) 1.5px no-repeat;
+  padding-bottom: 1px;
+}
+.cv-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: calc(1 - var(--t));
+}
+.cv-link {
+  stroke: var(--anafor-teal-light);
+  stroke-width: 1.25;
+  stroke-linecap: round;
+}
+.cv-chip {
+  opacity: var(--t);
+  transform: translate(-50%, -50%) scale(calc(0.92 + 0.08 * var(--t)));
+}
+.cv-dim {
+  opacity: calc(1 - 0.5 * var(--t));
+}
+
+/* Phase 3: the engine. */
+.cv-flow {
+  stroke: var(--anafor-teal);
+  stroke-width: 1.25;
+  stroke-linecap: round;
+}
+.cv-ring {
+  stroke: var(--anafor-sand);
+  stroke-width: 1;
+}
+.cv-edge {
+  stroke: var(--anafor-teal);
+  stroke-opacity: 0.55;
+  stroke-width: 1;
+}
+.cv-edge-x {
+  stroke: var(--anafor-teal-light);
+  stroke-width: 1;
+  stroke-dasharray: 1;
+}
+.cv-node {
+  fill: var(--anafor-teal);
+}
+.cv-node-outer {
+  fill: var(--anafor-paper);
+  stroke: var(--anafor-teal);
+  stroke-width: 1.5;
+}
+.cv-node-label {
+  fill: var(--anafor-stone);
+  font: 600 11px/1 var(--font-sans);
+  letter-spacing: 0.01em;
+}
+.cv-core {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: var(--t);
+  transform: scale(calc(0.86 + 0.14 * var(--t)));
+}
+.cv-core-box {
+  fill: var(--anafor-white);
+  stroke: var(--anafor-sand);
+}
+/* The lifted quarter: seated in its notch, it lifts into place as the engine completes. */
+.cv-quarter {
+  transform-box: view-box;
+  transform: translate(calc((1 - var(--t)) * -16px), calc((1 - var(--t)) * 16px));
+}
+
+/* Phase 4 and the guide. */
+.cv-stem {
+  transform: scaleY(var(--t));
+}
+.cv-fill {
+  transform: scaleX(var(--t));
+}
+.cv-phase {
+  opacity: calc(0.5 + 0.5 * var(--t));
+}
+.cv-x {
+  --b: 2;
+  --wb: 0.05;
+  --u: clamp(0, calc((var(--p) - var(--b)) / var(--wb)), 1);
+  opacity: min(var(--t), calc(1 - var(--u)));
+}
+@media (prefers-reduced-motion: reduce) {
+  .cv {
+    --p: 1 !important;
+  }
+}
