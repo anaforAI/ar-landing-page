@@ -440,7 +440,7 @@
       "label": "Assistant demo",
       "title": "Anafor assistant",
       "questionLabel": "Question",
-      "question": "Why did the mobile team spend most of Q3 on infrastructure?",
+      "question": "What did the Kafka work in checkout mean for the business?",
       "ask": "Ask",
       "again": "Ask again",
       "thinking": "Reading sources…",
@@ -448,19 +448,19 @@
       "answer": [
         {
           "state": "verified",
-          "text": "Most Q3 pull requests from the mobile team are linked to roadmap item MOB-12, the offline sync foundation."
+          "text": "PR #512 introduced Kafka so orders no longer wait for payments to process. It is linked to PAY-88 and to the decision recorded in ADR-014."
         },
         {
           "state": "inferred",
-          "text": "Design reviews connect MOB-12 to the decision to replace the legacy sync layer before new features. Two of these links are still awaiting confirmation."
+          "text": "Through the Checkout resilience epic, this lets customers finish a purchase even when payment processing is slow, and reduces downtime during traffic peaks. The link to the epic is still awaiting confirmation."
         },
         {
           "state": "hypothesis",
-          "text": "This may explain the slower feature cadence in Q3. The evidence doesn't confirm it yet, so a product lead should validate it."
+          "text": "This may reduce checkout abandonment and losses from downtime during promotions. There is no data yet to confirm it, so the next promotion's conversion and incident data should be reviewed."
         }
       ],
       "sourcesLabel": "Sources",
-      "sources": "3 design reviews · 61 pull requests · roadmap item MOB-12",
+      "sources": "PR #512 · PAY-88 · ADR-014 · Checkout resilience epic",
       "permissionsNote": "Answer limited to sources you're allowed to see."
     }
   },

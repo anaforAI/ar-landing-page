@@ -440,7 +440,7 @@
       "label": "Demonstração do assistente",
       "title": "Assistente Anafor",
       "questionLabel": "Pergunta",
-      "question": "Por que o time mobile passou a maior parte do T3 em infraestrutura?",
+      "question": "O que a implementação do Kafka no checkout significou para o negócio?",
       "ask": "Perguntar",
       "again": "Perguntar de novo",
       "thinking": "Lendo as fontes…",
@@ -448,19 +448,19 @@
       "answer": [
         {
           "state": "verified",
-          "text": "A maioria das pull requests do time mobile no T3 está vinculada ao item de roadmap MOB-12, a base de sincronização offline."
+          "text": "O PR #512 implementou Kafka para que os pedidos deixem de esperar o processamento do pagamento. Ele está vinculado a PAY-88 e à decisão registrada no ADR-014."
         },
         {
           "state": "inferred",
-          "text": "Revisões de design ligam o MOB-12 à decisão de substituir a camada de sincronização legada antes de novas funcionalidades. Dois desses vínculos ainda aguardam confirmação."
+          "text": "Pelo épico Resiliência do checkout, isso permite que o cliente finalize a compra mesmo com o pagamento lento e reduz a indisponibilidade em picos de uso. O vínculo com o épico ainda aguarda confirmação."
         },
         {
           "state": "hypothesis",
-          "text": "Isso pode explicar o ritmo mais lento de funcionalidades no T3. As evidências ainda não confirmam, então uma liderança de produto deve validar."
+          "text": "Isso pode reduzir o abandono de compras e as perdas por indisponibilidade em promoções. Ainda não há dados que confirmem, então vale revisar a conversão e os incidentes da próxima promoção."
         }
       ],
       "sourcesLabel": "Fontes",
-      "sources": "3 revisões de design · 61 pull requests · item de roadmap MOB-12",
+      "sources": "PR #512 · PAY-88 · ADR-014 · Épico Resiliência do checkout",
       "permissionsNote": "Resposta limitada às fontes que você tem permissão para ver."
     }
   },
