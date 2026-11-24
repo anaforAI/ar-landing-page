@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useRef, useState, type KeyboardEvent } from "react";
+import { useRef, useState, type KeyboardEvent } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { EASE } from "@/components/motion/MotionProvider";
 import { EvidenceChip, type EvidenceState } from "@/components/ui/EvidenceChip";
@@ -13,15 +13,18 @@ export function LeaderTabs({
   tabsLabel,
   sampleLabel,
   stateLabels,
+  idPrefix = "leaders",
 }: {
   tabs: LeaderTab[];
   tabsLabel: string;
   sampleLabel: string;
   stateLabels: Record<string, string>;
+  /** Stable id prefix (deterministic on server and client, unlike useId). */
+  idPrefix?: string;
 }) {
   const [active, setActive] = useState(0);
   const refs = useRef<(HTMLButtonElement | null)[]>([]);
-  const id = useId();
+  const id = idPrefix;
 
   const onKey = (e: KeyboardEvent<HTMLDivElement>) => {
     const last = tabs.length - 1;
