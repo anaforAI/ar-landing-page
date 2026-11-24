@@ -20,7 +20,10 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "home": "Anafor home",
-    "language": "Language"
+    "language": "Language",
+    "example": "Example",
+    "intelligence": "Intelligence",
+    "trust": "Trust"
   },
   "hero": {
     "eyebrow": "Engineering intelligence",
@@ -65,6 +68,76 @@
       "noteTitle": "Decided to prioritise checkout reliability",
       "noteMeta": "Google Meet · Tue"
     }
+  },
+  "example": {
+    "eyebrow": "What Anafor delivers",
+    "title": "One pull request. Three ways to <em>understand</em> it.",
+    "body": "A developer adds Kafka so orders no longer wait for payments to finish processing. This is how Anafor reads that same delivery for engineering, product and leadership.",
+    "mockTitle": "Weekly report · Payments team",
+    "sourceLabel": "Source",
+    "prMeta": "PR #512 · Merged",
+    "prTitle": "Publish order events to Kafka. Payments consume them asynchronously.",
+    "prLinks": "Linked to PAY-88 · Epic: Checkout resilience · ADR-014",
+    "readsAs": "Anafor reads it three ways",
+    "views": [
+      {
+        "key": "technical",
+        "label": "Technical view",
+        "audience": "For engineering",
+        "state": "verified",
+        "items": [
+          "Event-driven architecture in place.",
+          "Orders and payments are decoupled.",
+          "Payments are processed asynchronously.",
+          "More resilience and room to scale."
+        ],
+        "source": "From the PR diff, PAY-88 and ADR-014"
+      },
+      {
+        "key": "product",
+        "label": "Product view",
+        "audience": "For product",
+        "state": "inferred",
+        "items": [
+          "Customers can finish a purchase without waiting for the payment to process.",
+          "Less downtime during traffic peaks."
+        ],
+        "source": "Linked to the Checkout resilience epic"
+      },
+      {
+        "key": "business",
+        "label": "Business view",
+        "audience": "For leadership",
+        "state": "hypothesis",
+        "items": [
+          "Potential reduction in checkout abandonment.",
+          "More capacity to absorb demand during promotions.",
+          "Potential reduction in losses caused by downtime."
+        ],
+        "source": "To validate: conversion and incident data from the next promotion"
+      }
+    ],
+    "note": "Potential impact stays a hypothesis until data confirms it. Anafor never presents it as a result.",
+    "takeaway": "Anafor turns a purely technical delivery into something the business can understand, <em>connecting the engineering decision to the value it can create.</em>",
+    "deliverablesLabel": "What your teams receive",
+    "deliverables": [
+      {
+        "title": "Daily digest",
+        "body": "What moved yesterday, by initiative."
+      },
+      {
+        "title": "Weekly report",
+        "body": "Progress, risks and decisions, for each audience."
+      },
+      {
+        "title": "Monthly summary",
+        "body": "Engineering impact on goals, in plain language."
+      },
+      {
+        "title": "Assistant",
+        "body": "Questions answered with the sources behind them."
+      }
+    ]
   },
   "how": {
     "eyebrow": "How Anafor works",
@@ -182,6 +255,42 @@
       "sources": "3 design reviews · 61 pull requests · roadmap item MOB-12",
       "permissionsNote": "Answer limited to sources you're allowed to see."
     }
+  },
+  "intelligence": {
+    "eyebrow": "Anafor Intelligence",
+    "title": "Beyond data. Beyond metrics. <em>Intelligence.</em>",
+    "body": "Transforming engineering activity into meaningful business understanding.",
+    "capabilities": [
+      {
+        "name": "Contextual Intelligence",
+        "body": "Understands the context and particularities of each organization."
+      },
+      {
+        "name": "Multi-Agent Reasoning",
+        "body": "Analyzes information from different perspectives and specialties."
+      },
+      {
+        "name": "Business Impact Mapping",
+        "body": "Connects technical decisions and engineering deliveries to business impact."
+      },
+      {
+        "name": "Continuous Intelligence",
+        "body": "Follows how the organization evolves, continuously."
+      },
+      {
+        "name": "Human-in-the-Loop",
+        "body": "People validate and complete the interpretations."
+      },
+      {
+        "name": "Evidence-Based Intelligence",
+        "body": "Conclusions grounded in evidence, separating facts from hypotheses."
+      },
+      {
+        "name": "Organizational Memory",
+        "body": "Builds and evolves the organization's knowledge over time."
+      }
+    ],
+    "statement": "We don't sell artificial intelligence. We sell <em>organizational understanding</em>, through it."
   },
   "leaders": {
     "eyebrow": "One source, every perspective",
@@ -343,14 +452,71 @@
     ]
   },
   "trust": {
-    "eyebrow": "Trust",
-    "title": "Built for understanding, <em>never</em> surveillance.",
+    "eyebrow": "Anafor Trust",
+    "title": "Your intelligence. Your data. <em>Your control.</em>",
+    "body": "Intelligence should never come at the expense of confidentiality. Anafor reads intellectual property, architecture decisions and product strategy, so protecting them is part of who we are.",
+    "commitmentsLabel": "Our commitments",
+    "commitments": [
+      {
+        "name": "Secure by Design",
+        "body": "Encryption in transit and at rest, across storage, communication and backups."
+      },
+      {
+        "name": "Zero Training Policy",
+        "body": "Customer data is never used to train or fine-tune our models or the third-party models the platform uses."
+      },
+      {
+        "name": "Privacy-Preserving Intelligence",
+        "body": "Sensitive information is anonymized, pseudonymized, sanitized and minimized before processing, where technically applicable."
+      },
+      {
+        "name": "Organizational Isolation",
+        "body": "Each organization's information, context and knowledge stay isolated from every other customer."
+      },
+      {
+        "name": "Data Ownership",
+        "body": "You own and control your information, including access, retention and deletion policies."
+      },
+      {
+        "name": "Intelligence Transparency",
+        "body": "Clear about how information is collected, processed, stored and used."
+      },
+      {
+        "name": "Responsible AI",
+        "body": "AI that respects permissions, confidentiality, access limits and your governance."
+      }
+    ],
+    "everyPlan": "Security is not a premium feature. Every plan gets the same protection, privacy and confidentiality.",
+    "message": "We transform your information into intelligence. <em>Never into training data.</em>",
+    "messageBody": "Our business is the value of the intelligence we deliver, not the data we receive.",
+    "title2": "Built for understanding, never surveillance.",
     "items": [
       "No individual performance scoring.",
       "Permissions are applied before AI sees anything.",
       "Restricted information is excluded without revealing it exists.",
       "Roles: Manager, Contributor, Viewer."
     ]
+  },
+  "foundations": {
+    "label": "Foundations",
+    "items": [
+      {
+        "key": "Purpose",
+        "title": "Make engineering's impact visible.",
+        "body": "Why we exist."
+      },
+      {
+        "key": "Intelligence",
+        "title": "Transform information into understanding.",
+        "body": "How we deliver value."
+      },
+      {
+        "key": "Trust",
+        "title": "Protect the knowledge that makes it possible.",
+        "body": "Why you can trust us."
+      }
+    ],
+    "tagline": "Powered by intelligence. Founded on trust."
   },
   "pricing": {
     "eyebrow": "Pricing",

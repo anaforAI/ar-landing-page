@@ -6,10 +6,10 @@ import { site } from "@/lib/site";
 export async function Header() {
   const t = await getTranslations();
   const links = [
-    { href: "#problem", label: t("nav.problem") },
+    { href: "#example", label: t("nav.example") },
     { href: "#how", label: t("nav.how") },
-    { href: "#evidence", label: t("nav.evidence") },
-    { href: "#leaders", label: t("nav.leaders") },
+    { href: "#intelligence", label: t("nav.intelligence") },
+    { href: "#trust", label: t("nav.trust") },
     { href: "#pricing", label: t("nav.pricing") },
   ];
   return (

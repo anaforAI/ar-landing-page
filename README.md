@@ -38,8 +38,9 @@ app/
 i18n/routing.ts           idiomas e rotas · middleware.ts aplica o roteamento
   fonts/                  Newsreader, Hanken Grotesk e Geist Mono em woff2, subset latin
 components/
-  sections/               uma seção por arquivo (Header, Hero, Problem, HowItWorks, Evidence,
-                          Leaders, Results, Trust, Pricing, FinalCta, Footer)
+  sections/               uma seção por arquivo (Header, Hero, Problem, Example, HowItWorks,
+                          Evidence, Intelligence, Leaders, Results, Trust, Foundations,
+                          Pricing, FinalCta, Footer)
   visuals/                visuais interativos (campo de quadrados, fragmentos, passos, demo do assistente, abas)
   motion/                 Reveal, RevealHeading, Lenis, MotionConfig
   brand/BrandSvg.tsx      insere os SVGs oficiais de /public/brand sem recriá-los
@@ -95,4 +96,10 @@ No mobile simulado, a performance ficou abaixo da meta de 95 e o LCP acima de 2,
 | `[CUSTOMER QUOTE]` | `components/sections/Results.tsx` (comentado) | Depoimento real e aprovado: `[NAME]`, `[ROLE]`, `[COMPANY]` |
 | `[ABOUT_URL]` · `[PRIVACY_URL]` · `[TERMS_URL]` | `lib/site.ts` | Links do rodapé (hoje `#`) |
 
-Os dados dos mocks (assistente, abas For leaders, How it works, card do hero) são ilustrativos e estão marcados como **Sample data** na interface. Não há números de resultado, depoimentos nem logos de clientes.
+Os dados dos mocks (exemplo do Kafka, assistente, abas For leaders, How it works, card do hero) são ilustrativos e estão marcados como **Sample data** na interface. Não há números de resultado, depoimentos nem logos de clientes.
+
+## Validar antes de publicar
+
+- **Anafor Trust** (`messages/*.json` → `trust.commitments`, `trust.everyPlan`, `trust.message`): o posicionamento original diz que essas garantias são a direção estratégica e precisam ser validadas antes de serem comunicadas como implementadas. Confirme com engenharia, jurídico e os contratos dos fornecedores de IA (sobretudo a Zero Training Policy) antes de ir ao ar. Se alguma ainda não estiver pronta, remova o item ou ajuste o texto.
+- O primeiro compromisso chegou truncado no texto de origem; foi publicado como **Secure by Design**. Confirme o nome.
+- **Anafor Intelligence** (`intelligence.capabilities`): confira se as sete capacidades descrevem o que o produto faz hoje.

@@ -117,7 +117,7 @@ function Mock({
   stateLabels: Record<string, string>;
 }) {
   return (
-    <div className="card overflow-hidden" aria-label={`${tab.mockTitle} — ${sampleLabel}`} role="figure">
+    <div className="card overflow-hidden" aria-label={`${tab.mockTitle}, ${sampleLabel}`} role="figure">
       <div className="flex items-center justify-between gap-4 border-b border-sand px-5 py-3.5">
         <p className="text-[14px] font-medium tracking-[-0.01em]">{tab.mockTitle}</p>
         <span className="ui-label rounded-[4px] border border-sand px-2 py-1 text-stone">

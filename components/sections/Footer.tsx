@@ -10,8 +10,11 @@ export async function Footer() {
     {
       title: t("product"),
       links: [
+        { href: "#example", label: tn("example") },
         { href: "#how", label: tn("how") },
         { href: "#evidence", label: tn("evidence") },
+        { href: "#intelligence", label: tn("intelligence") },
+        { href: "#trust", label: tn("trust") },
         { href: "#leaders", label: tn("leaders") },
         { href: "#pricing", label: tn("pricing") },
       ],

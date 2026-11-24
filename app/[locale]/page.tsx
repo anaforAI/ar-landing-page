@@ -9,6 +9,9 @@ import { Results } from "@/components/sections/Results";
 import { Trust } from "@/components/sections/Trust";
 import { Pricing } from "@/components/sections/Pricing";
 import { FinalCta } from "@/components/sections/FinalCta";
+import { Example } from "@/components/sections/Example";
+import { Intelligence } from "@/components/sections/Intelligence";
+import { Foundations } from "@/components/sections/Foundations";
 import { Footer } from "@/components/sections/Footer";
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
@@ -20,11 +23,14 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <main id="main">
         <Hero />
         <Problem />
+        <Example />
         <HowItWorks />
         <Evidence />
+        <Intelligence />
         <Leaders />
         <Results />
         <Trust />
+        <Foundations />
         <Pricing />
         <FinalCta />
       </main>

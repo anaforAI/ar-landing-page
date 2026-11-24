@@ -20,7 +20,10 @@
     "openMenu": "Abrir menu",
     "closeMenu": "Fechar menu",
     "home": "Página inicial da Anafor",
-    "language": "Idioma"
+    "language": "Idioma",
+    "example": "Exemplo",
+    "intelligence": "Intelligence",
+    "trust": "Trust"
   },
   "hero": {
     "eyebrow": "Inteligência de engenharia",
@@ -65,6 +68,76 @@
       "noteTitle": "Decidimos priorizar a confiabilidade do checkout",
       "noteMeta": "Google Meet · ter"
     }
+  },
+  "example": {
+    "eyebrow": "O que a Anafor entrega",
+    "title": "Um pull request. Três formas de <em>entendê-lo</em>.",
+    "body": "Um desenvolvedor implementa Kafka para que os pedidos deixem de esperar o processamento do pagamento. Veja como a Anafor lê essa mesma entrega para engenharia, produto e liderança.",
+    "mockTitle": "Relatório semanal · Time de Pagamentos",
+    "sourceLabel": "Origem",
+    "prMeta": "PR #512 · Merged",
+    "prTitle": "Publica eventos de pedido no Kafka. Pagamentos os consomem de forma assíncrona.",
+    "prLinks": "Vinculado a PAY-88 · Épico: Resiliência do checkout · ADR-014",
+    "readsAs": "A Anafor lê de três formas",
+    "views": [
+      {
+        "key": "technical",
+        "label": "Visão técnica",
+        "audience": "Para engenharia",
+        "state": "verified",
+        "items": [
+          "Arquitetura orientada a eventos implementada.",
+          "Pedidos e pagamentos desacoplados.",
+          "Pagamentos processados de forma assíncrona.",
+          "Mais resiliência e escalabilidade."
+        ],
+        "source": "A partir do diff do PR, PAY-88 e ADR-014"
+      },
+      {
+        "key": "product",
+        "label": "Visão de produto",
+        "audience": "Para produto",
+        "state": "inferred",
+        "items": [
+          "O cliente finaliza a compra sem depender do processamento imediato do pagamento.",
+          "Menos indisponibilidade em picos de uso."
+        ],
+        "source": "Vinculado ao épico Resiliência do checkout"
+      },
+      {
+        "key": "business",
+        "label": "Visão de negócio",
+        "audience": "Para a liderança",
+        "state": "hypothesis",
+        "items": [
+          "Potencial redução do abandono de compras.",
+          "Mais capacidade para absorver a demanda em promoções.",
+          "Potencial redução de perdas causadas por indisponibilidade."
+        ],
+        "source": "A validar: dados de conversão e incidentes da próxima promoção"
+      }
+    ],
+    "note": "Um impacto potencial continua sendo hipótese até que os dados o confirmem. A Anafor nunca o apresenta como resultado.",
+    "takeaway": "A Anafor transforma uma entrega puramente técnica em algo que o negócio entende, <em>conectando a decisão de engenharia ao valor que ela pode gerar.</em>",
+    "deliverablesLabel": "O que seus times recebem",
+    "deliverables": [
+      {
+        "title": "Resumo diário",
+        "body": "O que avançou ontem, por iniciativa."
+      },
+      {
+        "title": "Relatório semanal",
+        "body": "Progresso, riscos e decisões, para cada público."
+      },
+      {
+        "title": "Resumo mensal",
+        "body": "O impacto da engenharia nos objetivos, em linguagem simples."
+      },
+      {
+        "title": "Assistente",
+        "body": "Respostas com as fontes que as sustentam."
+      }
+    ]
   },
   "how": {
     "eyebrow": "Como a Anafor funciona",
@@ -182,6 +255,42 @@
       "sources": "3 revisões de design · 61 pull requests · item de roadmap MOB-12",
       "permissionsNote": "Resposta limitada às fontes que você tem permissão para ver."
     }
+  },
+  "intelligence": {
+    "eyebrow": "Anafor Intelligence",
+    "title": "Além dos dados. Além das métricas. <em>Inteligência.</em>",
+    "body": "Transformando a atividade de engenharia em entendimento real para o negócio.",
+    "capabilities": [
+      {
+        "name": "Contextual Intelligence",
+        "body": "Compreende o contexto e as particularidades de cada organização."
+      },
+      {
+        "name": "Multi-Agent Reasoning",
+        "body": "Analisa as informações sob diferentes perspectivas e especialidades."
+      },
+      {
+        "name": "Business Impact Mapping",
+        "body": "Conecta decisões técnicas e entregas de engenharia a impactos de negócio."
+      },
+      {
+        "name": "Continuous Intelligence",
+        "body": "Acompanha continuamente a evolução da organização."
+      },
+      {
+        "name": "Human-in-the-Loop",
+        "body": "Pessoas validam e complementam as interpretações."
+      },
+      {
+        "name": "Evidence-Based Intelligence",
+        "body": "Conclusões fundamentadas em evidências, separando fatos de hipóteses."
+      },
+      {
+        "name": "Organizational Memory",
+        "body": "Constrói e evolui o conhecimento da organização ao longo do tempo."
+      }
+    ],
+    "statement": "Não vendemos inteligência artificial. Vendemos <em>compreensão organizacional</em> através dela."
   },
   "leaders": {
     "eyebrow": "Uma fonte, todas as perspectivas",
@@ -343,14 +452,71 @@
     ]
   },
   "trust": {
-    "eyebrow": "Confiança",
-    "title": "Feita para entender, <em>nunca</em> para vigiar.",
+    "eyebrow": "Anafor Trust",
+    "title": "Sua inteligência. Seus dados. <em>Seu controle.</em>",
+    "body": "Inteligência nunca deve custar confidencialidade. A Anafor lê propriedade intelectual, decisões de arquitetura e estratégia de produto, por isso protegê-las faz parte de quem somos.",
+    "commitmentsLabel": "Nossos compromissos",
+    "commitments": [
+      {
+        "name": "Secure by Design",
+        "body": "Criptografia em trânsito e em repouso, no armazenamento, na comunicação e nos backups."
+      },
+      {
+        "name": "Zero Training Policy",
+        "body": "Nenhum dado de cliente é usado para treinar ou fazer fine-tuning dos nossos modelos nem dos modelos de terceiros usados pela plataforma."
+      },
+      {
+        "name": "Privacy-Preserving Intelligence",
+        "body": "Informações sensíveis são anonimizadas, pseudonimizadas, sanitizadas e minimizadas antes do processamento, quando tecnicamente aplicável."
+      },
+      {
+        "name": "Organizational Isolation",
+        "body": "Informações, contextos e conhecimento de cada organização ficam isolados dos demais clientes."
+      },
+      {
+        "name": "Data Ownership",
+        "body": "Sua organização mantém a propriedade e o controle das informações, incluindo políticas de acesso, retenção e exclusão."
+      },
+      {
+        "name": "Intelligence Transparency",
+        "body": "Clareza sobre como as informações são coletadas, processadas, armazenadas e utilizadas."
+      },
+      {
+        "name": "Responsible AI",
+        "body": "IA que respeita permissões, confidencialidade, limites de acesso e a sua governança."
+      }
+    ],
+    "everyPlan": "Segurança não é recurso premium. Todos os planos têm a mesma proteção, privacidade e confidencialidade.",
+    "message": "Transformamos suas informações em inteligência. <em>Nunca em dados de treinamento.</em>",
+    "messageBody": "Nosso negócio é o valor da inteligência que entregamos, não os dados que recebemos.",
+    "title2": "Feita para entender, nunca para vigiar.",
     "items": [
       "Nenhuma pontuação de desempenho individual.",
       "As permissões são aplicadas antes de a IA ver qualquer coisa.",
       "Informação restrita é excluída sem revelar que existe.",
       "Papéis: Manager, Contributor, Viewer."
     ]
+  },
+  "foundations": {
+    "label": "Fundamentos",
+    "items": [
+      {
+        "key": "Propósito",
+        "title": "Tornar visível o impacto da engenharia.",
+        "body": "Por que existimos."
+      },
+      {
+        "key": "Intelligence",
+        "title": "Transformar informação em entendimento.",
+        "body": "Como entregamos valor."
+      },
+      {
+        "key": "Trust",
+        "title": "Proteger o conhecimento que torna isso possível.",
+        "body": "Por que você pode confiar em nós."
+      }
+    ],
+    "tagline": "Powered by intelligence. Founded on trust."
   },
   "pricing": {
     "eyebrow": "Preços",
