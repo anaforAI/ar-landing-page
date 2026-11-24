@@ -29,6 +29,8 @@ export function HeaderClient({ links, appUrl, labels, logo, logoDark }: Props) {
   const [menu, setMenu] = useState(false);
   const [active, setActive] = useState<string | null>(null);
   const [progress, setProgress] = useState(0);
+  // The quarter connects to the symbol once, on load; afterwards hover keeps the lift.
+  const [intro, setIntro] = useState(true);
 
   useEffect(() => {
     const darks = Array.from(
@@ -88,9 +90,20 @@ export function HeaderClient({ links, appUrl, labels, logo, logoDark }: Props) {
         <a
           href="#top"
           aria-label={labels.home}
-          className="logo-lift -m-2 justify-self-start rounded-[4px] p-2"
+          onAnimationEnd={(e) => {
+            if (e.animationName === "logo-connect") setIntro(false);
+          }}
+          className={`-m-2 grid justify-self-start rounded-[4px] p-2 ${intro ? "logo-connect" : "logo-lift"}`}
         >
-          {dark ? logoDark : logo}
+          {/* Both lockups stay mounted and crossfade, so the intro never replays on theme change. */}
+          <span className={`[grid-area:1/1] transition-opacity duration-300 ${dark ? "opacity-0" : "opacity-100"}`}>
+            {logo}
+          </span>
+          <span
+            className={`[grid-area:1/1] transition-opacity duration-300 ${dark ? "opacity-100" : "opacity-0"}`}
+          >
+            {logoDark}
+          </span>
         </a>
 
         <nav aria-label={labels.nav} className="hidden lg:block">

@@ -314,6 +314,25 @@ html.lenis body {
   animation: anafor-lift 600ms var(--ease-anafor) both;
 }
 
+/* Header intro: the quarter arrives along the diagonal and connects to the symbol. */
+@keyframes logo-connect {
+  0% {
+    transform: translate(40px, -40px);
+    opacity: 0;
+  }
+  45% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+.logo-connect svg > g > path:nth-child(2) {
+  transform-box: view-box;
+  animation: logo-connect 1200ms var(--ease-anafor) 400ms both;
+}
+
 /* Hero headline: CSS-only word reveal, so the LCP element never waits for JS. */
 /* Starts at a low, non-zero opacity so the LCP is recorded on first paint, not after the reveal. */
 @keyframes word-up {
@@ -367,7 +386,8 @@ html.lenis body {
     animation-delay: 0ms;
   }
   .logo-lift:hover svg > g > path:nth-child(2),
-  .logo-lift:focus-visible svg > g > path:nth-child(2) {
+  .logo-lift:focus-visible svg > g > path:nth-child(2),
+  .logo-connect svg > g > path:nth-child(2) {
     animation: none;
   }
   .card-lift:hover {
