@@ -67,7 +67,138 @@
       "noteTag": "Meeting note",
       "noteTitle": "Decided to prioritise checkout reliability",
       "noteMeta": "Google Meet · Tue"
+    },
+    "bridge": "Each of these fragments means something for the business.",
+    "bridgeLink": "See how Anafor finds out"
+  },
+  "how": {
+    "eyebrow": "How Anafor works",
+    "title": "From fragmented signals to <em>shared understanding</em>.",
+    "progressLabel": "Step progress",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Connect",
+        "body": "GitHub, Jira and Google Meet, plus a knowledge base with your company's and products' goals, KPIs, domains and glossary."
+      },
+      {
+        "number": "02",
+        "title": "Correlate",
+        "body": "Pull requests are linked to tasks, epics and decisions. When there's no explicit key, AI suggests the link and a person confirms it."
+      },
+      {
+        "number": "03",
+        "title": "Interpret",
+        "body": "Agents read the signals in context and write the narrative. An evidence validator checks traceability, consistency and uncertainty before anything is published."
+      },
+      {
+        "number": "04",
+        "title": "Deliver",
+        "body": "Daily, weekly and monthly reports, shaped for each audience and permission. Plus an assistant that answers with sources."
+      }
+    ],
+    "footer": "Agents interpret. A deterministic service publishes.",
+    "visuals": {
+      "knowledge": "Knowledge base",
+      "knowledgeItems": "Goals · KPIs · Domains · Glossary",
+      "objective": "Objective",
+      "objectiveTitle": "Reliable checkout",
+      "epic": "Epic",
+      "epicTitle": "COM-100 · Payment resilience",
+      "subtask": "Subtask",
+      "subtaskTitle": "COM-103 · Payment retries",
+      "pr": "Pull request",
+      "prTitle": "COM-103 Retry failed webhooks",
+      "linked": "Linked by key",
+      "analyze": "Analyze",
+      "validate": "Validate",
+      "publish": "Publish",
+      "checks": [
+        "Traceability",
+        "Consistency",
+        "Uncertainty"
+      ],
+      "narrative": "Narrative",
+      "narrativeText": "Payment retries now recover failed webhooks automatically.",
+      "daily": "Daily",
+      "dailyText": "Blockers & changes",
+      "weekly": "Weekly",
+      "weeklyText": "Progress & trends",
+      "monthly": "Monthly",
+      "monthlyText": "Validated outcomes",
+      "assistantQ": "What changed in checkout this month?",
+      "assistantA": "Payment retries shipped behind a flag; rollout is pending.",
+      "assistantSources": "COM-103 · 4 PRs · release note"
     }
+  },
+  "intelligence": {
+    "eyebrow": "Anafor Intelligence Engine",
+    "title": "Beyond data. Beyond metrics. <em>Intelligence.</em>",
+    "body": "The intelligence behind a deeper understanding of your organization. Designed to connect engineering activity, product evolution and business objectives through contextual reasoning, semantic understanding and evidence-based intelligence.",
+    "capabilitiesLabel": "Capabilities",
+    "visualLabel": "Highlight a capability in the engine",
+    "stageLabel": "In development",
+    "domains": {
+      "engineering": "Engineering",
+      "product": "Product",
+      "business": "Business",
+      "human": "Human expertise"
+    },
+    "capabilities": [
+      {
+        "key": "context",
+        "name": "Contextual Intelligence",
+        "stage": "",
+        "body": "Understands information within its technical, organizational and strategic context, rather than interpreting isolated events or metrics."
+      },
+      {
+        "key": "reasoning",
+        "name": "Multi-Agent Reasoning",
+        "stage": "",
+        "body": "A specialized intelligence architecture that combines multiple analytical perspectives to interpret complex organizational information, establish relationships and validate conclusions."
+      },
+      {
+        "key": "semantic",
+        "name": "Semantic Understanding",
+        "stage": "",
+        "body": "Understands the meaning, intent and relationships behind engineering activities, architectural decisions, product initiatives and business objectives."
+      },
+      {
+        "key": "cross",
+        "name": "Cross-Domain Intelligence",
+        "stage": "",
+        "body": "Connects engineering, product and business through multidimensional reasoning, making the broader significance of technical decisions and deliveries visible."
+      },
+      {
+        "key": "evidence",
+        "name": "Evidence-Based Intelligence",
+        "stage": "",
+        "body": "Grounds interpretations in traceable evidence, distinguishing observed facts, inferred relationships, hypotheses and validated conclusions."
+      },
+      {
+        "key": "knowledge",
+        "name": "Continuous Organizational Knowledge",
+        "stage": "",
+        "body": "Builds an evolving understanding of the organization by continuously incorporating new information, historical context and validated knowledge."
+      },
+      {
+        "key": "human",
+        "name": "Human-in-the-Loop",
+        "stage": "",
+        "body": "Recognizes knowledge gaps, incorporates human expertise and refines interpretations when more context or validation is needed."
+      }
+    ],
+    "closing": "Intelligence that understands <em>why</em> engineering matters.",
+    "closingBody": "Not just what was built. Not just how much was delivered. But what it means for the organization.",
+    "purposeLabel": "The foundation behind our purpose",
+    "purpose": "Making engineering's impact visible.",
+    "introSteps": [
+      "Fragmented signals",
+      "Contextualized by domain",
+      "Interconnected",
+      "Interpreted",
+      "Grounded in evidence"
+    ]
   },
   "example": {
     "eyebrow": "What Anafor delivers",
@@ -138,185 +269,6 @@
         "body": "Questions answered with the sources behind them."
       }
     ]
-  },
-  "how": {
-    "eyebrow": "How Anafor works",
-    "title": "From fragmented signals to <em>shared understanding</em>.",
-    "progressLabel": "Step progress",
-    "steps": [
-      {
-        "number": "01",
-        "title": "Connect",
-        "body": "GitHub, Jira and Google Meet, plus a knowledge base with your company's and products' goals, KPIs, domains and glossary."
-      },
-      {
-        "number": "02",
-        "title": "Correlate",
-        "body": "Pull requests are linked to tasks, epics and decisions. When there's no explicit key, AI suggests the link and a person confirms it."
-      },
-      {
-        "number": "03",
-        "title": "Interpret",
-        "body": "Agents read the signals in context and write the narrative. An evidence validator checks traceability, consistency and uncertainty before anything is published."
-      },
-      {
-        "number": "04",
-        "title": "Deliver",
-        "body": "Daily, weekly and monthly reports, shaped for each audience and permission. Plus an assistant that answers with sources."
-      }
-    ],
-    "footer": "Agents interpret. A deterministic service publishes.",
-    "visuals": {
-      "knowledge": "Knowledge base",
-      "knowledgeItems": "Goals · KPIs · Domains · Glossary",
-      "objective": "Objective",
-      "objectiveTitle": "Reliable checkout",
-      "epic": "Epic",
-      "epicTitle": "COM-100 · Payment resilience",
-      "subtask": "Subtask",
-      "subtaskTitle": "COM-103 · Payment retries",
-      "pr": "Pull request",
-      "prTitle": "COM-103 Retry failed webhooks",
-      "linked": "Linked by key",
-      "analyze": "Analyze",
-      "validate": "Validate",
-      "publish": "Publish",
-      "checks": [
-        "Traceability",
-        "Consistency",
-        "Uncertainty"
-      ],
-      "narrative": "Narrative",
-      "narrativeText": "Payment retries now recover failed webhooks automatically.",
-      "daily": "Daily",
-      "dailyText": "Blockers & changes",
-      "weekly": "Weekly",
-      "weeklyText": "Progress & trends",
-      "monthly": "Monthly",
-      "monthlyText": "Validated outcomes",
-      "assistantQ": "What changed in checkout this month?",
-      "assistantA": "Payment retries shipped behind a flag; rollout is pending.",
-      "assistantSources": "COM-103 · 4 PRs · release note"
-    }
-  },
-  "evidence": {
-    "eyebrow": "Evidence, not guesswork",
-    "title": "Every conclusion shows <em>how sure</em> we are.",
-    "states": [
-      {
-        "key": "verified",
-        "label": "Verified",
-        "body": "Confirmed by explicit sources.",
-        "example": "PR #482 references COM-103 in its title."
-      },
-      {
-        "key": "inferred",
-        "label": "Inferred",
-        "body": "A likely relationship, waiting for confirmation.",
-        "example": "AI suggests PR #497 belongs to COM-103. The reviewer hasn't confirmed yet."
-      },
-      {
-        "key": "hypothesis",
-        "label": "Hypothesis",
-        "body": "A possibility still to be validated.",
-        "example": "The retry work may explain fewer support tickets. Not enough evidence yet."
-      }
-    ],
-    "principlesLabel": "Principles",
-    "principles": [
-      "An inferred link stays a suggestion until someone confirms it.",
-      "A merged PR doesn't mean a shipped feature.",
-      "Missing confirmation is never a negative conclusion."
-    ],
-    "demo": {
-      "label": "Assistant demo",
-      "title": "Anafor assistant",
-      "questionLabel": "Question",
-      "question": "Why did the mobile team spend most of Q3 on infrastructure?",
-      "ask": "Ask",
-      "again": "Ask again",
-      "thinking": "Reading sources…",
-      "answerLabel": "Answer",
-      "answer": [
-        {
-          "state": "verified",
-          "text": "Most Q3 pull requests from the mobile team are linked to roadmap item MOB-12, the offline sync foundation."
-        },
-        {
-          "state": "inferred",
-          "text": "Design reviews connect MOB-12 to the decision to replace the legacy sync layer before new features. Two of these links are still awaiting confirmation."
-        },
-        {
-          "state": "hypothesis",
-          "text": "This may explain the slower feature cadence in Q3. The evidence doesn't confirm it yet, so a product lead should validate it."
-        }
-      ],
-      "sourcesLabel": "Sources",
-      "sources": "3 design reviews · 61 pull requests · roadmap item MOB-12",
-      "permissionsNote": "Answer limited to sources you're allowed to see."
-    }
-  },
-  "intelligence": {
-    "eyebrow": "Anafor Intelligence Engine",
-    "title": "Beyond data. Beyond metrics. <em>Intelligence.</em>",
-    "body": "The intelligence behind a deeper understanding of your organization. Designed to connect engineering activity, product evolution and business objectives through contextual reasoning, semantic understanding and evidence-based intelligence.",
-    "capabilitiesLabel": "Capabilities",
-    "visualLabel": "Highlight a capability in the engine",
-    "stageLabel": "In development",
-    "domains": {
-      "engineering": "Engineering",
-      "product": "Product",
-      "business": "Business",
-      "human": "Human expertise"
-    },
-    "capabilities": [
-      {
-        "key": "context",
-        "name": "Contextual Intelligence",
-        "stage": "",
-        "body": "Understands information within its technical, organizational and strategic context, rather than interpreting isolated events or metrics."
-      },
-      {
-        "key": "reasoning",
-        "name": "Multi-Agent Reasoning",
-        "stage": "",
-        "body": "A specialized intelligence architecture that combines multiple analytical perspectives to interpret complex organizational information, establish relationships and validate conclusions."
-      },
-      {
-        "key": "semantic",
-        "name": "Semantic Understanding",
-        "stage": "",
-        "body": "Understands the meaning, intent and relationships behind engineering activities, architectural decisions, product initiatives and business objectives."
-      },
-      {
-        "key": "cross",
-        "name": "Cross-Domain Intelligence",
-        "stage": "",
-        "body": "Connects engineering, product and business through multidimensional reasoning, making the broader significance of technical decisions and deliveries visible."
-      },
-      {
-        "key": "evidence",
-        "name": "Evidence-Based Intelligence",
-        "stage": "",
-        "body": "Grounds interpretations in traceable evidence, distinguishing observed facts, inferred relationships, hypotheses and validated conclusions."
-      },
-      {
-        "key": "knowledge",
-        "name": "Continuous Organizational Knowledge",
-        "stage": "",
-        "body": "Builds an evolving understanding of the organization by continuously incorporating new information, historical context and validated knowledge."
-      },
-      {
-        "key": "human",
-        "name": "Human-in-the-Loop",
-        "stage": "",
-        "body": "Recognizes knowledge gaps, incorporates human expertise and refines interpretations when more context or validation is needed."
-      }
-    ],
-    "closing": "Intelligence that understands <em>why</em> engineering matters.",
-    "closingBody": "Not just what was built. Not just how much was delivered. But what it means for the organization.",
-    "purposeLabel": "The foundation behind our purpose",
-    "purpose": "Making engineering's impact visible."
   },
   "leaders": {
     "eyebrow": "One source, every perspective",
@@ -455,27 +407,62 @@
       }
     ]
   },
-  "results": {
-    "eyebrow": "What changes",
-    "title": "When engineering is visible, the <em>whole company</em> decides better.",
-    "items": [
+  "evidence": {
+    "eyebrow": "Evidence, not guesswork",
+    "title": "Every conclusion shows <em>how sure</em> we are.",
+    "states": [
       {
-        "lead": "Engineering gets credit for the work that matters:",
-        "rest": "architecture, reliability and technical debt, not just features."
+        "key": "verified",
+        "label": "Verified",
+        "body": "Confirmed by explicit sources.",
+        "example": "PR #482 references COM-103 in its title."
       },
       {
-        "lead": "Product sees which technical work moved the roadmap,",
-        "rest": "and what's blocking it."
+        "key": "inferred",
+        "label": "Inferred",
+        "body": "A likely relationship, waiting for confirmation.",
+        "example": "AI suggests PR #497 belongs to COM-103. The reviewer hasn't confirmed yet."
       },
       {
-        "lead": "Leadership invests with evidence:",
-        "rest": "capacity, risk and alignment in one place, every month."
-      },
-      {
-        "lead": "Hours of status reporting become automatic,",
-        "rest": "with reports that write themselves and cite their sources."
+        "key": "hypothesis",
+        "label": "Hypothesis",
+        "body": "A possibility still to be validated.",
+        "example": "The retry work may explain fewer support tickets. Not enough evidence yet."
       }
-    ]
+    ],
+    "principlesLabel": "Principles",
+    "principles": [
+      "An inferred link stays a suggestion until someone confirms it.",
+      "A merged PR doesn't mean a shipped feature.",
+      "Missing confirmation is never a negative conclusion."
+    ],
+    "demo": {
+      "label": "Assistant demo",
+      "title": "Anafor assistant",
+      "questionLabel": "Question",
+      "question": "Why did the mobile team spend most of Q3 on infrastructure?",
+      "ask": "Ask",
+      "again": "Ask again",
+      "thinking": "Reading sources…",
+      "answerLabel": "Answer",
+      "answer": [
+        {
+          "state": "verified",
+          "text": "Most Q3 pull requests from the mobile team are linked to roadmap item MOB-12, the offline sync foundation."
+        },
+        {
+          "state": "inferred",
+          "text": "Design reviews connect MOB-12 to the decision to replace the legacy sync layer before new features. Two of these links are still awaiting confirmation."
+        },
+        {
+          "state": "hypothesis",
+          "text": "This may explain the slower feature cadence in Q3. The evidence doesn't confirm it yet, so a product lead should validate it."
+        }
+      ],
+      "sourcesLabel": "Sources",
+      "sources": "3 design reviews · 61 pull requests · roadmap item MOB-12",
+      "permissionsNote": "Answer limited to sources you're allowed to see."
+    }
   },
   "trust": {
     "eyebrow": "Anafor Trust",
@@ -521,6 +508,28 @@
       "Permissions are applied before AI sees anything.",
       "Restricted information is excluded without revealing it exists.",
       "Roles: Manager, Contributor, Viewer."
+    ]
+  },
+  "results": {
+    "eyebrow": "What changes",
+    "title": "When engineering is visible, the <em>whole company</em> decides better.",
+    "items": [
+      {
+        "lead": "Engineering gets credit for the work that matters:",
+        "rest": "architecture, reliability and technical debt, not just features."
+      },
+      {
+        "lead": "Product sees which technical work moved the roadmap,",
+        "rest": "and what's blocking it."
+      },
+      {
+        "lead": "Leadership invests with evidence:",
+        "rest": "capacity, risk and alignment in one place, every month."
+      },
+      {
+        "lead": "Hours of status reporting become automatic,",
+        "rest": "with reports that write themselves and cite their sources."
+      }
     ]
   },
   "foundations": {

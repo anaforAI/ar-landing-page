@@ -38,9 +38,7 @@ app/
 i18n/routing.ts           idiomas e rotas · middleware.ts aplica o roteamento
   fonts/                  Newsreader, Hanken Grotesk e Geist Mono em woff2, subset latin
 components/
-  sections/               uma seção por arquivo (Header, Hero, Problem, Example, HowItWorks,
-                          Evidence, Intelligence, Leaders, Results, Trust, Foundations,
-                          Pricing, FinalCta, Footer)
+  sections/               uma seção por arquivo; a ordem está em app/[locale]/page.tsx
   visuals/                visuais interativos (campo de quadrados, fragmentos, passos, demo do assistente, abas, motor de inteligência)
   motion/                 Reveal, RevealHeading, Lenis, MotionConfig
   brand/BrandSvg.tsx      insere os SVGs oficiais de /public/brand sem recriá-los
@@ -49,6 +47,22 @@ messages/                 en.json e pt-BR.json (revise a tradução antes de pub
 styles/anafor-tokens.css  cópia literal de anafor-branding/04-cores-e-tokens
 public/brand/             logos copiados de anafor-branding/01-logo
 ```
+
+## Fluxo da página
+
+A ordem segue um arco de Cognitive Experience Design: o objetivo é o máximo de valor percebido por unidade de atenção, não o máximo de tempo na página.
+
+| Etapa | Seções | Papel |
+|---|---|---|
+| 01 Atenção | Hero | Composição marcante e a promessa em uma linha |
+| 02 Curiosidade | Problem | A atividade é visível, o impacto não. Termina com a pergunta que leva ao próximo passo |
+| 03 Antecipação | How it works | Revelação progressiva: conectar, correlacionar, interpretar, entregar |
+| 04 Entendimento | Intelligence Engine | O motor se monta em 5 etapas e mostra engenharia, produto e negócio se relacionando |
+| 05 Aha | Example, For leaders | Um PR lido em três visões; a mesma verdade para cada liderança |
+| 06 Confiança | Evidence, Trust, Results | Quão seguros estamos, como os dados são protegidos, o que os clientes veem |
+| 07 Decisão | Foundations, Pricing, CTA final | Fechamento e próximo passo |
+
+Nada de rolagem infinita, recompensa variável ou outros padrões de retenção: cada seção resolve uma dúvida e entrega a próxima.
 
 ## Branding
 

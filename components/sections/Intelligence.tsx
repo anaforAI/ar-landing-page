@@ -12,9 +12,10 @@ export async function Intelligence() {
     <section
       id="intelligence"
       aria-labelledby="intelligence-title"
-      className="on-dark section-y relative overflow-hidden bg-ink text-paper"
+      className="on-dark relative overflow-hidden bg-ink pb-20 text-paper lg:pb-36"
     >
-      <div className="container-text">
+      {/* Follows How it works (also dark): a hairline separates the two chapters. */}
+      <div className="container-text border-t border-paper/12 pt-20 lg:pt-36">
         <SectionHeader
           id="intelligence-title"
           eyebrow={t("eyebrow")}
@@ -27,6 +28,7 @@ export async function Intelligence() {
           labels={t.raw("domains") as EngineLabels}
           listLabel={t("capabilitiesLabel")}
           stageLabel={t("stageLabel")}
+          introSteps={t.raw("introSteps") as string[]}
           symbol={<BrandSvg file="anafor-symbol-white.svg" decorative />}
         />
 

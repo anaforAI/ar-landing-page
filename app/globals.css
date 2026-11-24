@@ -434,8 +434,12 @@ html.lenis body {
 .lift-in svg > g > path:nth-child(2) {
   animation: anafor-lift 600ms var(--ease-anafor) 1100ms both;
 }
+.engine-lift svg > g > path:nth-child(2) {
+  animation: anafor-lift 700ms var(--ease-anafor) 450ms both;
+}
 @media (prefers-reduced-motion: reduce) {
-  .lift-in svg > g > path:nth-child(2) {
+  .lift-in svg > g > path:nth-child(2),
+  .engine-lift svg > g > path:nth-child(2) {
     animation: none;
   }
 }

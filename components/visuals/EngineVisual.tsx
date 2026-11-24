@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 /**
  * The Intelligence Engine, drawn as a living system: fragments drift in, settle into three
  * knowledge domains (Engineering, Product, Business) and get connected through the center.
- * `mode` (0..6) emphasizes one capability. Conceptual only: it does not depict the real
+ * On first view it builds itself in steps (INTRO_STEPS): fragments, domains, relationships,
+ * interpretation, evidence. Afterwards `mode` (0..6) emphasizes one capability. Conceptual only: it does not depict the real
  * implementation.
  */
 
@@ -26,6 +27,9 @@ const HUMAN: Vec = { x: 0.88, y: 0.25 };
 const RINGS = [0.1, 0.15, 0.205];
 const BASE: Weights = { rings: 0.35, orbit: 0, semantic: 0.35, cross: 0.3, evidence: 0, flow: 0.45, human: 0 };
 const KEYS: (keyof Weights)[] = ["rings", "orbit", "semantic", "cross", "evidence", "flow", "human"];
+
+export const INTRO_STEPS = 5;
+const STEP_SECONDS = 1.9;
 
 function target(mode: number): Weights {
   const w = { ...BASE };
@@ -71,16 +75,41 @@ function hexToRgb(hex: string): [number, number, number] {
   return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
 }
 
-export function EngineVisual({ mode, labels, symbol }: { mode: number; labels: EngineLabels; symbol?: ReactNode }) {
+export function EngineVisual({
+  mode,
+  labels,
+  symbol,
+  skipIntro = false,
+  onStage,
+}: {
+  mode: number;
+  labels: EngineLabels;
+  symbol?: ReactNode;
+  /** Jump straight to the finished composition (e.g. the visitor picked a capability). */
+  skipIntro?: boolean;
+  /** Intro progress: -1 not started, 0..INTRO_STEPS-1 building, INTRO_STEPS done. */
+  onStage?: (stage: number) => void;
+}) {
   const wrap = useRef<HTMLDivElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
   const modeRef = useRef(mode);
   const redraw = useRef<() => void>(() => {});
+  const skipRef = useRef<() => void>(() => {});
+  const onStageRef = useRef(onStage);
+  const [stage, setStage] = useState(-1);
+
+  useEffect(() => {
+    onStageRef.current = onStage;
+  }, [onStage]);
 
   useEffect(() => {
     modeRef.current = mode;
     redraw.current();
   }, [mode]);
+
+  useEffect(() => {
+    if (skipIntro) skipRef.current();
+  }, [skipIntro]);
 
   useEffect(() => {
     const el = wrap.current;
@@ -97,6 +126,32 @@ export function EngineVisual({ mode, labels, symbol }: { mode: number; labels: E
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const clusters = buildClusters();
     const w: Weights = { ...target(modeRef.current) };
+    // Intro: which layers are revealed (nodes, relationships, center), eased toward their targets.
+    let introStage = -1;
+    let introT = 0;
+    const show = { nodes: 0, links: 0, center: 0 };
+    const setIntro = (st: number) => {
+      // The story opens on scattered fragments already in the field.
+      if (st === 0) for (let i = 0; i < 28; i++) {
+        spawnFrag();
+        frags[frags.length - 1].t = r() * 0.5;
+      }
+      introStage = st;
+      introT = 0;
+      setStage(st);
+      onStageRef.current?.(st);
+    };
+    const showTarget = () => ({
+      nodes: introStage >= 1 ? 1 : 0,
+      links: introStage >= 2 ? 1 : 0,
+      center: introStage >= 3 ? 1 : 0,
+    });
+    const weightsTarget = () => {
+      if (introStage >= INTRO_STEPS) return target(modeRef.current);
+      const tw = target(-1);
+      if (introStage === 4) tw.evidence = 1;
+      return tw;
+    };
     const frags: Frag[] = [];
     const pulses: Pulse[] = [];
     const arcs: Arc[] = [];
@@ -169,12 +224,12 @@ export function EngineVisual({ mode, labels, symbol }: { mode: number; labels: E
 
       // Layered context rings around the center
       RINGS.forEach((rr, i) => {
-        ctx.strokeStyle = rgba(PAPER, 0.05 + 0.1 * w.rings);
+        ctx.strokeStyle = rgba(PAPER, (0.05 + 0.1 * w.rings) * (0.35 + 0.65 * show.center));
         ctx.beginPath();
         ctx.arc(px(C.x), px(C.y), px(rr), 0, Math.PI * 2);
         ctx.stroke();
         const a0 = time * (0.18 + i * 0.07) * (i % 2 ? -1 : 1) + i;
-        ctx.strokeStyle = rgba(TEAL, 0.12 + 0.6 * w.rings);
+        ctx.strokeStyle = rgba(TEAL, (0.12 + 0.6 * w.rings) * show.center);
         ctx.lineWidth = 1.25;
         ctx.beginPath();
         ctx.arc(px(C.x), px(C.y), px(rr), a0, a0 + 0.35 + 0.5 * w.rings);
@@ -185,7 +240,7 @@ export function EngineVisual({ mode, labels, symbol }: { mode: number; labels: E
       // Spokes from each domain to the center
       HUBS.forEach((h) => {
         const ang = Math.atan2(h.y - C.y, h.x - C.x);
-        ctx.strokeStyle = rgba(PAPER, 0.1);
+        ctx.strokeStyle = rgba(PAPER, 0.1 * show.links);
         ctx.beginPath();
         ctx.moveTo(px(h.x), px(h.y));
         ctx.lineTo(px(C.x + Math.cos(ang) * RINGS[2]), px(C.y + Math.sin(ang) * RINGS[2]));
@@ -199,7 +254,7 @@ export function EngineVisual({ mode, labels, symbol }: { mode: number; labels: E
         const ang = Math.atan2(h.y - C.y, h.x - C.x);
         const ex = C.x + Math.cos(ang) * RINGS[0];
         const ey = C.y + Math.sin(ang) * RINGS[0];
-        ctx.globalAlpha = Math.sin(Math.PI * p.t);
+        ctx.globalAlpha = Math.sin(Math.PI * p.t) * show.links;
         square(px(h.x + (ex - h.x) * p.t), px(h.y + (ey - h.y) * p.t), unit * 0.6);
       });
       ctx.globalAlpha = 1;
@@ -209,7 +264,7 @@ export function EngineVisual({ mode, labels, symbol }: { mode: number; labels: E
         const a = nodePos(arc.a[0], arc.a[1]);
         const b = nodePos(arc.b[0], arc.b[1]);
         const k = arc.life / arc.dur;
-        const alpha = Math.sin(Math.PI * k) * (0.18 + 0.55 * w.cross);
+        const alpha = Math.sin(Math.PI * k) * (0.18 + 0.55 * w.cross) * show.links;
         ctx.strokeStyle = rgba(TEAL, alpha);
         ctx.beginPath();
         ctx.moveTo(px(a.x), px(a.y));
@@ -224,7 +279,7 @@ export function EngineVisual({ mode, labels, symbol }: { mode: number; labels: E
 
       // Domains: semantic links and nodes
       clusters.forEach((nodes, d) => {
-        ctx.strokeStyle = rgba(TEAL, 0.06 + 0.42 * w.semantic);
+        ctx.strokeStyle = rgba(TEAL, (0.06 + 0.42 * w.semantic) * show.links);
         nodes.forEach((n, i) => {
           const p = nodePos(d, i);
           n.nb.forEach((j) => {
@@ -241,11 +296,11 @@ export function EngineVisual({ mode, labels, symbol }: { mode: number; labels: E
           const x = px(p.x);
           const y = px(p.y);
           // plain node
-          ctx.fillStyle = rgba(n.flash > 0.05 ? TEAL : PAPER, (0.7 + 0.3 * n.flash) * (1 - w.evidence));
+          ctx.fillStyle = rgba(n.flash > 0.05 ? TEAL : PAPER, (0.7 + 0.3 * n.flash) * (1 - w.evidence) * show.nodes);
           square(x, y, s);
           // evidence markers: verified (filled), inferred (half), hypothesis (outline)
           if (w.evidence > 0.01) {
-            const e = w.evidence;
+            const e = w.evidence * show.nodes;
             const sz = s * 1.35;
             ctx.strokeStyle = rgba(TEAL, e);
             ctx.lineWidth = 1.25;
@@ -267,7 +322,7 @@ export function EngineVisual({ mode, labels, symbol }: { mode: number; labels: E
         const x = (1 - e) * (1 - e) * f.sx + 2 * (1 - e) * e * mx + e * e * tgt.x;
         const y = (1 - e) * (1 - e) * f.sy + 2 * (1 - e) * e * my + e * e * tgt.y;
         const settled = f.t > 0.75;
-        ctx.fillStyle = settled ? rgba(TEAL, 0.9) : rgba(PAPER, 0.18 + 0.3 * f.t);
+        ctx.fillStyle = settled ? rgba(TEAL, 0.9) : rgba(PAPER, 0.32 + 0.3 * f.t);
         square(px(x), px(y), unit * (1.3 - 0.3 * f.t), f.rot * (1 - e));
       });
 
@@ -319,9 +374,16 @@ export function EngineVisual({ mode, labels, symbol }: { mode: number; labels: E
 
     const step = (dt: number) => {
       time += dt;
-      const tw = target(modeRef.current);
+      if (introStage >= 0 && introStage < INTRO_STEPS) {
+        introT += dt;
+        if (introT > STEP_SECONDS) setIntro(introStage + 1);
+      }
+      const tw = weightsTarget();
       const k = 1 - Math.pow(0.04, dt); // smooth, frame-rate independent
       KEYS.forEach((key) => (w[key] += (tw[key] - w[key]) * k));
+      const ts = showTarget();
+      const ks = 1 - Math.pow(0.15, dt);
+      (Object.keys(show) as (keyof typeof show)[]).forEach((key) => (show[key] += (ts[key] - show[key]) * ks));
 
       fragAcc += dt * (1.2 + 4.5 * w.flow);
       while (fragAcc > 1) {
@@ -337,8 +399,8 @@ export function EngineVisual({ mode, labels, symbol }: { mode: number; labels: E
 
       for (let i = frags.length - 1; i >= 0; i--) {
         const f = frags[i];
-        f.t += dt * f.speed;
-        if (f.t >= 1) {
+        f.t = Math.min(introStage >= 1 ? 1 : 0.55, f.t + dt * f.speed * (introStage >= 1 ? 1 : 0.35));
+        if (f.t >= 1 || (introStage < 1 && f.t >= 0.55 && r() < dt * 0.4)) {
           clusters[f.d][f.n].flash = 1;
           frags.splice(i, 1);
         }
@@ -375,8 +437,12 @@ export function EngineVisual({ mode, labels, symbol }: { mode: number; labels: E
     };
 
     // Static composition (reduced motion, and the first paint)
+    const finish = () => {
+      if (introStage < INTRO_STEPS) setIntro(INTRO_STEPS);
+      Object.assign(show, showTarget());
+    };
     const staticFrame = () => {
-      Object.assign(w, target(modeRef.current));
+      Object.assign(w, weightsTarget());
       if (!arcs.length) for (let i = 0; i < 4; i++) {
         spawnArc();
         arcs[arcs.length - 1].life = arcs[arcs.length - 1].dur * (0.35 + i * 0.08);
@@ -385,9 +451,14 @@ export function EngineVisual({ mode, labels, symbol }: { mode: number; labels: E
     };
 
     resize();
+    if (reduce) finish();
     staticFrame();
     redraw.current = () => {
       if (reduce) staticFrame();
+    };
+    skipRef.current = () => {
+      finish();
+      if (reduce || !raf) staticFrame();
     };
 
     const ro = new ResizeObserver(() => {
@@ -398,10 +469,12 @@ export function EngineVisual({ mode, labels, symbol }: { mode: number; labels: E
     const io = new IntersectionObserver(
       ([entry]) => {
         visible = entry.isIntersecting;
+        // Start building once most of the engine is on screen.
+        if (introStage === -1 && entry.intersectionRatio >= 0.55) setIntro(0);
         if (visible) start();
         else stop();
       },
-      { rootMargin: "100px" },
+      { threshold: [0, 0.55] },
     );
     io.observe(el);
     const onVis = () => (document.hidden ? stop() : start());
@@ -427,7 +500,9 @@ export function EngineVisual({ mode, labels, symbol }: { mode: number; labels: E
       {labelPos.map((l) => (
         <span
           key={l.key}
-          className="ui-label absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap text-paper/70"
+          className={`ui-label absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap text-paper/70 transition-opacity duration-700 ${
+            stage >= 1 ? "opacity-100" : "opacity-0"
+          }`}
           style={{ left: `${l.x * 100}%`, top: `${l.y * 100}%` }}
         >
           {labels[l.key]}
@@ -441,10 +516,17 @@ export function EngineVisual({ mode, labels, symbol }: { mode: number; labels: E
       >
         {labels.human}
       </span>
-      <div className="absolute left-1/2 top-1/2 grid aspect-square w-[15%] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-[12px] border border-paper/15 bg-ink">
-        <span className="lift-in block h-[46%] w-[46%] [&>span]:block [&>span]:h-full [&_svg]:h-full [&_svg]:w-full">
-          {symbol}
-        </span>
+      <div
+        className={`absolute left-1/2 grid aspect-square w-[15%] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-[12px] border border-paper/15 bg-ink transition-[opacity,transform] duration-700 ${
+          stage >= 3 ? "scale-100 opacity-100" : "scale-90 opacity-0"
+        }`}
+        style={{ top: `${C.y * 100}%` }}
+      >
+        {stage >= 3 && (
+          <span className="engine-lift block h-[46%] w-[46%] [&>span]:block [&>span]:h-full [&_svg]:h-full [&_svg]:w-full">
+            {symbol}
+          </span>
+        )}
       </div>
     </div>
   );

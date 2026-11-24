@@ -21,15 +21,23 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     <>
       <Header />
       <main id="main">
+        {/* Narrative arc: attention, curiosity, anticipation, understanding, aha moment, trust, decision. */}
+        {/* 01 Attention */}
         <Hero />
+        {/* 02 Curiosity: activity is visible, impact is not */}
         <Problem />
-        <Example />
+        {/* 03 Anticipation: how the work is connected, step by step */}
         <HowItWorks />
-        <Evidence />
+        {/* 04 Understanding: the engine relating engineering, product and business */}
         <Intelligence />
+        {/* 05 Aha moment: one delivery, read for every side of the company */}
+        <Example />
         <Leaders />
-        <Results />
+        {/* 06 Trust: how sure we are, how data is protected, what customers see */}
+        <Evidence />
         <Trust />
+        <Results />
+        {/* 07 Decision */}
         <Foundations />
         <Pricing />
         <FinalCta />

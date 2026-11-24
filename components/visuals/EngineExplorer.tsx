@@ -1,32 +1,42 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { EngineVisual, type EngineLabels } from "./EngineVisual";
+import { EngineVisual, INTRO_STEPS, type EngineLabels } from "./EngineVisual";
 
 export type Capability = { key: string; name: string; body: string; stage: string };
 
-/** Capabilities as an editorial index; the active one is emphasized in the engine. */
+/**
+ * The engine first builds itself (fragments, domains, relationships, interpretation, evidence),
+ * then the capabilities become an editorial index: the active one is emphasized in the engine.
+ */
 export function EngineExplorer({
   capabilities,
   labels,
   listLabel,
   stageLabel,
+  introSteps,
   symbol,
 }: {
   capabilities: Capability[];
   labels: EngineLabels;
   listLabel: string;
   stageLabel: string;
+  introSteps: string[];
   symbol: ReactNode;
 }) {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(-1);
+  const [intro, setIntro] = useState(-1);
+  const [skip, setSkip] = useState(false);
   const [auto, setAuto] = useState(true);
   const [hover, setHover] = useState(false);
   const [inView, setInView] = useState(false);
   const root = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) setAuto(false);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setAuto(false);
+      setActive(0);
+    }
     const el = root.current;
     if (!el) return;
     const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting), { threshold: 0.35 });
@@ -35,26 +45,51 @@ export function EngineExplorer({
   }, []);
 
   // Walk through the capabilities until the visitor picks one.
+  const built = intro >= INTRO_STEPS;
   useEffect(() => {
-    if (!auto || hover || !inView) return;
+    if (built) setActive((a) => (a < 0 ? 0 : a));
+  }, [built]);
+  useEffect(() => {
+    if (!auto || hover || !inView || !built) return;
     const id = window.setInterval(() => setActive((a) => (a + 1) % capabilities.length), 5200);
     return () => clearInterval(id);
-  }, [auto, hover, inView, capabilities.length]);
+  }, [auto, hover, inView, built, capabilities.length]);
 
   const pick = (i: number) => {
     setAuto(false);
+    setSkip(true);
     setActive(i);
   };
+
+  const caption =
+    intro >= 0 && intro < INTRO_STEPS
+      ? { step: `${intro + 1}/${INTRO_STEPS}`, text: introSteps[intro] }
+      : active >= 0
+        ? { step: "", text: capabilities[active].name }
+        : null;
 
   return (
     <div ref={root} className="mt-16 grid gap-12 md:mt-24 lg:grid-cols-12 lg:gap-6">
       <div className="lg:order-2 lg:col-span-7 lg:col-start-6">
         <div className="lg:sticky lg:top-[calc(var(--header-h)+40px)]">
           <div className="mx-auto max-w-[620px]">
-            <EngineVisual mode={active} labels={labels} symbol={symbol} />
-            <p className="ui-label mt-4 flex items-center justify-center gap-2 text-teal-light" aria-hidden="true">
-              <span className="marker marker-verified h-2 w-2" />
-              {capabilities[active].name}
+            <EngineVisual mode={active} labels={labels} symbol={symbol} skipIntro={skip} onStage={setIntro} />
+            <p
+              className="ui-label mt-4 flex min-h-[20px] items-center justify-center gap-2 text-teal-light"
+              aria-hidden="true"
+            >
+              {caption && (
+                <>
+                  {caption.step ? (
+                    <span className="text-paper/55">{caption.step}</span>
+                  ) : (
+                    <span className="marker marker-verified h-2 w-2" />
+                  )}
+                  <span key={caption.text} className="animate-[fade-in_400ms_ease_both]">
+                    {caption.text}
+                  </span>
+                </>
+              )}
             </p>
           </div>
         </div>

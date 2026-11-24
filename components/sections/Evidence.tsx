@@ -15,7 +15,7 @@ export async function Evidence() {
   const labels = Object.fromEntries(states.map((s) => [s.key, s.label])) as Record<State["key"], string>;
 
   return (
-    <section id="evidence" aria-labelledby="evidence-title" className="section-y relative">
+    <section id="evidence" aria-labelledby="evidence-title" className="section-y relative border-t border-sand">
       <div className="container-text">
         <SectionHeader id="evidence-title" eyebrow={t("eyebrow")} title={t.raw("title") as string} />
 

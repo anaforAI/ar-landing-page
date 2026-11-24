@@ -67,7 +67,138 @@
       "noteTag": "Nota de reunião",
       "noteTitle": "Decidimos priorizar a confiabilidade do checkout",
       "noteMeta": "Google Meet · ter"
+    },
+    "bridge": "Cada um desses fragmentos significa algo para o negócio.",
+    "bridgeLink": "Veja como a Anafor descobre o quê"
+  },
+  "how": {
+    "eyebrow": "Como a Anafor funciona",
+    "title": "De sinais fragmentados a <em>entendimento compartilhado</em>.",
+    "progressLabel": "Progresso dos passos",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Conectar",
+        "body": "GitHub, Jira e Google Meet, mais uma base de conhecimento com objetivos, KPIs, domínios e glossário da empresa e dos produtos."
+      },
+      {
+        "number": "02",
+        "title": "Relacionar",
+        "body": "Pull requests são vinculadas a tarefas, epics e decisões. Sem chave explícita, a IA sugere o vínculo e uma pessoa confirma."
+      },
+      {
+        "number": "03",
+        "title": "Interpretar",
+        "body": "Agentes leem os sinais no contexto e escrevem a narrativa. Um validador de evidências confere rastreabilidade, consistência e incerteza antes de qualquer publicação."
+      },
+      {
+        "number": "04",
+        "title": "Entregar",
+        "body": "Relatórios diários, semanais e mensais, moldados para cada público e permissão. E um assistente que responde citando as fontes."
+      }
+    ],
+    "footer": "O agente interpreta. Um serviço determinístico publica.",
+    "visuals": {
+      "knowledge": "Base de conhecimento",
+      "knowledgeItems": "Objetivos · KPIs · Domínios · Glossário",
+      "objective": "Objetivo",
+      "objectiveTitle": "Checkout confiável",
+      "epic": "Epic",
+      "epicTitle": "COM-100 · Resiliência de pagamentos",
+      "subtask": "Subtask",
+      "subtaskTitle": "COM-103 · Retentativas de pagamento",
+      "pr": "Pull request",
+      "prTitle": "COM-103 Reprocessar webhooks com falha",
+      "linked": "Vinculada pela chave",
+      "analyze": "Analisar",
+      "validate": "Validar",
+      "publish": "Publicar",
+      "checks": [
+        "Rastreabilidade",
+        "Consistência",
+        "Incerteza"
+      ],
+      "narrative": "Narrativa",
+      "narrativeText": "As retentativas de pagamento agora recuperam webhooks com falha automaticamente.",
+      "daily": "Diário",
+      "dailyText": "Bloqueios e mudanças",
+      "weekly": "Semanal",
+      "weeklyText": "Evolução e tendências",
+      "monthly": "Mensal",
+      "monthlyText": "Resultados validados",
+      "assistantQ": "O que mudou no checkout este mês?",
+      "assistantA": "As retentativas de pagamento foram entregues atrás de uma flag; o rollout está pendente.",
+      "assistantSources": "COM-103 · 4 PRs · nota de release"
     }
+  },
+  "intelligence": {
+    "eyebrow": "Anafor Intelligence Engine",
+    "title": "Além dos dados. Além das métricas. <em>Inteligência.</em>",
+    "body": "A inteligência por trás de um entendimento mais profundo da sua organização. Projetada para conectar a atividade de engenharia, a evolução do produto e os objetivos de negócio por meio de raciocínio contextual, compreensão semântica e inteligência baseada em evidências.",
+    "capabilitiesLabel": "Capacidades",
+    "visualLabel": "Destaque uma capacidade no motor",
+    "stageLabel": "Em desenvolvimento",
+    "domains": {
+      "engineering": "Engenharia",
+      "product": "Produto",
+      "business": "Negócio",
+      "human": "Conhecimento humano"
+    },
+    "capabilities": [
+      {
+        "key": "context",
+        "name": "Contextual Intelligence",
+        "stage": "",
+        "body": "Compreende as informações dentro do seu contexto técnico, organizacional e estratégico, em vez de interpretar eventos ou métricas isolados."
+      },
+      {
+        "key": "reasoning",
+        "name": "Multi-Agent Reasoning",
+        "stage": "",
+        "body": "Uma arquitetura de inteligência especializada que combina diferentes perspectivas analíticas para interpretar informações organizacionais complexas, estabelecer relações e validar conclusões."
+      },
+      {
+        "key": "semantic",
+        "name": "Semantic Understanding",
+        "stage": "",
+        "body": "Compreende o significado, a intenção e as relações por trás de atividades de engenharia, decisões de arquitetura, iniciativas de produto e objetivos de negócio."
+      },
+      {
+        "key": "cross",
+        "name": "Cross-Domain Intelligence",
+        "stage": "",
+        "body": "Conecta engenharia, produto e negócio por meio de raciocínio multidimensional, tornando visível o significado mais amplo de decisões e entregas técnicas."
+      },
+      {
+        "key": "evidence",
+        "name": "Evidence-Based Intelligence",
+        "stage": "",
+        "body": "Fundamenta as interpretações em evidências rastreáveis, distinguindo fatos observados, relações inferidas, hipóteses e conclusões validadas."
+      },
+      {
+        "key": "knowledge",
+        "name": "Continuous Organizational Knowledge",
+        "stage": "",
+        "body": "Constrói um entendimento da organização que evolui, incorporando continuamente novas informações, contexto histórico e conhecimento validado."
+      },
+      {
+        "key": "human",
+        "name": "Human-in-the-Loop",
+        "stage": "",
+        "body": "Reconhece lacunas de conhecimento, incorpora a experiência das pessoas e refina as interpretações quando é preciso mais contexto ou validação."
+      }
+    ],
+    "closing": "Inteligência que entende <em>por que</em> a engenharia importa.",
+    "closingBody": "Não apenas o que foi construído. Não apenas quanto foi entregue. Mas o que isso significa para a organização.",
+    "purposeLabel": "A base do nosso propósito",
+    "purpose": "Tornar visível o impacto da engenharia.",
+    "introSteps": [
+      "Sinais fragmentados",
+      "Contextualizados por domínio",
+      "Interconectados",
+      "Interpretados",
+      "Fundamentados em evidências"
+    ]
   },
   "example": {
     "eyebrow": "O que a Anafor entrega",
@@ -138,185 +269,6 @@
         "body": "Respostas com as fontes que as sustentam."
       }
     ]
-  },
-  "how": {
-    "eyebrow": "Como a Anafor funciona",
-    "title": "De sinais fragmentados a <em>entendimento compartilhado</em>.",
-    "progressLabel": "Progresso dos passos",
-    "steps": [
-      {
-        "number": "01",
-        "title": "Conectar",
-        "body": "GitHub, Jira e Google Meet, mais uma base de conhecimento com objetivos, KPIs, domínios e glossário da empresa e dos produtos."
-      },
-      {
-        "number": "02",
-        "title": "Relacionar",
-        "body": "Pull requests são vinculadas a tarefas, epics e decisões. Sem chave explícita, a IA sugere o vínculo e uma pessoa confirma."
-      },
-      {
-        "number": "03",
-        "title": "Interpretar",
-        "body": "Agentes leem os sinais no contexto e escrevem a narrativa. Um validador de evidências confere rastreabilidade, consistência e incerteza antes de qualquer publicação."
-      },
-      {
-        "number": "04",
-        "title": "Entregar",
-        "body": "Relatórios diários, semanais e mensais, moldados para cada público e permissão. E um assistente que responde citando as fontes."
-      }
-    ],
-    "footer": "O agente interpreta. Um serviço determinístico publica.",
-    "visuals": {
-      "knowledge": "Base de conhecimento",
-      "knowledgeItems": "Objetivos · KPIs · Domínios · Glossário",
-      "objective": "Objetivo",
-      "objectiveTitle": "Checkout confiável",
-      "epic": "Epic",
-      "epicTitle": "COM-100 · Resiliência de pagamentos",
-      "subtask": "Subtask",
-      "subtaskTitle": "COM-103 · Retentativas de pagamento",
-      "pr": "Pull request",
-      "prTitle": "COM-103 Reprocessar webhooks com falha",
-      "linked": "Vinculada pela chave",
-      "analyze": "Analisar",
-      "validate": "Validar",
-      "publish": "Publicar",
-      "checks": [
-        "Rastreabilidade",
-        "Consistência",
-        "Incerteza"
-      ],
-      "narrative": "Narrativa",
-      "narrativeText": "As retentativas de pagamento agora recuperam webhooks com falha automaticamente.",
-      "daily": "Diário",
-      "dailyText": "Bloqueios e mudanças",
-      "weekly": "Semanal",
-      "weeklyText": "Evolução e tendências",
-      "monthly": "Mensal",
-      "monthlyText": "Resultados validados",
-      "assistantQ": "O que mudou no checkout este mês?",
-      "assistantA": "As retentativas de pagamento foram entregues atrás de uma flag; o rollout está pendente.",
-      "assistantSources": "COM-103 · 4 PRs · nota de release"
-    }
-  },
-  "evidence": {
-    "eyebrow": "Evidências, não suposições",
-    "title": "Cada conclusão mostra o <em>quanto</em> temos certeza.",
-    "states": [
-      {
-        "key": "verified",
-        "label": "Verificado",
-        "body": "Confirmado por fontes explícitas.",
-        "example": "A PR #482 cita COM-103 no título."
-      },
-      {
-        "key": "inferred",
-        "label": "Inferido",
-        "body": "Relação provável, aguardando confirmação.",
-        "example": "A IA sugere que a PR #497 pertence a COM-103. O revisor ainda não confirmou."
-      },
-      {
-        "key": "hypothesis",
-        "label": "Hipótese",
-        "body": "Uma possibilidade ainda a validar.",
-        "example": "As retentativas podem explicar menos tickets de suporte. Ainda não há evidência suficiente."
-      }
-    ],
-    "principlesLabel": "Princípios",
-    "principles": [
-      "Uma relação inferida continua sendo sugestão até alguém confirmar.",
-      "PR incorporada não significa funcionalidade disponibilizada.",
-      "Falta de confirmação nunca vira conclusão negativa."
-    ],
-    "demo": {
-      "label": "Demonstração do assistente",
-      "title": "Assistente Anafor",
-      "questionLabel": "Pergunta",
-      "question": "Por que o time mobile passou a maior parte do T3 em infraestrutura?",
-      "ask": "Perguntar",
-      "again": "Perguntar de novo",
-      "thinking": "Lendo as fontes…",
-      "answerLabel": "Resposta",
-      "answer": [
-        {
-          "state": "verified",
-          "text": "A maioria das pull requests do time mobile no T3 está vinculada ao item de roadmap MOB-12, a base de sincronização offline."
-        },
-        {
-          "state": "inferred",
-          "text": "Revisões de design ligam o MOB-12 à decisão de substituir a camada de sincronização legada antes de novas funcionalidades. Dois desses vínculos ainda aguardam confirmação."
-        },
-        {
-          "state": "hypothesis",
-          "text": "Isso pode explicar o ritmo mais lento de funcionalidades no T3. As evidências ainda não confirmam, então uma liderança de produto deve validar."
-        }
-      ],
-      "sourcesLabel": "Fontes",
-      "sources": "3 revisões de design · 61 pull requests · item de roadmap MOB-12",
-      "permissionsNote": "Resposta limitada às fontes que você tem permissão para ver."
-    }
-  },
-  "intelligence": {
-    "eyebrow": "Anafor Intelligence Engine",
-    "title": "Além dos dados. Além das métricas. <em>Inteligência.</em>",
-    "body": "A inteligência por trás de um entendimento mais profundo da sua organização. Projetada para conectar a atividade de engenharia, a evolução do produto e os objetivos de negócio por meio de raciocínio contextual, compreensão semântica e inteligência baseada em evidências.",
-    "capabilitiesLabel": "Capacidades",
-    "visualLabel": "Destaque uma capacidade no motor",
-    "stageLabel": "Em desenvolvimento",
-    "domains": {
-      "engineering": "Engenharia",
-      "product": "Produto",
-      "business": "Negócio",
-      "human": "Conhecimento humano"
-    },
-    "capabilities": [
-      {
-        "key": "context",
-        "name": "Contextual Intelligence",
-        "stage": "",
-        "body": "Compreende as informações dentro do seu contexto técnico, organizacional e estratégico, em vez de interpretar eventos ou métricas isolados."
-      },
-      {
-        "key": "reasoning",
-        "name": "Multi-Agent Reasoning",
-        "stage": "",
-        "body": "Uma arquitetura de inteligência especializada que combina diferentes perspectivas analíticas para interpretar informações organizacionais complexas, estabelecer relações e validar conclusões."
-      },
-      {
-        "key": "semantic",
-        "name": "Semantic Understanding",
-        "stage": "",
-        "body": "Compreende o significado, a intenção e as relações por trás de atividades de engenharia, decisões de arquitetura, iniciativas de produto e objetivos de negócio."
-      },
-      {
-        "key": "cross",
-        "name": "Cross-Domain Intelligence",
-        "stage": "",
-        "body": "Conecta engenharia, produto e negócio por meio de raciocínio multidimensional, tornando visível o significado mais amplo de decisões e entregas técnicas."
-      },
-      {
-        "key": "evidence",
-        "name": "Evidence-Based Intelligence",
-        "stage": "",
-        "body": "Fundamenta as interpretações em evidências rastreáveis, distinguindo fatos observados, relações inferidas, hipóteses e conclusões validadas."
-      },
-      {
-        "key": "knowledge",
-        "name": "Continuous Organizational Knowledge",
-        "stage": "",
-        "body": "Constrói um entendimento da organização que evolui, incorporando continuamente novas informações, contexto histórico e conhecimento validado."
-      },
-      {
-        "key": "human",
-        "name": "Human-in-the-Loop",
-        "stage": "",
-        "body": "Reconhece lacunas de conhecimento, incorpora a experiência das pessoas e refina as interpretações quando é preciso mais contexto ou validação."
-      }
-    ],
-    "closing": "Inteligência que entende <em>por que</em> a engenharia importa.",
-    "closingBody": "Não apenas o que foi construído. Não apenas quanto foi entregue. Mas o que isso significa para a organização.",
-    "purposeLabel": "A base do nosso propósito",
-    "purpose": "Tornar visível o impacto da engenharia."
   },
   "leaders": {
     "eyebrow": "Uma fonte, todas as perspectivas",
@@ -455,27 +407,62 @@
       }
     ]
   },
-  "results": {
-    "eyebrow": "O que muda",
-    "title": "Quando a engenharia fica visível, a <em>empresa inteira</em> decide melhor.",
-    "items": [
+  "evidence": {
+    "eyebrow": "Evidências, não suposições",
+    "title": "Cada conclusão mostra o <em>quanto</em> temos certeza.",
+    "states": [
       {
-        "lead": "A engenharia recebe crédito pelo trabalho que importa:",
-        "rest": "arquitetura, confiabilidade e dívida técnica, não só funcionalidades."
+        "key": "verified",
+        "label": "Verificado",
+        "body": "Confirmado por fontes explícitas.",
+        "example": "A PR #482 cita COM-103 no título."
       },
       {
-        "lead": "O produto vê qual trabalho técnico moveu o roadmap,",
-        "rest": "e o que está bloqueando."
+        "key": "inferred",
+        "label": "Inferido",
+        "body": "Relação provável, aguardando confirmação.",
+        "example": "A IA sugere que a PR #497 pertence a COM-103. O revisor ainda não confirmou."
       },
       {
-        "lead": "A liderança investe com evidências:",
-        "rest": "capacidade, risco e alinhamento num só lugar, todo mês."
-      },
-      {
-        "lead": "Horas de status report viram automáticas,",
-        "rest": "com relatórios que se escrevem sozinhos e citam suas fontes."
+        "key": "hypothesis",
+        "label": "Hipótese",
+        "body": "Uma possibilidade ainda a validar.",
+        "example": "As retentativas podem explicar menos tickets de suporte. Ainda não há evidência suficiente."
       }
-    ]
+    ],
+    "principlesLabel": "Princípios",
+    "principles": [
+      "Uma relação inferida continua sendo sugestão até alguém confirmar.",
+      "PR incorporada não significa funcionalidade disponibilizada.",
+      "Falta de confirmação nunca vira conclusão negativa."
+    ],
+    "demo": {
+      "label": "Demonstração do assistente",
+      "title": "Assistente Anafor",
+      "questionLabel": "Pergunta",
+      "question": "Por que o time mobile passou a maior parte do T3 em infraestrutura?",
+      "ask": "Perguntar",
+      "again": "Perguntar de novo",
+      "thinking": "Lendo as fontes…",
+      "answerLabel": "Resposta",
+      "answer": [
+        {
+          "state": "verified",
+          "text": "A maioria das pull requests do time mobile no T3 está vinculada ao item de roadmap MOB-12, a base de sincronização offline."
+        },
+        {
+          "state": "inferred",
+          "text": "Revisões de design ligam o MOB-12 à decisão de substituir a camada de sincronização legada antes de novas funcionalidades. Dois desses vínculos ainda aguardam confirmação."
+        },
+        {
+          "state": "hypothesis",
+          "text": "Isso pode explicar o ritmo mais lento de funcionalidades no T3. As evidências ainda não confirmam, então uma liderança de produto deve validar."
+        }
+      ],
+      "sourcesLabel": "Fontes",
+      "sources": "3 revisões de design · 61 pull requests · item de roadmap MOB-12",
+      "permissionsNote": "Resposta limitada às fontes que você tem permissão para ver."
+    }
   },
   "trust": {
     "eyebrow": "Anafor Trust",
@@ -521,6 +508,28 @@
       "As permissões são aplicadas antes de a IA ver qualquer coisa.",
       "Informação restrita é excluída sem revelar que existe.",
       "Papéis: Manager, Contributor, Viewer."
+    ]
+  },
+  "results": {
+    "eyebrow": "O que muda",
+    "title": "Quando a engenharia fica visível, a <em>empresa inteira</em> decide melhor.",
+    "items": [
+      {
+        "lead": "A engenharia recebe crédito pelo trabalho que importa:",
+        "rest": "arquitetura, confiabilidade e dívida técnica, não só funcionalidades."
+      },
+      {
+        "lead": "O produto vê qual trabalho técnico moveu o roadmap,",
+        "rest": "e o que está bloqueando."
+      },
+      {
+        "lead": "A liderança investe com evidências:",
+        "rest": "capacidade, risco e alinhamento num só lugar, todo mês."
+      },
+      {
+        "lead": "Horas de status report viram automáticas,",
+        "rest": "com relatórios que se escrevem sozinhos e citam suas fontes."
+      }
     ]
   },
   "foundations": {
