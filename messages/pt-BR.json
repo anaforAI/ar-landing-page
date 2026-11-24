@@ -257,40 +257,66 @@
     }
   },
   "intelligence": {
-    "eyebrow": "Anafor Intelligence",
+    "eyebrow": "Anafor Intelligence Engine",
     "title": "Além dos dados. Além das métricas. <em>Inteligência.</em>",
-    "body": "Transformando a atividade de engenharia em entendimento real para o negócio.",
+    "body": "A inteligência por trás de um entendimento mais profundo da sua organização. Projetada para conectar a atividade de engenharia, a evolução do produto e os objetivos de negócio por meio de raciocínio contextual, compreensão semântica e inteligência baseada em evidências.",
+    "capabilitiesLabel": "Capacidades",
+    "visualLabel": "Destaque uma capacidade no motor",
+    "stageLabel": "Em desenvolvimento",
+    "domains": {
+      "engineering": "Engenharia",
+      "product": "Produto",
+      "business": "Negócio",
+      "human": "Conhecimento humano"
+    },
     "capabilities": [
       {
+        "key": "context",
         "name": "Contextual Intelligence",
-        "body": "Compreende o contexto e as particularidades de cada organização."
+        "stage": "",
+        "body": "Compreende as informações dentro do seu contexto técnico, organizacional e estratégico, em vez de interpretar eventos ou métricas isolados."
       },
       {
+        "key": "reasoning",
         "name": "Multi-Agent Reasoning",
-        "body": "Analisa as informações sob diferentes perspectivas e especialidades."
+        "stage": "",
+        "body": "Uma arquitetura de inteligência especializada que combina diferentes perspectivas analíticas para interpretar informações organizacionais complexas, estabelecer relações e validar conclusões."
       },
       {
-        "name": "Business Impact Mapping",
-        "body": "Conecta decisões técnicas e entregas de engenharia a impactos de negócio."
+        "key": "semantic",
+        "name": "Semantic Understanding",
+        "stage": "",
+        "body": "Compreende o significado, a intenção e as relações por trás de atividades de engenharia, decisões de arquitetura, iniciativas de produto e objetivos de negócio."
       },
       {
-        "name": "Continuous Intelligence",
-        "body": "Acompanha continuamente a evolução da organização."
+        "key": "cross",
+        "name": "Cross-Domain Intelligence",
+        "stage": "",
+        "body": "Conecta engenharia, produto e negócio por meio de raciocínio multidimensional, tornando visível o significado mais amplo de decisões e entregas técnicas."
       },
       {
-        "name": "Human-in-the-Loop",
-        "body": "Pessoas validam e complementam as interpretações."
-      },
-      {
+        "key": "evidence",
         "name": "Evidence-Based Intelligence",
-        "body": "Conclusões fundamentadas em evidências, separando fatos de hipóteses."
+        "stage": "",
+        "body": "Fundamenta as interpretações em evidências rastreáveis, distinguindo fatos observados, relações inferidas, hipóteses e conclusões validadas."
       },
       {
-        "name": "Organizational Memory",
-        "body": "Constrói e evolui o conhecimento da organização ao longo do tempo."
+        "key": "knowledge",
+        "name": "Continuous Organizational Knowledge",
+        "stage": "",
+        "body": "Constrói um entendimento da organização que evolui, incorporando continuamente novas informações, contexto histórico e conhecimento validado."
+      },
+      {
+        "key": "human",
+        "name": "Human-in-the-Loop",
+        "stage": "",
+        "body": "Reconhece lacunas de conhecimento, incorpora a experiência das pessoas e refina as interpretações quando é preciso mais contexto ou validação."
       }
     ],
-    "statement": "Não vendemos inteligência artificial. Vendemos <em>compreensão organizacional</em> através dela."
+    "closing": "Inteligência que entende <em>por que</em> a engenharia importa.",
+    "closingBody": "Não apenas o que foi construído. Não apenas quanto foi entregue. Mas o que isso significa para a organização.",
+    "purposeLabel": "A base do nosso propósito",
+    "purpose": "Tornar visível o impacto da engenharia."
   },
   "leaders": {
     "eyebrow": "Uma fonte, todas as perspectivas",

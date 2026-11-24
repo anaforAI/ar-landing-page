@@ -2,15 +2,17 @@ import { getTranslations } from "next-intl/server";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Reveal } from "@/components/motion/Reveal";
 import { Em } from "@/components/ui/Em";
+import { BrandSvg } from "@/components/brand/BrandSvg";
+import { EngineExplorer, type Capability } from "@/components/visuals/EngineExplorer";
+import type { EngineLabels } from "@/components/visuals/EngineVisual";
 
 export async function Intelligence() {
   const t = await getTranslations("intelligence");
-  const caps = t.raw("capabilities") as { name: string; body: string }[];
   return (
     <section
       id="intelligence"
       aria-labelledby="intelligence-title"
-      className="on-dark section-y relative bg-ink text-paper"
+      className="on-dark section-y relative overflow-hidden bg-ink text-paper"
     >
       <div className="container-text">
         <SectionHeader
@@ -19,24 +21,29 @@ export async function Intelligence() {
           title={t.raw("title") as string}
           body={t("body")}
         />
-        <ul className="mt-16 grid gap-px overflow-hidden rounded-[12px] bg-paper/12 sm:grid-cols-2 md:mt-24 lg:grid-cols-4">
-          {caps.map((c, i) => (
-            <li key={c.name} className="bg-ink">
-              <Reveal delay={(i % 4) * 0.06} className="h-full p-6 md:p-7">
-                <p className="ui-label text-teal-light">{String(i + 1).padStart(2, "0")}</p>
-                <h3 className="mt-6 text-[19px] font-medium leading-snug tracking-[-0.01em]">{c.name}</h3>
-                <p className="mt-3 text-[15px] leading-[1.5] text-paper/65">{c.body}</p>
-              </Reveal>
-            </li>
-          ))}
-          <li className="bg-teal">
-            <Reveal delay={0.18} className="on-teal flex h-full items-end p-6 md:p-7">
-              <p className="display text-[24px] leading-[1.2] text-paper">
-                <Em source={t.raw("statement") as string} />
-              </p>
-            </Reveal>
-          </li>
-        </ul>
+
+        <EngineExplorer
+          capabilities={t.raw("capabilities") as Capability[]}
+          labels={t.raw("domains") as EngineLabels}
+          listLabel={t("capabilitiesLabel")}
+          stageLabel={t("stageLabel")}
+          symbol={<BrandSvg file="anafor-symbol-white.svg" decorative />}
+        />
+
+        <div className="mt-24 border-t border-paper/12 pt-16 md:mt-32 md:pt-24">
+          <Reveal>
+            <p className="display h-section max-w-[980px]">
+              <Em source={t.raw("closing") as string} />
+            </p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="lead mt-8 max-w-[640px]">{t("closingBody")}</p>
+          </Reveal>
+          <Reveal delay={0.2} className="mt-12 flex flex-wrap items-baseline gap-x-4 gap-y-1">
+            <span className="ui-label text-paper/55">{t("purposeLabel")}</span>
+            <span className="text-[17px] text-teal-light">{t("purpose")}</span>
+          </Reveal>
+        </div>
       </div>
     </section>
   );

@@ -257,40 +257,66 @@
     }
   },
   "intelligence": {
-    "eyebrow": "Anafor Intelligence",
+    "eyebrow": "Anafor Intelligence Engine",
     "title": "Beyond data. Beyond metrics. <em>Intelligence.</em>",
-    "body": "Transforming engineering activity into meaningful business understanding.",
+    "body": "The intelligence behind a deeper understanding of your organization. Designed to connect engineering activity, product evolution and business objectives through contextual reasoning, semantic understanding and evidence-based intelligence.",
+    "capabilitiesLabel": "Capabilities",
+    "visualLabel": "Highlight a capability in the engine",
+    "stageLabel": "In development",
+    "domains": {
+      "engineering": "Engineering",
+      "product": "Product",
+      "business": "Business",
+      "human": "Human expertise"
+    },
     "capabilities": [
       {
+        "key": "context",
         "name": "Contextual Intelligence",
-        "body": "Understands the context and particularities of each organization."
+        "stage": "",
+        "body": "Understands information within its technical, organizational and strategic context, rather than interpreting isolated events or metrics."
       },
       {
+        "key": "reasoning",
         "name": "Multi-Agent Reasoning",
-        "body": "Analyzes information from different perspectives and specialties."
+        "stage": "",
+        "body": "A specialized intelligence architecture that combines multiple analytical perspectives to interpret complex organizational information, establish relationships and validate conclusions."
       },
       {
-        "name": "Business Impact Mapping",
-        "body": "Connects technical decisions and engineering deliveries to business impact."
+        "key": "semantic",
+        "name": "Semantic Understanding",
+        "stage": "",
+        "body": "Understands the meaning, intent and relationships behind engineering activities, architectural decisions, product initiatives and business objectives."
       },
       {
-        "name": "Continuous Intelligence",
-        "body": "Follows how the organization evolves, continuously."
+        "key": "cross",
+        "name": "Cross-Domain Intelligence",
+        "stage": "",
+        "body": "Connects engineering, product and business through multidimensional reasoning, making the broader significance of technical decisions and deliveries visible."
       },
       {
-        "name": "Human-in-the-Loop",
-        "body": "People validate and complete the interpretations."
-      },
-      {
+        "key": "evidence",
         "name": "Evidence-Based Intelligence",
-        "body": "Conclusions grounded in evidence, separating facts from hypotheses."
+        "stage": "",
+        "body": "Grounds interpretations in traceable evidence, distinguishing observed facts, inferred relationships, hypotheses and validated conclusions."
       },
       {
-        "name": "Organizational Memory",
-        "body": "Builds and evolves the organization's knowledge over time."
+        "key": "knowledge",
+        "name": "Continuous Organizational Knowledge",
+        "stage": "",
+        "body": "Builds an evolving understanding of the organization by continuously incorporating new information, historical context and validated knowledge."
+      },
+      {
+        "key": "human",
+        "name": "Human-in-the-Loop",
+        "stage": "",
+        "body": "Recognizes knowledge gaps, incorporates human expertise and refines interpretations when more context or validation is needed."
       }
     ],
-    "statement": "We don't sell artificial intelligence. We sell <em>organizational understanding</em>, through it."
+    "closing": "Intelligence that understands <em>why</em> engineering matters.",
+    "closingBody": "Not just what was built. Not just how much was delivered. But what it means for the organization.",
+    "purposeLabel": "The foundation behind our purpose",
+    "purpose": "Making engineering's impact visible."
   },
   "leaders": {
     "eyebrow": "One source, every perspective",

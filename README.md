@@ -41,7 +41,7 @@ components/
   sections/               uma seção por arquivo (Header, Hero, Problem, Example, HowItWorks,
                           Evidence, Intelligence, Leaders, Results, Trust, Foundations,
                           Pricing, FinalCta, Footer)
-  visuals/                visuais interativos (campo de quadrados, fragmentos, passos, demo do assistente, abas)
+  visuals/                visuais interativos (campo de quadrados, fragmentos, passos, demo do assistente, abas, motor de inteligência)
   motion/                 Reveal, RevealHeading, Lenis, MotionConfig
   brand/BrandSvg.tsx      insere os SVGs oficiais de /public/brand sem recriá-los
   ui/                     ícones, chip de evidência, diálogo de Request access
@@ -102,4 +102,5 @@ Os dados dos mocks (exemplo do Kafka, assistente, abas For leaders, How it works
 
 - **Anafor Trust** (`messages/*.json` → `trust.commitments`, `trust.everyPlan`, `trust.message`): o posicionamento original diz que essas garantias são a direção estratégica e precisam ser validadas antes de serem comunicadas como implementadas. Confirme com engenharia, jurídico e os contratos dos fornecedores de IA (sobretudo a Zero Training Policy) antes de ir ao ar. Se alguma ainda não estiver pronta, remova o item ou ajuste o texto.
 - O primeiro compromisso chegou truncado no texto de origem; foi publicado como **Secure by Design**. Confirme o nome.
-- **Anafor Intelligence** (`intelligence.capabilities`): confira se as sete capacidades descrevem o que o produto faz hoje.
+- **Anafor Intelligence Engine** (`intelligence.capabilities`): confira se as sete capacidades descrevem o que o produto faz hoje. Para marcar uma capacidade que ainda está em construção, preencha o campo `stage` com qualquer texto (ex.: `"wip"`): aparece o selo "In development" / "Em desenvolvimento" ao lado do nome. Hoje todas estão sem selo.
+- A visualização do motor (`components/visuals/EngineVisual.tsx`) é conceitual: fragmentos entram, se organizam nos domínios Engenharia, Produto e Negócio e se conectam pelo centro. Ela não representa a topologia real de agentes nem nenhum detalhe de implementação, e a seção não cita provedores de modelo.
