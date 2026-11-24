@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { BrandSvg } from "@/components/brand/BrandSvg";
 import { RequestAccessButton } from "@/components/ui/RequestAccess";
-import { GithubMark, JiraMark, MeetMark } from "@/components/ui/icons";
+import { GithubMark, JiraMark, MeetMark, MiroMark } from "@/components/ui/icons";
 import { parseEm } from "@/lib/rich";
 import { HeroField } from "@/components/visuals/HeroField";
 
@@ -90,6 +90,9 @@ export async function Hero() {
           </span>
           <span className="flex items-center gap-2 text-[15px]">
             <MeetMark aria-hidden="true" /> Google Meet
+          </span>
+          <span className="flex items-center gap-2 text-[15px]">
+            <MiroMark aria-hidden="true" /> Miro
           </span>
         </div>
       </div>
