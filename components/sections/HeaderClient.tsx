@@ -27,13 +27,27 @@ export function HeaderClient({ links, appUrl, labels, logo, logoDark }: Props) {
   const [scrolled, setScrolled] = useState(false);
   const [overDark, setOverDark] = useState(false);
   const [menu, setMenu] = useState(false);
+  const [active, setActive] = useState<string | null>(null);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const darks = Array.from(
       document.querySelectorAll<HTMLElement>("main .on-dark, footer.on-dark"),
     );
+    const targets = links
+      .map((l) => document.getElementById(l.href.slice(1)))
+      .filter((el): el is HTMLElement => !!el);
     const onScroll = () => {
       setScrolled(window.scrollY > 8);
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(max > 0 ? Math.min(1, window.scrollY / max) : 0);
+      // Scrollspy: the section crossing a line just under the header, if it is in the menu.
+      const line = window.innerHeight * 0.35;
+      const hit = targets.find((el) => {
+        const r = el.getBoundingClientRect();
+        return r.top <= line && r.bottom > line;
+      });
+      setActive(hit ? `#${hit.id}` : null);
       // The header switches to ink when it sits over a dark section.
       setOverDark(
         darks.some((el) => {
@@ -45,7 +59,7 @@ export function HeaderClient({ links, appUrl, labels, logo, logoDark }: Props) {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [links]);
 
   useEffect(() => {
     const lenis = (
@@ -70,33 +84,55 @@ export function HeaderClient({ links, appUrl, labels, logo, logoDark }: Props) {
             : "border-transparent bg-paper/0 text-ink"
       }`}
     >
-      <div className="container-wide flex h-full items-center justify-between gap-6">
+      <div className="container-wide grid h-full grid-cols-[1fr_auto] items-center gap-6 lg:grid-cols-[1fr_auto_1fr]">
         <a
           href="#top"
           aria-label={labels.home}
-          className="logo-lift -m-2 rounded-[4px] p-2"
+          className="logo-lift -m-2 justify-self-start rounded-[4px] p-2"
         >
           {dark ? logoDark : logo}
         </a>
 
         <nav aria-label={labels.nav} className="hidden lg:block">
           <ul
-            className={`flex items-center gap-8 text-[15px] ${dark ? "text-paper/80" : "text-ink/80"}`}
+            className={`flex items-center gap-0.5 rounded-full border p-1 text-[15px] transition-colors duration-300 ${
+              dark ? "border-paper/12 bg-paper/[0.04]" : "border-sand bg-white/60"
+            }`}
           >
-            {links.map((l) => (
-              <li key={l.href}>
-                <a
-                  href={l.href}
-                  className={`link-underline transition-colors ${dark ? "hover:text-paper" : "hover:text-ink"}`}
-                >
-                  {l.label}
-                </a>
-              </li>
-            ))}
+            {links.map((l) => {
+              const on = active === l.href;
+              return (
+                <li key={l.href} className="relative">
+                  {on && (
+                    <motion.span
+                      layoutId="nav-active"
+                      aria-hidden="true"
+                      className={`absolute inset-0 rounded-full ${dark ? "bg-paper/12" : "bg-ink/[0.07]"}`}
+                      transition={{ duration: 0.4, ease: EASE }}
+                    />
+                  )}
+                  <a
+                    href={l.href}
+                    aria-current={on ? "location" : undefined}
+                    className={`relative flex h-9 items-center rounded-full px-4 transition-colors duration-200 ${
+                      dark
+                        ? on
+                          ? "text-paper"
+                          : "text-paper/70 hover:text-paper"
+                        : on
+                          ? "text-ink"
+                          : "text-ink/65 hover:text-ink"
+                    }`}
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </nav>
 
-        <div className="hidden items-center gap-5 lg:flex">
+        <div className="hidden items-center gap-5 justify-self-end lg:flex">
           <LanguageSwitch label={labels.language} dark={dark} />
           <a
             href={appUrl}
@@ -112,7 +148,7 @@ export function HeaderClient({ links, appUrl, labels, logo, logoDark }: Props) {
           </RequestAccessButton>
         </div>
 
-        <div className="flex items-center gap-1 lg:hidden">
+        <div className="flex items-center gap-1 justify-self-end lg:hidden">
           <LanguageSwitch label={labels.language} dark={dark} />
           <button
             type="button"
@@ -126,6 +162,15 @@ export function HeaderClient({ links, appUrl, labels, logo, logoDark }: Props) {
           </button>
         </div>
       </div>
+
+      {/* Reading progress: a teal hairline along the bottom edge. */}
+      <span
+        aria-hidden="true"
+        className={`absolute inset-x-0 -bottom-px h-px origin-left transition-opacity duration-300 ${
+          dark ? "bg-teal-light" : "bg-teal"
+        } ${scrolled && !menu ? "opacity-100" : "opacity-0"}`}
+        style={{ transform: `scaleX(${progress})` }}
+      />
 
       <AnimatePresence>
         {menu && (
@@ -154,7 +199,10 @@ export function HeaderClient({ links, appUrl, labels, logo, logoDark }: Props) {
                     <a
                       href={l.href}
                       onClick={() => setMenu(false)}
-                      className="display flex min-h-[64px] items-center text-[34px]"
+                      aria-current={active === l.href ? "location" : undefined}
+                      className={`display flex min-h-[64px] items-center justify-between text-[34px] ${
+                        active === l.href ? "text-teal" : ""
+                      }`}
                     >
                       {l.label}
                     </a>
