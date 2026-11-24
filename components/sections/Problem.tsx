@@ -1,13 +1,13 @@
 import { getTranslations } from "next-intl/server";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Reveal } from "@/components/motion/Reveal";
-import { Fragments } from "@/components/visuals/Fragments";
+import { Fragments, type FragmentLabels } from "@/components/visuals/Fragments";
 import { ArrowRight } from "@/components/ui/icons";
 
 export async function Problem() {
   const t = await getTranslations("problem");
   const voices = t.raw("voices") as { role: string; quote: string }[];
-  const f = t.raw("fragments") as Record<string, string>;
+  const f = t.raw("fragments") as FragmentLabels;
 
   return (
     <section id="problem" aria-labelledby="problem-title" className="section-y relative">
