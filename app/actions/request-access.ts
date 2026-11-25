@@ -48,7 +48,7 @@ export async function requestAccess(
           ? { Authorization: `Bearer ${process.env.FORM_ENDPOINT_TOKEN}` }
           : {}),
       },
-      body: JSON.stringify({ ...values, source: "anafor.ai", submittedAt: new Date().toISOString() }),
+      body: JSON.stringify({ ...values, source: "anafor.tech", submittedAt: new Date().toISOString() }),
       cache: "no-store",
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
