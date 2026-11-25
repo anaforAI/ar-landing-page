@@ -107,6 +107,7 @@ export default async function RootLayout({
     slogan: "Intelligence through information.",
     description: tm("description"),
     email: site.contactEmail,
+    sameAs: [site.links.linkedin],
   };
 
   return (
