@@ -7,6 +7,7 @@ export const site = {
   appUrl: process.env.NEXT_PUBLIC_APP_URL ?? "#", // [APP_URL] — "Sign in" target
   contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "contact@anafor.tech",
   links: {
+    linkedin: "https://www.linkedin.com/company/anaforai/",
     about: "#", // [ABOUT_URL]
     privacy: "#", // [PRIVACY_URL]
     terms: "#", // [TERMS_URL]
