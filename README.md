@@ -101,9 +101,7 @@ No mobile simulado, a performance ficou abaixo da meta de 95 e o LCP acima de 2,
 
 | Placeholder | Onde | O que é |
 |---|---|---|
-| `[SITE_URL]` | `NEXT_PUBLIC_SITE_URL` / `lib/site.ts` | Domínio canônico (padrão provisório: `https://anafor.ai`) |
 | `[APP_URL]` | `NEXT_PUBLIC_APP_URL` | Destino do link "Sign in" (hoje `#`) |
-| `[CONTACT_EMAIL]` | `NEXT_PUBLIC_CONTACT_EMAIL` | E-mail do "Talk to us", do rodapé e do JSON-LD (padrão provisório: `hello@anafor.ai`) |
 | `[FORM_ENDPOINT]` | `FORM_ENDPOINT` (+ `FORM_ENDPOINT_TOKEN` opcional) | Destino do formulário Request access. Sem ele, em produção o formulário mostra erro; em dev só registra no log |
 | `[PRICE]` | `messages/*.json` → `pricing.price` | Preço da assinatura base e do consumo de IA |
 | `[METRIC]` | `components/sections/Results.tsx` (comentado) | Métrica real por resultado, com fonte |
