@@ -3,9 +3,9 @@
  */
 export const site = {
   name: "Anafor",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://anafor.ai", // [SITE_URL]
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://anafor.tech",
   appUrl: process.env.NEXT_PUBLIC_APP_URL ?? "#", // [APP_URL] — "Sign in" target
-  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@anafor.ai", // [CONTACT_EMAIL]
+  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "contact@anafor.tech",
   links: {
     about: "#", // [ABOUT_URL]
     privacy: "#", // [PRIVACY_URL]
