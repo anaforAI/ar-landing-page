@@ -6,7 +6,7 @@ import { LanguageSwitch } from "@/components/ui/LanguageSwitch";
 export async function Footer() {
   const t = await getTranslations("footer");
   const tn = await getTranslations("nav");
-  const cols = [
+  const cols: { title: string; links: { href: string; label: string; external?: boolean }[] }[] = [
     {
       title: t("product"),
       links: [
@@ -24,6 +24,7 @@ export async function Footer() {
       links: [
         { href: site.links.about, label: t("about") },
         { href: `mailto:${site.contactEmail}`, label: t("contact") },
+        { href: site.links.linkedin, label: t("linkedin"), external: true },
       ],
     },
     {
@@ -64,6 +65,7 @@ export async function Footer() {
                     <li key={l.label}>
                       <a
                         href={l.href}
+                        {...(l.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                         className="link-underline inline-flex min-h-[44px] items-center text-[15px] text-paper/80 hover:text-paper"
                       >
                         {l.label}
