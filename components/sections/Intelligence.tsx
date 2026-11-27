@@ -29,6 +29,8 @@ export async function Intelligence() {
           listLabel={t("capabilitiesLabel")}
           stageLabel={t("stageLabel")}
           introSteps={t.raw("introSteps") as string[]}
+          pauseLabel={t("pause")}
+          playLabel={t("play")}
           symbol={<BrandSvg file="anafor-symbol-white.svg" decorative />}
         />
 

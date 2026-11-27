@@ -35,6 +35,12 @@
     "insightText": "Checkout reliability work reduced payment incidents across two quarters.",
     "insightEvidenceLabel": "Evidence",
     "insightEvidence": "incident reviews · linked PRs",
+    "scaleLabel": "How sure a reading is",
+    "scale": [
+      { "key": "verified", "label": "Verified", "hint": "a source confirms it" },
+      { "key": "inferred", "label": "Inferred", "hint": "likely, not yet confirmed" },
+      { "key": "hypothesis", "label": "Hypothesis", "hint": "still to validate" }
+    ],
     "integrationsLabel": "Connects to",
     "visualAlt": "A grid of blocks where one opens into the Anafor symbol and reveals a verified insight."
   },
@@ -206,8 +212,10 @@
   "intelligence": {
     "eyebrow": "Anafor Intelligence Engine",
     "title": "Beyond data. Beyond metrics. <em>Intelligence.</em>",
-    "body": "The intelligence behind a deeper understanding of your organization. Designed to connect engineering activity, product evolution and business objectives through contextual reasoning, semantic understanding and evidence-based intelligence.",
-    "capabilitiesLabel": "Capabilities",
+    "body": "The same checkout story, read as evidence. Three readings of one delivery, and a person confirms the link before it becomes fact.",
+    "pause": "Pause",
+    "play": "Play",
+    "capabilitiesLabel": "Readings",
     "visualLabel": "Highlight a capability in the engine",
     "stageLabel": "In development",
     "domains": {
@@ -218,46 +226,22 @@
     },
     "capabilities": [
       {
-        "key": "context",
-        "name": "Contextual Intelligence",
+        "key": "evidence",
+        "name": "Fact, then hypothesis",
         "stage": "",
-        "body": "Understands information within its technical, organizational and strategic context, rather than interpreting isolated events or metrics."
-      },
-      {
-        "key": "reasoning",
-        "name": "Multi-Agent Reasoning",
-        "stage": "",
-        "body": "A specialized intelligence architecture that combines multiple analytical perspectives to interpret complex organizational information, establish relationships and validate conclusions."
-      },
-      {
-        "key": "semantic",
-        "name": "Semantic Understanding",
-        "stage": "",
-        "body": "Understands the meaning, intent and relationships behind engineering activities, architectural decisions, product initiatives and business objectives."
+        "body": "On the checkout retries, a merged pull request is verified. A link to the incident is inferred until someone confirms it. Fewer tickets stays a hypothesis."
       },
       {
         "key": "cross",
-        "name": "Cross-Domain Intelligence",
+        "name": "Engineering, product, business",
         "stage": "",
-        "body": "Connects engineering, product and business through multidimensional reasoning, making the broader significance of technical decisions and deliveries visible."
-      },
-      {
-        "key": "evidence",
-        "name": "Evidence-Based Intelligence",
-        "stage": "",
-        "body": "Grounds interpretations in traceable evidence, distinguishing observed facts, inferred relationships, hypotheses and validated conclusions."
-      },
-      {
-        "key": "knowledge",
-        "name": "Continuous Organizational Knowledge",
-        "stage": "",
-        "body": "Builds an evolving understanding of the organization by continuously incorporating new information, historical context and validated knowledge."
+        "body": "COM-103 is one delivery, read three ways: what shipped, what the customer feels, and what the business might gain."
       },
       {
         "key": "human",
-        "name": "Human-in-the-Loop",
+        "name": "A person confirms the link",
         "stage": "",
-        "body": "Recognizes knowledge gaps, incorporates human expertise and refines interpretations when more context or validation is needed."
+        "body": "An inferred relationship is not published as fact. A reviewer confirms it, or it stays a suggestion."
       }
     ],
     "closing": "Intelligence that understands <em>why</em> engineering matters.",
@@ -275,12 +259,12 @@
   "example": {
     "eyebrow": "What Anafor delivers",
     "title": "One pull request. Three ways to <em>understand</em> it.",
-    "body": "A developer adds Kafka so orders no longer wait for payments to finish processing. This is how Anafor reads that same delivery for engineering, product and leadership.",
+    "body": "The same checkout work from above: payment retries so a failed webhook recovers on its own. This is how Anafor reads that delivery for engineering, product and leadership.",
     "mockTitle": "Weekly report · Payments team",
     "sourceLabel": "Source",
-    "prMeta": "PR #512 · Merged",
-    "prTitle": "Publish order events to Kafka. Payments consume them asynchronously.",
-    "prLinks": "Linked to PAY-88 · Epic: Checkout resilience · ADR-014",
+    "prMeta": "Merged · refs COM-103",
+    "prTitle": "Retry failed webhooks so checkout recovers a payment without a manual replay.",
+    "prLinks": "Linked to COM-103 · Epic: Checkout resilience",
     "readsAs": "Anafor reads it three ways",
     "views": [
       {
@@ -289,12 +273,12 @@
         "audience": "For engineering",
         "state": "verified",
         "items": [
-          "Event-driven architecture in place.",
-          "Orders and payments are decoupled.",
-          "Payments are processed asynchronously.",
-          "More resilience and room to scale."
+          "Failed payment webhooks are retried.",
+          "The retry is linked to COM-103.",
+          "Checkout recovers the payment without a manual replay.",
+          "The change shipped behind the payments flag."
         ],
-        "source": "From the PR diff, PAY-88 and ADR-014"
+        "source": "From the merged pull request and COM-103"
       },
       {
         "key": "product",
@@ -302,10 +286,10 @@
         "audience": "For product",
         "state": "inferred",
         "items": [
-          "Customers can finish a purchase without waiting for the payment to process.",
-          "Less downtime during traffic peaks."
+          "A customer can complete checkout after a webhook fails.",
+          "Fewer payments stuck waiting for a manual replay."
         ],
-        "source": "Linked to the Checkout resilience epic"
+        "source": "Linked to the Checkout resilience epic. A reviewer has not confirmed this reading."
       },
       {
         "key": "business",
@@ -512,7 +496,7 @@
       "label": "Assistant demo",
       "title": "Anafor assistant",
       "questionLabel": "Question",
-      "question": "What did the Kafka work in checkout mean for the business?",
+      "question": "What did the payment retries in checkout mean for the business?",
       "ask": "Ask",
       "again": "Ask again",
       "thinking": "Reading sources…",
@@ -520,11 +504,11 @@
       "answer": [
         {
           "state": "verified",
-          "text": "PR #512 introduced Kafka so orders no longer wait for payments to process. It is linked to PAY-88 and to the decision recorded in ADR-014."
+          "text": "The merged pull request retries failed webhooks. It is linked to COM-103."
         },
         {
           "state": "inferred",
-          "text": "Through the Checkout resilience epic, this lets customers finish a purchase even when payment processing is slow, and reduces downtime during traffic peaks. The link to the epic is still awaiting confirmation."
+          "text": "Through the Checkout resilience epic, a customer can finish checkout after a webhook fails. The link to the epic is still awaiting confirmation."
         },
         {
           "state": "hypothesis",
@@ -532,7 +516,7 @@
         }
       ],
       "sourcesLabel": "Sources",
-      "sources": "PR #512 · PAY-88 · ADR-014 · Checkout resilience epic",
+      "sources": "COM-103 · merged pull request · Checkout resilience epic",
       "permissionsNote": "Answer limited to sources you're allowed to see."
     }
   },
@@ -635,8 +619,8 @@
     "baseText": "Per organization. Workspaces, products, projects and roles included.",
     "usage": "AI usage",
     "usageText": "Metered and visible, so you always know what you're paying for.",
-    "price": "[PRICE]",
-    "cta": "Talk to us"
+    "price": "The figure comes out of the trial conversation.",
+    "cta": "Request access"
   },
   "cta": {
     "title": "See what your engineering <em>makes possible</em>.",
@@ -656,7 +640,7 @@
   },
   "form": {
     "title": "Request access",
-    "intro": "Tell us a little about you. We'll reply from a real person, not a sequence.",
+    "intro": "The trial connects your sources and shows your first reports. Tell us a little about you. A person replies, not a sequence.",
     "name": "Full name",
     "email": "Work email",
     "company": "Company",

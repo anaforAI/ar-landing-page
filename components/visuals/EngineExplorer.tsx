@@ -9,12 +9,16 @@ export type Capability = { key: string; name: string; body: string; stage: strin
  * The engine first builds itself (fragments, domains, relationships, interpretation, evidence),
  * then the capabilities become an editorial index: the active one is emphasized in the engine.
  */
+const VISUAL_MODE: Record<string, number> = { evidence: 4, cross: 3, human: 6 };
+
 export function EngineExplorer({
   capabilities,
   labels,
   listLabel,
   stageLabel,
   introSteps,
+  pauseLabel,
+  playLabel,
   symbol,
 }: {
   capabilities: Capability[];
@@ -22,6 +26,8 @@ export function EngineExplorer({
   listLabel: string;
   stageLabel: string;
   introSteps: string[];
+  pauseLabel: string;
+  playLabel: string;
   symbol: ReactNode;
 }) {
   const [active, setActive] = useState(-1);
@@ -45,6 +51,17 @@ export function EngineExplorer({
   }, []);
 
   // Walk through the capabilities until the visitor picks one.
+  useEffect(() => {
+    if (!inView) return;
+    const stop = () => setAuto(false);
+    window.addEventListener("wheel", stop, { passive: true, once: true });
+    window.addEventListener("touchmove", stop, { passive: true, once: true });
+    return () => {
+      window.removeEventListener("wheel", stop);
+      window.removeEventListener("touchmove", stop);
+    };
+  }, [inView]);
+
   const built = intro >= INTRO_STEPS;
   useEffect(() => {
     if (built) setActive((a) => (a < 0 ? 0 : a));
@@ -68,29 +85,38 @@ export function EngineExplorer({
         ? { step: "", text: capabilities[active].name }
         : null;
 
+  const visualMode = active >= 0 ? (VISUAL_MODE[capabilities[active].key] ?? active) : -1;
+
   return (
     <div ref={root} className="mt-16 grid gap-12 md:mt-24 lg:grid-cols-12 lg:gap-6">
       <div className="lg:order-2 lg:col-span-7 lg:col-start-6">
         <div className="lg:sticky lg:top-[calc(var(--header-h)+40px)]">
           <div className="mx-auto max-w-[620px]">
-            <EngineVisual mode={active} labels={labels} symbol={symbol} skipIntro={skip} onStage={setIntro} />
-            <p
-              className="ui-label mt-4 flex min-h-[20px] items-center justify-center gap-2 text-teal-light"
-              aria-hidden="true"
-            >
-              {caption && (
-                <>
-                  {caption.step ? (
-                    <span className="text-paper/55">{caption.step}</span>
-                  ) : (
-                    <span className="marker marker-verified h-2 w-2" />
-                  )}
-                  <span key={caption.text} className="animate-[fade-in_400ms_ease_both]">
-                    {caption.text}
-                  </span>
-                </>
+            <EngineVisual mode={visualMode} labels={labels} symbol={symbol} skipIntro={skip} onStage={setIntro} />
+            <div className="mt-4 flex min-h-[20px] items-center justify-center gap-3">
+              <p className="ui-label flex items-center gap-2 text-teal-light" aria-live="polite">
+                {caption && (
+                  <>
+                    {caption.step ? (
+                      <span className="text-paper/55">{caption.step}</span>
+                    ) : (
+                      <span className="marker marker-verified h-2 w-2" />
+                    )}
+                    <span key={caption.text}>{caption.text}</span>
+                  </>
+                )}
+              </p>
+              {built && (
+                <button
+                  type="button"
+                  className="ui-label rounded-full border border-paper/25 px-3 py-1 text-paper/80 hover:text-paper"
+                  aria-pressed={auto}
+                  onClick={() => setAuto((value) => !value)}
+                >
+                  {auto ? pauseLabel : playLabel}
+                </button>
               )}
-            </p>
+            </div>
           </div>
         </div>
       </div>
@@ -136,7 +162,9 @@ export function EngineExplorer({
                       </span>
                     )}
                   </span>
-                  <span className="mt-2 block text-[15px] leading-[1.55] text-paper/65">{c.body}</span>
+                  <span className={`mt-2 block text-[15px] leading-[1.55] text-paper/65 ${on ? "" : "hidden"}`}>
+                    {c.body}
+                  </span>
                 </button>
               </li>
             );

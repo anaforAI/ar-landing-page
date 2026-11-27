@@ -35,6 +35,12 @@
     "insightText": "O trabalho de confiabilidade do checkout reduziu os incidentes de pagamento ao longo de dois trimestres.",
     "insightEvidenceLabel": "Evidências",
     "insightEvidence": "revisões de incidentes · PRs vinculadas",
+    "scaleLabel": "O quanto uma leitura é certa",
+    "scale": [
+      { "key": "verified", "label": "Verificado", "hint": "uma fonte confirma" },
+      { "key": "inferred", "label": "Inferido", "hint": "provável, ainda sem confirmação" },
+      { "key": "hypothesis", "label": "Hipótese", "hint": "ainda por validar" }
+    ],
     "integrationsLabel": "Conecta-se a",
     "visualAlt": "Uma grade de blocos em que um deles se abre no símbolo da Anafor e revela um insight verificado."
   },
@@ -206,8 +212,10 @@
   "intelligence": {
     "eyebrow": "Anafor Intelligence Engine",
     "title": "Além dos dados. Além das métricas. <em>Inteligência.</em>",
-    "body": "A inteligência por trás de um entendimento mais profundo da sua organização. Projetada para conectar a atividade de engenharia, a evolução do produto e os objetivos de negócio por meio de raciocínio contextual, compreensão semântica e inteligência baseada em evidências.",
-    "capabilitiesLabel": "Capacidades",
+    "body": "A mesma história do checkout, lida como evidência. Três leituras de uma entrega, e uma pessoa confirma o elo antes que ele vire fato.",
+    "pause": "Pausar",
+    "play": "Reproduzir",
+    "capabilitiesLabel": "Leituras",
     "visualLabel": "Destaque uma capacidade no motor",
     "stageLabel": "Em desenvolvimento",
     "domains": {
@@ -218,46 +226,22 @@
     },
     "capabilities": [
       {
-        "key": "context",
-        "name": "Contextual Intelligence",
+        "key": "evidence",
+        "name": "Fato, depois hipótese",
         "stage": "",
-        "body": "Compreende as informações dentro do seu contexto técnico, organizacional e estratégico, em vez de interpretar eventos ou métricas isolados."
-      },
-      {
-        "key": "reasoning",
-        "name": "Multi-Agent Reasoning",
-        "stage": "",
-        "body": "Uma arquitetura de inteligência especializada que combina diferentes perspectivas analíticas para interpretar informações organizacionais complexas, estabelecer relações e validar conclusões."
-      },
-      {
-        "key": "semantic",
-        "name": "Semantic Understanding",
-        "stage": "",
-        "body": "Compreende o significado, a intenção e as relações por trás de atividades de engenharia, decisões de arquitetura, iniciativas de produto e objetivos de negócio."
+        "body": "Nas retentativas do checkout, um pull request incorporado é verificado. O vínculo com o incidente fica inferido até alguém confirmar. Menos chamados continua hipótese."
       },
       {
         "key": "cross",
-        "name": "Cross-Domain Intelligence",
+        "name": "Engenharia, produto, negócio",
         "stage": "",
-        "body": "Conecta engenharia, produto e negócio por meio de raciocínio multidimensional, tornando visível o significado mais amplo de decisões e entregas técnicas."
-      },
-      {
-        "key": "evidence",
-        "name": "Evidence-Based Intelligence",
-        "stage": "",
-        "body": "Fundamenta as interpretações em evidências rastreáveis, distinguindo fatos observados, relações inferidas, hipóteses e conclusões validadas."
-      },
-      {
-        "key": "knowledge",
-        "name": "Continuous Organizational Knowledge",
-        "stage": "",
-        "body": "Constrói um entendimento da organização que evolui, incorporando continuamente novas informações, contexto histórico e conhecimento validado."
+        "body": "COM-103 é uma entrega, lida de três formas: o que foi publicado, o que o cliente sente e o que o negócio pode ganhar."
       },
       {
         "key": "human",
-        "name": "Human-in-the-Loop",
+        "name": "Uma pessoa confirma o elo",
         "stage": "",
-        "body": "Reconhece lacunas de conhecimento, incorpora a experiência das pessoas e refina as interpretações quando é preciso mais contexto ou validação."
+        "body": "Uma relação inferida não é publicada como fato. Um revisor confirma, ou ela continua sugestão."
       }
     ],
     "closing": "Inteligência que entende <em>por que</em> a engenharia importa.",
@@ -275,12 +259,12 @@
   "example": {
     "eyebrow": "O que a Anafor entrega",
     "title": "Um pull request. Três formas de <em>entendê-lo</em>.",
-    "body": "Um desenvolvedor implementa Kafka para que os pedidos deixem de esperar o processamento do pagamento. Veja como a Anafor lê essa mesma entrega para engenharia, produto e liderança.",
+    "body": "O mesmo trabalho de checkout das seções acima: retentativas para um webhook de pagamento que falhou se recuperar sozinho. É assim que a Anafor lê essa entrega para engenharia, produto e liderança.",
     "mockTitle": "Relatório semanal · Time de Pagamentos",
     "sourceLabel": "Origem",
-    "prMeta": "PR #512 · Merged",
-    "prTitle": "Publica eventos de pedido no Kafka. Pagamentos os consomem de forma assíncrona.",
-    "prLinks": "Vinculado a PAY-88 · Épico: Resiliência do checkout · ADR-014",
+    "prMeta": "Incorporada · refs COM-103",
+    "prTitle": "Reprocessa webhooks com falha para o checkout recuperar um pagamento sem replay manual.",
+    "prLinks": "Vinculado a COM-103 · Épico: Resiliência do checkout",
     "readsAs": "A Anafor lê de três formas",
     "views": [
       {
@@ -289,12 +273,12 @@
         "audience": "Para engenharia",
         "state": "verified",
         "items": [
-          "Arquitetura orientada a eventos implementada.",
-          "Pedidos e pagamentos desacoplados.",
-          "Pagamentos processados de forma assíncrona.",
-          "Mais resiliência e escalabilidade."
+          "Webhooks de pagamento com falha são reprocessados.",
+          "A retentativa está vinculada ao COM-103.",
+          "O checkout recupera o pagamento sem replay manual.",
+          "A mudança saiu atrás da flag de pagamentos."
         ],
-        "source": "A partir do diff do PR, PAY-88 e ADR-014"
+        "source": "A partir do pull request incorporado e do COM-103"
       },
       {
         "key": "product",
@@ -302,10 +286,10 @@
         "audience": "Para produto",
         "state": "inferred",
         "items": [
-          "O cliente finaliza a compra sem depender do processamento imediato do pagamento.",
-          "Menos indisponibilidade em picos de uso."
+          "O cliente conclui o checkout depois que um webhook falha.",
+          "Menos pagamentos parados à espera de um replay manual."
         ],
-        "source": "Vinculado ao épico Resiliência do checkout"
+        "source": "Vinculado ao épico Resiliência do checkout. Um revisor ainda não confirmou esta leitura."
       },
       {
         "key": "business",
@@ -512,7 +496,7 @@
       "label": "Demonstração do assistente",
       "title": "Assistente Anafor",
       "questionLabel": "Pergunta",
-      "question": "O que a implementação do Kafka no checkout significou para o negócio?",
+      "question": "O que as retentativas de pagamento no checkout significaram para o negócio?",
       "ask": "Perguntar",
       "again": "Perguntar de novo",
       "thinking": "Lendo as fontes…",
@@ -520,11 +504,11 @@
       "answer": [
         {
           "state": "verified",
-          "text": "O PR #512 implementou Kafka para que os pedidos deixem de esperar o processamento do pagamento. Ele está vinculado a PAY-88 e à decisão registrada no ADR-014."
+          "text": "O pull request incorporado reprocessa webhooks com falha. Ele está vinculado ao COM-103."
         },
         {
           "state": "inferred",
-          "text": "Pelo épico Resiliência do checkout, isso permite que o cliente finalize a compra mesmo com o pagamento lento e reduz a indisponibilidade em picos de uso. O vínculo com o épico ainda aguarda confirmação."
+          "text": "Pelo épico Resiliência do checkout, o cliente conclui a compra depois que um webhook falha. O vínculo com o épico ainda aguarda confirmação."
         },
         {
           "state": "hypothesis",
@@ -532,7 +516,7 @@
         }
       ],
       "sourcesLabel": "Fontes",
-      "sources": "PR #512 · PAY-88 · ADR-014 · Épico Resiliência do checkout",
+      "sources": "COM-103 · pull request incorporado · Épico Resiliência do checkout",
       "permissionsNote": "Resposta limitada às fontes que você tem permissão para ver."
     }
   },
@@ -635,8 +619,8 @@
     "baseText": "Por organização. Workspaces, produtos, projetos e papéis incluídos.",
     "usage": "Uso de IA",
     "usageText": "Medido e visível, para você sempre saber pelo que está pagando.",
-    "price": "[PRICE]",
-    "cta": "Fale com a gente"
+    "price": "O valor sai da conversa do período de teste.",
+    "cta": "Solicitar acesso"
   },
   "cta": {
     "title": "Veja o que a sua engenharia <em>torna possível</em>.",
@@ -656,7 +640,7 @@
   },
   "form": {
     "title": "Solicitar acesso",
-    "intro": "Conte um pouco sobre você. Quem responde é uma pessoa, não uma sequência automática.",
+    "intro": "O teste conecta suas fontes e mostra os primeiros relatórios. Conte um pouco sobre você. Quem responde é uma pessoa, não uma sequência automática.",
     "name": "Nome completo",
     "email": "E-mail corporativo",
     "company": "Empresa",

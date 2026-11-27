@@ -70,6 +70,18 @@ export async function Hero() {
                 <p className="ui-label mt-5 border-t border-sand pt-4 text-stone">
                   {t("insightEvidenceLabel")}: {t("insightEvidence")}
                 </p>
+                <p className="ui-label mt-4 text-stone">{t("scaleLabel")}</p>
+                <ul className="mt-2 flex flex-col gap-1.5">
+                  {(t.raw("scale") as { key: string; label: string; hint: string }[]).map((item) => (
+                    <li key={item.key} className="flex items-baseline gap-2 text-[13px] leading-[1.4] text-ink/80">
+                      <span className={`marker marker-${item.key} shrink-0 translate-y-[1px]`} aria-hidden="true" />
+                      <span>
+                        <span className="font-medium text-ink">{item.label}</span>
+                        <span className="text-stone"> · {item.hint}</span>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               </figcaption>
             </figure>
           </HeroField>
