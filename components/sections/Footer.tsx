@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { BrandSvg } from "@/components/brand/BrandSvg";
 import { site } from "@/lib/site";
 import { LanguageSwitch } from "@/components/ui/LanguageSwitch";
+import { LinkedinMark, MailIcon } from "@/components/ui/icons";
 
 export async function Footer() {
   const t = await getTranslations("footer");
@@ -55,6 +56,28 @@ export async function Footer() {
                 <span className="text-paper/80">{site.builtBy.name}</span>
               )}
             </p>
+            <ul className="mt-8 space-y-1">
+              <li>
+                <a
+                  href={`mailto:${site.contactEmail}`}
+                  className="link-underline inline-flex min-h-[44px] items-center gap-3 text-[15px] text-paper/80 hover:text-paper"
+                >
+                  <MailIcon className="shrink-0 text-paper/55" />
+                  {site.contactEmail}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={site.links.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-underline inline-flex min-h-[44px] items-center gap-3 text-[15px] text-paper/80 hover:text-paper"
+                >
+                  <LinkedinMark width={18} height={18} aria-hidden="true" className="shrink-0 text-paper/55" />
+                  linkedin.com/company/anaforai
+                </a>
+              </li>
+            </ul>
           </div>
           <nav aria-label="Footer" className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:col-span-6 lg:col-start-7">
             {cols.map((c) => (
