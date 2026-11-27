@@ -179,7 +179,13 @@ export function HeaderClient({ links, appUrl, labels, logo, logoDark }: Props) {
           </RequestAccessButton>
         </div>
 
-        <div className="flex items-center gap-1 justify-self-end lg:hidden">
+        <div className="flex items-center gap-2 justify-self-end lg:hidden">
+          <RequestAccessButton
+            className="btn btn-primary btn-sm min-h-12 px-3 text-[14px]"
+            arrow={false}
+          >
+            {labels.request}
+          </RequestAccessButton>
           <LanguageSwitch label={labels.language} dark={dark} />
           <button
             type="button"
