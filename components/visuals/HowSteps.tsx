@@ -52,7 +52,7 @@ export function HowSteps({
             key={s.number}
             data-step={i}
             aria-current={active === i ? "step" : undefined}
-            className="border-t border-paper/15 py-10 first:border-t-0 first:pt-0 lg:flex lg:min-h-[78vh] lg:flex-col lg:justify-center lg:border-t-0 lg:py-0"
+            className="border-t border-paper/15 py-10 first:border-t-0 first:pt-0 lg:flex lg:min-h-0 lg:flex-col lg:justify-center lg:border-t-0 lg:py-16"
           >
             <Reveal>
               <p className="ui-label text-teal-light">{s.number}</p>
@@ -130,7 +130,7 @@ function MobileVisual({ children }: { children: ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "0px 0px -20% 0px" });
   return (
-    <div ref={ref} className="relative h-[440px] w-full overflow-hidden rounded-[12px] bg-graphite">
+    <div ref={ref} className="relative h-[300px] w-full overflow-hidden rounded-[12px] bg-graphite">
       {inView && children}
     </div>
   );
